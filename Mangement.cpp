@@ -1,12 +1,16 @@
 #include <iostream>
-#include "Restruant.h"
-#include "Scence.h"
 #include <fstream>
 #include <vector>
+#include "Restruant.h"
+#include "Scence.h"
+#include "Team.h"
+#include "Commentator.h"
 using namespace std;
 
 vector<Restruant> restruants;
 vector<Scence> scences;
+vector<Team> teams;
+vector<Commentator> commentators;
 
 void tips() {
     cout << "====特色旅游管理信息系统====" << endl
@@ -790,6 +794,716 @@ _tips:
     }
 }
 
+// 检查团队编号是否存在
+int checkTeamNumber(int number) {
+    for (Team t : teams) {
+        if (t.getNumber() == number) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+// 创建团队
+Team createTeam() {
+    _number:
+    int number;
+    cout << "请输入团队编号：";
+    cin >> number;
+    if (checkTeamNumber(number) == 1) {
+        cout << "[提示]输入的团队编号已存在，请重试" << endl;
+        goto _number;
+    }
+    string name;
+    cout << "请输入团队名称：";
+    cin >> name;
+
+    string nation;
+    cout << "请输入团队名族：";
+    cin >> nation;
+
+    int members;
+    cout << "请输入团队人数：";
+    cin >> members;
+
+    string membersList;
+    cout << "请输入团队成员名单列表：";
+    cin >> membersList;
+
+    string leader;
+    cout << "请输入团队负责人：";
+    cin >> leader;
+
+    string phone;
+    cout << "请输入团队联系人电话：";
+    cin >> phone;
+
+    string style;
+    cout << "请输入团队表演特色：";
+    cin >> style;
+
+    string program;
+    cout << "请输入团队节目单：";
+    cin >> program;
+
+    string time;
+    cout << "请输入团队表演时间：";
+    cin >> time;
+
+    string place;
+    cout << "请输入团队表演地点：";
+    cin >> place;
+
+    string comment;
+    cout << "请输入备注：";
+    cin >> comment;
+
+    Team t = Team(number, name, nation, members, membersList, leader, phone, style, program, time, place, comment);
+    return t;
+}
+
+
+// 保存团队
+void saveTeam() {
+    ofstream file("team.txt");
+    if (file.is_open()) {
+        for (Team t : teams) {
+            file << t.getNumber() << ","
+                << t.getName() << ","
+                << t.getNation() << ","
+                << t.getMembers() << ","
+                << t.getMemberList() << ","
+                << t.getLeader() << ","
+                << t.getPhone() << ","
+                << t.getStyle() << ","
+                << t.getProgram() << ","
+                << t.getTime() << ","
+                << t.getPlace() << ","
+                << t.getComment() << "\n"; // 修改换行符为\n
+        }
+    }
+    file.close();
+}
+
+// 加载团队
+void loadTeam() {
+    ifstream file("team.txt");
+    if (file.is_open()) {
+        while (file.good()) {
+            int number, members;
+            string name, nation, membersList, leader, phone, style, program, time, place, comment;
+            file >> number;
+            file.ignore();
+            if (file.eof()) break;
+            getline(file, name, ',');
+            getline(file, nation, ',');
+            file >> members;
+            getline(file, membersList, ',');
+            getline(file, leader, ',');
+            getline(file, phone, ',');
+            getline(file, style, ',');
+            getline(file, program, ',');
+            getline(file, time, ',');
+            getline(file, place, ',');
+            getline(file, comment, '\n');
+            teams.push_back(Team(number, name, nation, members, membersList, leader, phone, style, program, time, place, comment));
+        }
+    }
+    file.close();
+}
+
+// 删除团队
+void removeTeam(int number) {
+    for (int i = 0; i < teams.size(); i++) {
+        if (teams[i].getNumber() == number) {
+            teams.erase(teams.begin() + i);
+            return;
+        }
+    }
+}
+
+// 修改团队信息
+void modifyTeam() {
+    int number;
+    cout << "请输入要修改的团队编号：";
+    cin >> number;
+
+    // 检查团队编号是否存在
+    int found = 0;
+    for (Team& t : teams) {
+        if (t.getNumber() == number) {
+            found = 1;
+            cout << "选择要修改的信息：" << endl;
+            cout << "[1] 团队名称" << endl;
+            cout << "[2] 团队名族" << endl;
+            cout << "[3] 团队人数" << endl;
+            cout << "[4] 团队成员名单列表" << endl;
+            cout << "[5] 团队负责人" << endl;
+            cout << "[6] 团队联系人电话" << endl;
+            cout << "[7] 团队表演特色" << endl;
+            cout << "[8] 团队节目单" << endl;
+            cout << "[9] 团队表演时间" << endl;
+            cout << "[10] 团队表演地点" << endl;
+            cout << "[11] 备注" << endl;
+            cout << "请选择要修改的信息序号：";
+
+            int choice;
+            cin >> choice;
+
+            switch (choice) {
+            case 1: {
+                string name;
+                cout << "请输入新的团队名称：";
+                cin >> name;
+                t.setName(name);
+                break;
+            }
+            case 2: {
+                string nation;
+                cout << "请输入新的团队名族：";
+                cin >> nation;
+                t.setNation(nation);
+                break;
+            }
+            case 3: {
+                int members;
+                cout << "请输入新的团队人数：";
+                cin >> members;
+                t.setMembers(members);
+                break;
+            }
+            case 4: {
+                string membersList;
+                cout << "请输入新的团队成员名单列表：";
+                cin >> membersList;
+                t.setMemberList(membersList);
+                break;
+            }
+            case 5: {
+                string leader;
+                cout << "请输入新的团队负责人：";
+                cin >> leader;
+                t.setLeader(leader);
+                break;
+            }
+            case 6: {
+                string phone;
+                cout << "请输入新的团队联系人电话：";
+                cin >> phone;
+                t.setPhone(phone);
+                break;
+            }
+            case 7: {
+                string style;
+                cout << "请输入新的团队表演特色：";
+                cin >> style;
+                t.setStyle(style);
+                break;
+            }
+            case 8: {
+                string program;
+                cout << "请输入新的团队节目单：";
+                cin >> program;
+                t.setProgram(program);
+                break;
+            }
+            case 9: {
+                string time;
+                cout << "请输入新的团队表演时间：";
+                cin >> time;
+                t.setTime(time);
+                break;
+            }
+            case 10: {
+                string place;
+                cout << "请输入新的团队表演地点：";
+                cin >> place;
+                t.setPlace(place);
+                break;
+            }
+            case 11: {
+                string comment;
+                cout << "请输入新的备注：";
+                cin >> comment;
+                t.setComment(comment);
+                break;
+            }
+            default:
+                cout << "[提示]输入的选项无效！" << endl;
+            }
+        }
+    }
+    if (found == 0) {
+        cout << "[提示]输入的团队编号不存在！" << endl;
+    }
+    else {
+        cout << "[提示]修改成功！" << endl;
+
+    }
+}
+
+// 打印团队信息
+void printTeam(Team t) {
+    cout << "===========团队信息=" << endl
+        << "团队编号: " << t.getNumber() << endl
+        << "团队名称: " << t.getName() << endl
+        << "团队名族: " << t.getNation() << endl
+        << "团队人数: " << t.getMembers() << endl
+        << "团队成员名单列表: " << t.getMemberList() << endl
+        << "团队负责人: " << t.getLeader() << endl
+        << "团队联系人电话: " << t.getPhone() << endl
+        << "团队表演特色: " << t.getStyle() << endl
+        << "团队节目单: " << t.getProgram() << endl
+        << "团队表演时间: " << t.getTime() << endl
+        << "团队表演地点: " << t.getPlace() << endl
+        << "备注: " << t.getComment() << endl
+        << "===============================" << endl;
+}
+
+// 团队信息管理
+void teamPage() {
+_tips:
+    cout << "====团队信息管理======" << endl
+        << "[1] 添加团队 " << endl
+        << "[2] 删除团队 " << endl
+        << "[3] 修改团队信息 " << endl
+        << "[4] 查询所有团队信息 " << endl
+        << "=======" << endl
+        << "请输入所需要进行的操作：";
+    int function;
+    cin >> function;
+    if (function > 4 || function < 1) {
+        cout << "[提示]输入的数字有误，请重试" << endl;
+        goto _tips;
+    }
+    switch (function) {
+    case 1:
+        teams.push_back(createTeam());
+        saveTeam();
+        cout << "[提示]添加成功! " << endl;
+        break;
+    case 2:
+        int number;
+    _remove:
+        cout << "[慎重]请输入需要删除的团队的编号: ";
+        cin >> number;
+        if (checkTeamNumber(number) != 1) {
+            cout << "[提示]输入的编号有误，请重试" << endl;
+            goto _remove;
+        }
+        removeTeam(number);
+        saveTeam();
+        cout << "[提示]删除完成! ";
+    case 3:
+        modifyTeam();
+        saveTeam();
+        break;
+    case 4:
+        for (Team t : teams) {
+            printTeam(t);
+        }
+        break;
+    }
+}
+
+// 检查解说员编号是否存在
+int checkCommentatorNumber(int number) {
+    for (Commentator c : commentators) {
+        if (c.getNumber() == number) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+// 检查解说员身份证号码是否存在
+int checkCommentatorID(string id) {
+    for (Commentator c : commentators) {
+        if (c.getId() == id) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+// 创建解说员 (编号、姓名、身份证号码、性别、出生日期、籍贯、民族、单位、现居住地址、文化程度、电话号码、身体状况、解说起始时间、解说结束时间、擅长解说内容（最多可选10个地点）、填报日期、备注)
+Commentator createCommentator() {
+    _number:
+    int number;
+    cout << "请输入解说员编号：";
+    cin >> number;
+    if (checkCommentatorNumber(number) == 1) {
+        cout << "[提示]输入的解说员编号已存在，请重试" << endl;
+        goto _number;
+    }
+    string name;
+    cout << "请输入解说员姓名：";
+    cin >> name;
+
+    string id;
+    cout << "请输入解说员身份证号码：";
+    cin >> id;
+    if (checkCommentatorID(id) == 1) {
+        cout << "[提示]输入的身份证号码已存在，请重试" << endl;
+        goto _number;
+    }
+
+    string gender;
+    cout << "请输入解说员性别：";
+    cin >> gender;
+
+    string birth;
+    cout << "请输入解说员出生日期：";
+    cin >> birth;
+
+    string hometown;
+    cout << "请输入解说员籍贯：";
+    cin >> hometown;
+
+    string nation;
+    cout << "请输入解说员民族：";
+    cin >> nation;
+
+    string company;
+    cout << "请输入解说员单位：";
+    cin >> company;
+
+    string address;
+    cout << "请输入解说员现居住地址：";
+    cin >> address;
+
+    string education;
+    cout << "请输入解说员文化程度：";
+    cin >> education;
+
+    string phone;
+    cout << "请输入解说员电话号码：";
+    cin >> phone;
+
+    string condition;
+    cout << "请输入解说员身体状况：";
+    cin >> condition;
+
+    string start;
+    cout << "请输入解说员解说起始时间：";
+    cin >> start;
+
+    string end;
+    cout << "请输入解说员解说结束时间：";
+    cin >> end;
+
+    string content;
+    cout << "请输入解说员擅长解说内容（最多可选10个地点）：";
+    cin >> content;
+
+    string date;
+    cout << "请输入解说员填报日期：";
+    cin >> date;
+
+    string comment;
+    cout << "请输入备注：";
+    cin >> comment;
+
+    Commentator c = Commentator(number, name, id, gender, birth, hometown, nation, company, address, education, phone, condition, start, end, content, date, comment);
+    return c;
+}
+
+// 保存解说员
+void saveCommentator() {
+    ofstream file("commentator.txt");
+    if (file.is_open()) {
+        for (Commentator c : commentators) {
+            file << c.getNumber() << ","
+                << c.getName() << ","
+                << c.getId() << ","
+                << c.getGender() << ","
+                << c.getBirthdate() << ","
+                << c.getNativePlace() << ","
+                << c.getNation() << ","
+                << c.getCompany() << ","
+                << c.getAddress() << ","
+                << c.getEducation() << ","
+                << c.getPhone() << ","
+                << c.getBodyCondition() << ","
+                << c.getStartTime() << ","
+                << c.getEndTime() << ","
+                << c.getContent() << ","
+                << c.getFillDate() << ","
+                << c.getComment() << "\n"; // 修改换行符为\n
+        }
+    }
+    file.close();
+}
+
+// 加载解说员
+void loadCommentator() {
+    ifstream file("commentator.txt");
+    if (file.is_open()) {
+        while (file.good()) {
+            int number;
+            string name, id, gender, birthdate, nativePlace, nation, company, address, education, phone, bodyCondition, startTime,  endTime, content, fillDate, comment;
+            file >> number;
+            file.ignore();
+            if (file.eof()) break;
+            getline(file, name, ',');
+            getline(file, id, ',');
+            getline(file, gender, ',');
+            getline(file, birthdate, ',');
+            getline(file, nativePlace, ',');
+            getline(file, nation, ',');
+            getline(file, company, ',');
+            getline(file, address, ',');
+            getline(file, education, ',');
+            getline(file, phone, ',');
+            getline(file, bodyCondition, ',');
+            getline(file, startTime, ',');
+            getline(file, endTime, ',');
+            getline(file, content, ',');
+            getline(file, fillDate, ',');
+            getline(file, comment, '\n');
+            commentators.push_back(Commentator(number, name, id, gender, birthdate, nativePlace, nation, company, address, education, phone, bodyCondition, startTime, endTime, content, fillDate, comment));
+        }
+    }
+    file.close();
+}
+
+// 删除解说员
+void removeCommentator(int number) {
+    for (int i = 0; i < commentators.size(); i++) {
+        if (commentators[i].getNumber() == number) {
+            commentators.erase(commentators.begin() + i);
+            return;
+        }
+    }
+}
+
+// 修改解说员信息
+void modifyCommentator() {
+    int number;
+    cout << "请输入要修改的解说员编号：";
+    cin >> number;
+
+    // 检查解说员编号是否存在
+    int found = 0;
+    for (Commentator& c : commentators) {
+        if (c.getNumber() == number) {
+            found = 1;
+            cout << "选择要修改的信息：" << endl;
+            cout << "[1] 解说员姓名" << endl;
+            cout << "[2] 解说员身份证号码" << endl;
+            cout << "[3] 解说员性别" << endl;
+            cout << "[4] 解说员出生日期" << endl;
+            cout << "[5] 解说员籍贯" << endl;
+            cout << "[6] 解说员民族" << endl;
+            cout << "[7] 解说员单位" << endl;
+            cout << "[8] 解说员现居住地址" << endl;
+            cout << "[9] 解说员文化程度" << endl;
+            cout << "[10] 解说员电话号码" << endl;
+            cout << "[11] 解说员身体状况" << endl;
+            cout << "[12] 解说员解说起始时间" << endl;
+            cout << "[13] 解说员解说结束时间" << endl;
+            cout << "[14] 解说员擅长解说内容" << endl;
+            cout << "[15] 解说员填报日期" << endl;
+            cout << "[16] 备注" << endl;
+            cout << "请选择要修改的信息序号：";
+
+            int choice;
+            cin >> choice;
+
+            switch (choice) {
+            case 1: {
+                string name;
+                cout << "请输入新的解说员姓名：";
+                cin >> name;
+                c.setName(name);
+                break;
+            }
+            case 2: {
+                string id;
+                cout << "请输入新的解说员身份证号码：";
+                cin >> id;
+                c.setId(id);
+                break;
+            }
+            case 3: {
+                string gender;
+                cout << "请输入新的解说员性别：";
+                cin >> gender;
+                c.setGender(gender);
+                break;
+            }
+            case 4: {
+                string birthdate;
+                cout << "请输入新的解说员出生日期：";
+                cin >> birthdate;
+                c.setBirthdate(birthdate);
+                break;
+            }
+            case 5: {
+                string nativePlace;
+                cout << "请输入新的解说员籍贯：";
+                cin >> nativePlace;
+                c.setNativePlace(nativePlace);
+                break;
+            }
+            case 6: {
+                string nation;
+                cout << "请输入新的解说员民族：";
+                cin >> nation;
+                c.setNation(nation);
+                break;
+            }
+            case 7: {
+                string company;
+                cout << "请输入新的解说员单位：";
+                cin >> company;
+                c.setCompany(company);
+                break;
+            }
+            case 8: {
+                string address;
+                cout << "请输入新的解说员现居住地址：";
+                cin >> address;
+                c.setAddress(address);
+                break;
+            }
+            case 9: {
+                string education;
+                cout << "请输入新的解说员文化程度：";
+                cin >> education;
+                c.setEducation(education);
+                break;
+            }
+            case 10: {
+                string phone;
+                cout << "请输入新的解说员电话号码：";
+                cin >> phone;
+                c.setPhone(phone);
+                break;
+            }
+            case 11: {
+                string bodyCondition;
+                cout << "请输入新的解说员身体状况：";
+                cin >> bodyCondition;
+                c.setBodyCondition(bodyCondition);
+                break;
+            }
+            case 12: {
+                string startTime;
+                cout << "请输入新的解说员解说起始时间：";
+                cin >> startTime;
+                c.setStartTime(startTime);
+                break;
+            }
+            case 13: {
+                string endTime;
+                cout << "请输入新的解说员解说结束时间：";
+                cin >> endTime;
+                c.setEndTime(endTime);
+                break;
+            }
+            case 14: {
+                string content;
+                cout << "请输入新的解说员擅长解说内容：";
+                cin >> content;
+                c.setContent(content);
+                break;
+            }
+            case 15: {
+                string fillDate;
+                cout << "请输入新的解说员填报日期：";
+                cin >> fillDate;
+                c.setFillDate(fillDate);
+                break;
+            }
+            case 16: {
+                string comment;
+                cout << "请输入新的备注：";
+                cin >> comment;
+                c.setComment(comment);
+                break;
+            }
+            default:
+                cout << "[提示]输入的选项无效！" << endl;
+            }
+        }
+    }
+    if (found == 0) {
+        cout << "[提示]输入的解说员编号不存在！" << endl;
+    }
+    else {
+        cout << "[提示]修改成功！" << endl;
+    }
+}
+
+// 打印解说员信息
+void printCommentator(Commentator c) {
+    cout << "===========解说员信息=" << endl
+        << "解说员编号: " << c.getNumber() << endl
+        << "解说员姓名: " << c.getName() << endl
+        << "解说员身份证号码: " << c.getId() << endl
+        << "解说员性别: " << c.getGender() << endl
+        << "解说员出生日期: " << c.getBirthdate() << endl
+        << "解说员籍贯: " << c.getNativePlace() << endl
+        << "解说员民族: " << c.getNation() << endl
+        << "解说员单位: " << c.getCompany() << endl
+        << "解说员现居住地址: " << c.getAddress() << endl
+        << "解说员文化程度: " << c.getEducation() << endl
+        << "解说员电话号码: " << c.getPhone() << endl
+        << "解说员身体状况: " << c.getBodyCondition() << endl
+        << "解说员解说起始时间: " << c.getStartTime() << endl
+        << "解说员解说结束时间: " << c.getEndTime() << endl
+        << "解说员擅长解说内容: " << c.getContent() << endl
+        << "解说员填报日期: " << c.getFillDate() << endl
+        << "备注: " << c.getComment() << endl
+        << "=" << endl;
+}
+
+// 解说员管理
+void commentatorPage() {
+_tips:
+    cout << "====解说员信息管理======" << endl
+        << "[1] 添加解说员 " << endl
+        << "[2] 删除解说员 " << endl
+        << "[3] 修改解说员信息 " << endl
+        << "[4] 查询所有解说员信息 " << endl
+        << "=======" << endl
+        << "请输入所需要进行的操作：";
+    int function;
+    cin >> function;
+    if (function > 4 || function < 1) {
+        cout << "[提示]输入的数字有误，请重试" << endl;
+        goto _tips;
+    }
+    switch (function) {
+    case 1:
+        commentators.push_back(createCommentator());
+        saveCommentator();
+        cout << "[提示]添加成功! " << endl;
+        break;
+    case 2:
+        int number;
+    _remove:
+        cout << "[慎重]请输入需要删除的解说员的编号: ";
+        cin >> number;
+        if (checkCommentatorNumber(number) != 1) {
+            cout << "[提示]输入的编号有误，请重试" << endl;
+            goto _remove;
+        }
+        removeCommentator(number);
+        saveCommentator();
+        cout << "[提示]删除完成! ";
+    case 3:
+        modifyCommentator();
+        saveCommentator();
+        break;
+    case 4:
+        for (Commentator c : commentators) {
+            printCommentator(c);
+        }
+        break;
+    }
+}
 void switchPage(int page) {
     switch (page) {
     case 1:
@@ -799,8 +1513,10 @@ void switchPage(int page) {
         scencePage();
         break;
     case 3:
+        teamPage();
         break;
     case 4:
+        commentatorPage();
         break;
     case 5:
         break;

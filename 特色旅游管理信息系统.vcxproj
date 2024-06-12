@@ -127,11 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Commentator.cpp" />
     <ClCompile Include="Mangement.cpp" />
+    <ClCompile Include="Team.cpp" />
     <ClCompile Include="Restruant.cpp" />
     <ClCompile Include="Scence.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Commentator.h" />
+    <ClInclude Include="Team.h" />
     <ClInclude Include="Restruant.h" />
     <ClInclude Include="Scence.h" />
   </ItemGroup>
