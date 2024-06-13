@@ -5,6 +5,7 @@
 
 # CMake
 CMakeCache.txt
+cmake-build-debug/
 CMakeFiles/
 CMakeScripts/
 Testing/
