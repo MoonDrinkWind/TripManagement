@@ -5,12 +5,16 @@
 #include "Scence.h"
 #include "Team.h"
 #include "Commentator.h"
+#include "Hotel.h"
+#include "Volunteer.h"
 using namespace std;
 
 vector<Restruant> restruants;
 vector<Scence> scences;
 vector<Team> teams;
 vector<Commentator> commentators;
+vector<Hotel> hotels;
+vector<Volunteer> volunteers;
 
 void tips() {
     cout << "====特色旅游管理信息系统====" << endl
@@ -588,10 +592,15 @@ void loadScence() {
             getline(file, traffic, ',');
             getline(file, openTime, ',');
             file >> capacity;
+            file.ignore();
             file >> number;
+            file.ignore();
             file >> price;
+            file.ignore();
             file >> recommend;
+            file.ignore();
             file >> waitTime;
+            file.ignore();
             getline(file, notice, ',');
             getline(file, comment, '\n');
             scences.push_back(Scence(number, name, address, feature, traffic, openTime, capacity, price, recommend, waitTime, notice, comment));
@@ -898,6 +907,7 @@ void loadTeam() {
             getline(file, name, ',');
             getline(file, nation, ',');
             file >> members;
+            file.ignore();
             getline(file, membersList, ',');
             getline(file, leader, ',');
             getline(file, phone, ',');
@@ -1126,7 +1136,7 @@ int checkCommentatorID(string id) {
     return 0;
 }
 
-// 创建解说员 (编号、姓名、身份证号码、性别、出生日期、籍贯、民族、单位、现居住地址、文化程度、电话号码、身体状况、解说起始时间、解说结束时间、擅长解说内容（最多可选10个地点）、填报日期、备注)
+// 创建解说员
 Commentator createCommentator() {
     _number:
     int number;
@@ -1504,6 +1514,1051 @@ _tips:
         break;
     }
 }
+
+// 检查酒店编号是否存在
+int checkHotelNumber(int number) {
+    for (Hotel h : hotels) {
+        if (h.getNumber() == number) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+// 创建酒店
+Hotel createHotel() {
+    _number:
+    int number;
+    cout << "请输入酒店编号：";
+    cin >> number;
+    if (checkHotelNumber(number) == 1) {
+        cout << "[提示]输入的酒店编号已存在，请重试" << endl;
+        goto _number;
+    }
+    string name;
+    cout << "请输入酒店名称：";
+    cin >> name;
+
+    int star;
+    cout << "请输入酒店星级：";
+    cin >> star;
+
+    string openTime;
+    cout << "请输入酒店开业时间：";
+    cin >> openTime;
+
+    string roomType;
+    cout << "请输入酒店客房种类：";
+    cin >> roomType;
+
+    int roomCount;
+    cout << "请输入酒店客房数量：";
+    cin >> roomCount;
+
+    string price;
+    cout << "请输入酒店价格：";
+    cin >> price;
+
+    string address;
+    cout << "请输入酒店地址：";
+    cin >> address;
+
+    string trafficStatus;
+    cout << "请输入酒店交通状况：";
+    cin >> trafficStatus;
+
+    string service;
+    cout << "请输入酒店服务设施（停车场、商务中心、前台贵重物品保柜、商场、行李存放服务、残疾人客房、叫醒服务、演艺吧、桑拿房、健身房、网球场）：";
+    cin >> service;
+
+    string supportCards;
+    cout << "请输入酒店提供的支持卡种类 （国际信用卡万事达（Master）、国际信用卡威士（VISA）、国际信用卡运通（AMEX）、国际信用卡大莱（Diners Club）、国际信用卡JCB、国内发行银联卡、微信、支付宝）：";
+    cin >> supportCards;
+
+    string nearScence;
+    cout << "请输入酒店附近景点：";
+    cin >> nearScence;
+
+    string internet;
+    cout << "请输入酒店上网情况：";
+    cin >> internet;
+
+    string legalPerson;
+    cout << "请输入酒店法人：";
+    cin >> legalPerson;
+
+    string id;
+    cout << "请输入酒店法人身份证号码：";
+    cin >> id;
+
+    string comment;
+    cout << "请输入酒店备注：";
+    cin >> comment;
+
+    Hotel h = Hotel(number, name, star, openTime, roomType, roomCount, price, address, trafficStatus, service, supportCards, nearScence, internet, legalPerson, id, comment);
+    return h;
+}
+
+// 保存酒店
+void saveHotel() {
+    ofstream file("hotel.txt");
+    if (file.is_open()) {
+        for (Hotel h : hotels) {
+            file << h.getNumber() << ","
+                << h.getName() << ","
+                << h.getStar() << ","
+                << h.getOpenTime() << ","
+                << h.getRoomType() << ","
+                << h.getRoomCount() << ","
+                << h.getPrice() << ","
+                << h.getAddress() << ","
+                << h.getTrafficStatus() << ","
+                << h.getService() << ","
+                << h.getSupportCards() << ","
+                << h.getNearScence() << ","
+                << h.getInternet() << ","
+                << h.getLegalPerson() << ","
+                << h.getId() << ","
+                << h.getComment() << "\n"; // 修改换行符为\n
+        }
+    }
+    file.close();
+}
+
+// 加载酒店
+void loadHotel() {
+    ifstream file("hotel.txt");
+    if (file.is_open()) {
+        while (file.good()) {
+            int number, star, roomCount;
+            string name, openTime, roomType, price, address, trafficStatus, service, supportCards, nearScence, internet, legalPerson, id, comment;
+            file >> number;
+            file.ignore();
+            if (file.eof()) break;
+            getline(file, name, ',');
+            file >> star;
+            file.ignore();
+            getline(file, openTime, ',');
+            getline(file, roomType, ',');
+            file >> roomCount;
+            file.ignore();
+            getline(file, price, ',');
+            getline(file, address, ',');
+            getline(file, trafficStatus, ',');
+            getline(file, service, ',');
+            getline(file, supportCards, ',');
+            getline(file, nearScence, ',');
+            getline(file, internet, ',');
+            getline(file, legalPerson, ',');
+            getline(file, id, ',');
+            getline(file, comment, '\n');
+            hotels.push_back(Hotel(number, name, star, openTime, roomType, roomCount, price, address, trafficStatus, service, supportCards, nearScence, internet, legalPerson, id, comment));
+        }
+    }
+    file.close();
+}
+
+// 删除酒店
+void removeHotel(int number) {
+    for (int i = 0; i < hotels.size(); i++) {
+        if (hotels[i].getNumber() == number) {
+            hotels.erase(hotels.begin() + i);
+            return;
+        }
+    }
+}
+
+// 修改酒店信息
+void modifyHotel() {
+    int number;
+    cout << "请输入要修改的酒店编号：";
+    cin >> number;
+
+    // 检查酒店编号是否存在
+    int found = 0;
+    for (Hotel& h : hotels) {
+        if (h.getNumber() == number) {
+            found = 1;
+            cout << "选择要修改的信息：" << endl;
+            cout << "[1] 酒店名称" << endl;
+            cout << "[2] 酒店星级" << endl;
+            cout << "[3] 酒店开业时间" << endl;
+            cout << "[4] 酒店客房种类" << endl;
+            cout << "[5] 酒店客房数量" << endl;
+            cout << "[6] 酒店价格" << endl;
+            cout << "[7] 酒店地址" << endl;
+            cout << "[8] 酒店交通状况" << endl;
+            cout << "[9] 酒店服务设施" << endl;
+            cout << "[10] 酒店提供的支持卡种类" << endl;
+            cout << "[11] 酒店附近景点" << endl;
+            cout << "[12] 酒店上网情况" << endl;
+            cout << "[13] 酒店法人" << endl;
+            cout << "[14] 酒店法人身份证号码" << endl;
+            cout << "[15] 酒店备注" << endl;
+            cout << "请选择要修改的信息序号：";
+
+            int choice;
+            cin >> choice;
+
+            switch (choice) {
+            case 1: {
+                string name;
+                cout << "请输入新的酒店名称：";
+                cin >> name;
+                h.setName(name);
+                break;
+            }
+            case 2: {
+                int star;
+                cout << "请输入新的酒店星级：";
+                cin >> star;
+                h.setStar(star);
+                break;
+            }
+            case 3: {
+                string openTime;
+                cout << "请输入新的酒店开业时间：";
+                cin >> openTime;
+                h.setOpenTime(openTime);
+                break;
+            }
+            case 4: {
+                string roomType;
+                cout << "请输入新的酒店客房种类：";
+                cin >> roomType;
+                h.setRoomType(roomType);
+                break;
+            }
+            case 5: {
+                int roomCount;
+                cout << "请输入新的酒店客房数量：";
+                cin >> roomCount;
+                h.setRoomCount(roomCount);
+                break;
+            }
+            case 6: {
+                string price;
+                cout << "请输入新的酒店价格：";
+                cin >> price;
+                h.setPrice(price);
+                break;
+            }
+            case 7: {
+                string address;
+                cout << "请输入新的酒店地址：";
+                cin >> address;
+                h.setAddress(address);
+                break;
+            }
+            case 8: {
+                string trafficStatus;
+                cout << "请输入新的酒店交通状况：";
+                cin >> trafficStatus;
+                h.setTrafficStatus(trafficStatus);
+                break;
+            }
+            case 9: {
+                string service;
+                cout << "请输入新的酒店服务设施：";
+                cin >> service;
+                h.setService(service);
+                break;
+            }
+            case 10: {
+                string supportCards;
+                cout << "请输入新的酒店提供的支持卡种类：";
+                cin >> supportCards;
+                h.setSupportCards(supportCards);
+                break;
+            }
+            case 11: {
+                string nearScence;
+                cout << "请输入新的酒店附近景点：";
+                cin >> nearScence;
+                h.setNearScence(nearScence);
+                break;
+            }
+            case 12: {
+                string internet;
+                cout << "请输入新的酒店上网情况：";
+                cin >> internet;
+                h.setInternet(internet);
+                break;
+            }
+            case 13: {
+                string legalPerson;
+                cout << "请输入新的酒店法人：";
+                cin >> legalPerson;
+                h.setLegalPerson(legalPerson);
+                break;
+            }
+            case 14: {
+                string id;
+                cout << "请输入新的酒店法人身份证号码：";
+                cin >> id;
+                h.setId(id);
+                break;
+            }
+            case 15: {
+                string comment;
+                cout << "请输入新的酒店备注：";
+                cin >> comment;
+                h.setComment(comment);
+                break;
+            }
+            default:
+                cout << "[提示]输入的选项无效！" << endl;
+            }
+        }
+    }
+    if (found == 0) {
+        cout << "[提示]输入的酒店编号不存在！" << endl;
+    }
+    else {
+        cout << "[提示]修改成功！" << endl;
+    }
+}
+
+// 打印酒店信息
+void printHotel(Hotel h) {
+    cout << "===========酒店信息=" << endl
+        << "酒店编号: " << h.getNumber() << endl
+        << "酒店名称: " << h.getName() << endl
+        << "酒店星级: " << h.getStar() << endl
+        << "酒店开业时间: " << h.getOpenTime() << endl
+        << "酒店客房种类: " << h.getRoomType() << endl
+        << "酒店客房数量: " << h.getRoomCount() << endl
+        << "酒店价格: " << h.getPrice() << endl
+        << "酒店地址: " << h.getAddress() << endl
+        << "酒店交通状况: " << h.getTrafficStatus() << endl
+        << "酒店店服务设施: " << h.getService() << endl
+        << "酒店提供的支持卡种类: " << h.getSupportCards() << endl
+        << "酒店附近景点: " << h.getNearScence() << endl
+        << "酒店上网情况: " << h.getInternet() << endl
+        << "酒店法人: " << h.getLegalPerson() << endl
+        << "酒店法人身份证号码: " << h.getId() << endl
+        << "酒店备注: " << h.getComment() << endl
+        << "=" << endl;
+}
+
+// 酒店统计信息
+void hotelStatistics() {
+_tips:
+    cout << "========酒店统计信息========" << endl;
+    cout << "[1] 客房类型含标准间的酒店数量" << endl;
+    cout << "[2] 客房类型含双人间的酒店数量" << endl;
+    cout << "[3] 客房类型含三人间或家庭房的酒店数量" << endl;
+    cout << "[4] 客房类型含停车场的酒店数量" << endl;
+    cout << "[5] 服务设施含商务中心的酒店数量" << endl;
+    cout << "[6] 服务设施含前台贵重物品保柜的酒店数量" << endl;
+    cout << "[7] 服务设施含商场的酒店数量" << endl;
+    cout << "[8] 服务设施含行李存放中心的酒店数量" << endl;
+    cout << "[9] 服务设施含残疾人客房的酒店数量" << endl;
+    cout << "[10] 服务设施含叫醒服务的酒店数量" << endl;
+    cout << "[11] 服务设施含演艺吧的酒店数量" << endl;
+    cout << "[12] 服务设施含桑拿房的酒店数量" << endl;
+    cout << "[13] 服务设施含健身房的酒店数量" << endl;
+    cout << "[14] 服务设施含网球场的酒店数量" << endl;
+    cout << "[15] 支持卡类含国际信用卡万事达（Master）的酒店数量" << endl;
+    cout << "[16] 支持卡类含国际信用卡威士（VISA）的酒店数量" << endl;
+    cout << "[17] 支持卡类含国际信用卡运通（AMEX）的酒店数量" << endl;
+    cout << "[18] 支持卡类含国际信用卡大莱（Diners Club）的酒店数量" << endl;
+    cout << "[19] 支持卡类含国际信用卡JCB的酒店数量" << endl;
+    cout << "[20] 支持卡类含国内发行银联卡的酒店数量" << endl;
+    cout << "[21] 支持卡类含支付宝的酒店数量" << endl;
+    cout << "[22] 支持卡类含微信的酒店数量" << endl;
+    cout << "=========================" << endl;
+    cout << "请输入所需要查询统计信息:";
+    int choice;
+    cin >> choice;
+    switch (choice) {
+    case 1: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getRoomType().find("标准间") != string::npos) {
+                count++;
+            }
+        }
+        cout << "客房类型含标准间的酒店数量: " << count << endl;
+        break;
+    }
+    case 2: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getRoomType().find("双人间") != string::npos) {
+                count++;
+            }
+            
+        }
+        cout << "客房类型含双人间的酒店数量: " << count << endl;
+        break;
+    }
+    case 3: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getRoomType().find("三人间") != string::npos || h.getRoomType().find("家庭房") != string::npos) {
+                count++;
+               
+            }
+        }
+        cout << "客房类型含三人间或家庭房的酒店数量: " << count << endl;
+        break;
+    }
+    case 4: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getService().find("停车场") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "服务设施含停车场的酒店数量: " << count << endl;
+        break;
+    }
+    case 5: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getService().find("商务中心") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "服务设施含商务中心的酒店数量: " << count << endl;
+        break;
+    }
+    case 6: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getService().find("前台贵重物品保柜") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "服务设施含前台贵重物品保柜的酒店数量: " << count << endl;
+        break;
+    }
+    case 7: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getService().find("商场") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "服务设施含商场的酒店数量: " << count << endl;
+        break;
+    }
+    case 8: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getService().find("行李存放中心") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "服务设施含行李存放中心的酒店数量: " << count << endl;
+        break;
+    }
+    case 9: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getService().find("残疾人客房") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "服务设施含残疾人客房的酒店数量: " << count << endl;
+        break;
+    }
+    case 10: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getService().find("叫醒服务") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "服务设施含叫醒服务的酒店数量: " << count << endl;
+         break;
+    }
+    case 11: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getService().find("演艺吧") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "服务设施含演艺吧的酒店数量: " << count << endl;
+        break;
+    }
+    case 12: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getService().find("桑拿房") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "服务设施含桑拿房的酒店数量: " << count << endl;
+        break;
+    }
+    case 13: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getService().find("健身房") != string::npos) {
+                count++;
+
+            }
+        }
+        cout << "服务设施含健身房的酒店数量: " << count << endl;
+        break;
+    }
+    case 14: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getService().find("网球场") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "服务设施含网球场的酒店数量: " << count << endl;
+        break;
+    }
+    case 15: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getSupportCards().find("万事达") != string::npos || h.getSupportCards().find("Master") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "支持卡类含国际卡万事达（Master）的酒店数量: " << count << endl;
+        break;
+    }
+    case 16: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getSupportCards().find("威士") != string::npos || h.getSupportCards().find("VISA") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "支持卡类含国际信用卡威士（VISA）的酒店数量: " << count << endl;
+        break;
+    }
+    case 17: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getSupportCards().find("运通") != string::npos || h.getSupportCards().find("AMEX") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "支持卡类含国际信用卡运通(AMEX)的酒店数量: " << count << endl;
+        break;
+    }
+    case 18: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getSupportCards().find("大莱") != string::npos || h.getSupportCards().find("Diners Club") != string::npos)
+                count++;
+        }
+        cout << "支持卡类含国际信用卡大莱（Diners Club）的酒店数量: " << count << endl;
+        break;
+    }
+    case 19: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if(h.getSupportCards().find("JCB") != string::npos)
+            count++;
+        }
+        cout << "支持卡类含国际信用卡JCB的酒店数量: " << count << endl;
+        break;
+    }
+    case 20: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getSupportCards().find("银联") != string::npos)
+                count++;
+        }
+        cout << "支持卡类含国内发行银联卡的酒店数量: " << count << endl;
+        break;
+    }
+    case 21: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getSupportCards().find("支付宝") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "支持卡类含支付宝的酒店数量: " << count << endl;
+        break;
+    }
+    case 22: {
+        int count = 0;
+        for (Hotel h : hotels) {
+            if (h.getSupportCards().find("微信") != string::npos) {
+                count++;
+                
+            }
+        }
+        cout << "支持卡类含微信的酒店数量: " << count << endl;
+        break;
+    }
+    default:
+        cout << "[提示]输入的选项无效！" << endl;
+        break;
+    }
+}
+
+// 酒店管理
+void hotelPage() {
+_tips:
+    cout << "====酒店信息管理======" << endl
+        << "[1] 添加酒店 " << endl
+        << "[2] 删除酒店 " << endl
+        << "[3] 修改酒店信息 " << endl
+        << "[4] 查询所有酒店信息 " << endl
+        << "[5] 查询酒店统计信息" << endl
+        << "=======" << endl
+        << "请输入所需要进行的操作：";
+    int function;
+    cin >> function;
+    if (function > 5 || function < 1) {
+        cout << "[提示]输入的数字有误，请重试" << endl;
+        goto _tips;
+    }
+    switch (function) {
+    case 1:
+        hotels.push_back(createHotel());
+        saveHotel();
+        cout << "[提示]添加成功! " << endl;
+        break;
+    case 2:
+        int number;
+    _remove:
+        cout << "[慎重]请输入需要删除的酒店的编号: ";
+        cin >> number;
+        if (checkHotelNumber(number) != 1) {
+            cout << "[提示]输入的编号有误，请重试" << endl;
+            goto _remove;
+        }
+        removeHotel(number);
+        saveHotel();
+        cout << "[提示]删除完成! ";
+    case 3:
+        modifyHotel();
+        saveHotel();
+        break;
+    case 4:
+        for (Hotel h : hotels) {
+            printHotel(h);
+        }
+        break;
+    case 5:
+        hotelStatistics();
+        break;
+    }
+}
+
+// 检查志愿者编号是否存在
+int checkVolunteerNumber(int number) {
+    for (Volunteer v : volunteers) {
+        if (v.getNumber() == number) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+// 创建志愿者
+Volunteer createVolunteer() {
+    int number;
+    double height;
+    string name, id, gender, birthdate, nativePlace, nation, company, address, education, phone, bodyCondition, place, fillDate, comment, startTime, endTime;
+    _create:
+        cout << "请输入志愿者编号: ";
+        cin >> number;
+        if (checkVolunteerNumber(number) == 1) {
+            cout << "[提示]输入的编号已存在，请重试" << endl;
+            goto _create;
+        }
+        cout << "请输入志愿者姓名: ";
+        cin >> name;
+        cout << "请输入志愿者身份证号码: ";
+        cin >> id;
+        cout << "请输入志愿者性别: ";
+        cin >> gender;
+        cout << "请输入志愿者出生日期: ";
+        cin >> birthdate;
+        cout << "请输入志愿者籍贯: ";
+        cin >> nativePlace;
+        cout << "请输入志愿者民族: ";
+        cin >> nation;
+        cout << "请输入志愿者单位: ";
+        cin >> company;
+        cout << "请输入志愿者现居住地址: ";
+        cin >> address;
+        cout << "请输入志愿者文化程度: ";
+        cin >> education;
+        cout << "请输入志愿者电话号码: ";
+        cin >> phone;
+        cout << "请输入志愿者身体状况: ";
+        cin >> bodyCondition;
+     _height:
+        cout << "请输入志愿者身高（至少180cm）: ";
+        cin >> height;
+        if (height < 180) {
+            cout << "[提示]身高不能低于180cm，请重试" << endl;
+            goto _height;
+        }
+        cout << "请输入志愿者上岗起始时间: ";
+        cin >> startTime;
+        cout << "请输入志愿者上岗结束时间: ";
+        cin >> endTime;
+        cout << "请输入志愿者上岗地点（汽车站、火车站）: ";
+        cin >> place;
+        cout << "请输入志愿者填报日期: ";
+        cin >> fillDate;
+        cout << "请输入志愿者备注: ";
+        cin >> comment;
+        Volunteer v(number, name, id, gender, birthdate, nativePlace, nation, company, address, education, phone, bodyCondition, height, startTime, endTime, place, fillDate, comment);
+        return v;
+}
+
+// 删除志愿者
+void removeVolunteer(int number) {
+    for (int i = 0; i < volunteers.size(); i++) {
+        if (volunteers[i].getNumber() == number) {
+            volunteers.erase(volunteers.begin() + i);
+            return;
+        }
+    }
+}
+
+// 保存志愿者
+void saveVolunteer() {
+    ofstream file("volunteer.txt");
+    if (file.is_open()) {
+        for (Volunteer v : volunteers) {
+            file << v.getNumber() << ","
+                << v.getName() << ","
+                << v.getId() << ","
+                << v.getGender() << ","
+                << v.getBirthdate() << ","
+                << v.getNativePlace() << ","
+                << v.getNation() << ","
+                << v.getCompany() << ","
+                << v.getAddress() << ","
+                << v.getEducation() << ","
+                << v.getPhone() << ","
+                << v.getBodyCondition() << ","
+                << v.getHeight() << ","
+                << v.getStartTime() << ","
+                << v.getEndTime() << ","
+                << v.getPlace() << ","
+                << v.getFillDate() << ","
+                << v.getComment() << "\n";
+        }
+        file.close();
+    }
+}
+
+// 加载志愿者
+void loadVolunteer() {
+    ifstream file("volunteer.txt");
+    if (file.is_open()) {
+        while (file.good()){
+            int number;
+            double height;
+            string name, id, gender, birthdate, nativePlace, nation, company, address, education, phone, bodyCondition, place, fillDate, comment, startTime, endTime;
+            file >> number;
+            file.ignore();
+            if (file.eof()) break;
+            getline(file, name, ',');
+            getline(file, id, ',');
+            getline(file, gender, ',');
+            getline(file, birthdate, ',');
+            getline(file, nativePlace, ',');
+            getline(file, nation, ',');
+            getline(file, company, ',');
+            getline(file, address, ',');
+            getline(file, education, ',');
+            getline(file, phone, ',');
+            getline(file, bodyCondition, ',');
+            file >> height;
+            file.ignore();
+            getline(file, startTime, ',');
+            getline(file, endTime, ',');
+            getline(file, place, ',');
+            getline(file, fillDate, ',');
+            getline(file, comment);
+            Volunteer v(number, name, id, gender, birthdate, nativePlace, nation, company, address, education, phone, bodyCondition, height, startTime, endTime, place, fillDate, comment);
+            volunteers.push_back(v);
+        }
+        file.close();
+    }
+}
+
+// 修改志愿者信息
+void modifyVolunteer() {
+    int number;
+    cout << "请输入需要修改的志愿者的编号: ";
+    cin >> number;
+    
+    int found = 0;
+    for (Volunteer& v : volunteers) {
+        if (v.getNumber() == number) {
+            found = 1;
+            cout << "选择要修改的信息：" << endl;
+            cout << "[1] 姓名 " << endl;
+            cout << "[2] 身份证号码 " << endl;
+            cout << "[3] 性别 " << endl;
+            cout << "[4] 出生日期 " << endl;
+            cout << "[5] 籍贯 " << endl;
+            cout << "[6] 民族 " << endl;
+            cout << "[7] 单位 " << endl;
+            cout << "[8] 现居住地址 " << endl;
+            cout << "[9] 文化程度 " << endl;
+            cout << "[10] 电话号码 " << endl;
+            cout << "[11] 身体状况 " << endl;
+            cout << "[12] 身高 " << endl;
+            cout << "[13] 上岗起始时间 " << endl;
+            cout << "[14] 上岗结束时间 " << endl;
+            cout << "[15] 上岗地点 " << endl;
+            cout << "[16] 填报日期 " << endl;
+            cout << "[17] 备注 " << endl;
+            cout << "请输入要修改的选项: ";
+            int choice;
+            cin >> choice;
+            switch (choice) {
+            case 1: {
+                string name;
+                cout << "请输入新的姓名: ";
+                cin >> name;
+                v.setName(name);
+                break; }
+            case 2: {
+                string id;
+                cout << "请输入新的身份证号码: ";
+                cin >> id;
+                v.setId(id);
+                break; }
+            case 3:
+            {
+                string gender;
+                cout << "请输入新的性别: ";
+                cin >> gender;
+                v.setGender(gender);
+                break;
+            }
+            case 4:
+            {
+                string birthdate;
+                cout << "请输入新的出生日期: ";
+                cin >> birthdate;
+                v.setBirthdate(birthdate);
+                break;
+            }
+            case 5:
+            {
+                string nativePlace;
+                cout << "请输入新的籍贯: ";
+                cin >> nativePlace;
+                v.setNativePlace(nativePlace);
+                break;
+            }
+            case 6:
+            {
+                string nation;
+                cout << "请输入新的民族: ";
+                cin >> nation;
+                v.setNation(nation);
+                break;
+            }
+            case 7:
+            {
+                string company;
+                cout << "请输入新的单位: ";
+                cin >> company;
+                v.setCompany(company);
+                break;
+            }
+            case 8:
+            {
+                string address;
+                cout << "请输入新的现居住地址: ";
+                cin >> address;
+                v.setAddress(address);
+                break;
+            }
+            case 9:
+            {
+                string education;
+                cout << "请输入新的文化程度: ";
+                cin >> education;
+                v.setEducation(education);
+                break;
+            }
+            case 10:
+            {
+                string phone;
+                cout << "请输入新的电话号码: ";
+                cin >> phone;
+                v.setPhone(phone);
+                break;
+            }
+            case 11:
+            {
+                string bodyCondition;
+                cout << "请输入新的身体状况: ";
+                cin >> bodyCondition;
+                v.setBodyCondition(bodyCondition);
+                break;
+            }
+            case 12:
+            {
+            _height:
+                double height;
+                cout << "请输入新的身高: ";
+                cin >> height;
+                if (height < 180) {
+                    cout << "[提示]身高不能低于180cm，请重试" << endl;
+                    goto _height;
+                }
+                v.setHeight(height);
+                break;
+            }
+            case 13:
+            {
+                string startTime;
+                cout << "请输入新的上岗起始时间: ";
+                cin >> startTime;
+                v.setStartTime(startTime);
+                break;
+            }
+            case 14:
+            {
+                string endTime;
+                cout << "请输入新的上岗结束时间: ";
+                cin >> endTime;
+                v.setEndTime(endTime);
+                break;
+            }
+            case 15:
+            {
+                string place;
+                cout << "请输入新的上岗地点: ";
+                cin >> place;
+                v.setPlace(place);
+                break;
+            }
+            case 16:
+            {
+                string fillDate;
+                cout << "请输入新的填报日期: ";
+                cin >> fillDate;
+                v.setFillDate(fillDate);
+                break;
+            }
+            case 17:
+            {
+                string comment;
+                cout << "请输入新的备注: ";
+                cin >> comment;
+                v.setComment(comment);
+                break;
+            }
+            default:
+            {
+                cout << "[提示]输入的选项无效！" << endl;
+                break;
+            }
+            }
+        }
+    }
+    if (found == 0) {
+        cout << "[提示]输入的编号不存在，请重试" << endl;
+    }
+    else {
+        cout << "[提示]修改成功! " << endl;
+    }
+}
+
+
+// 打印志愿者信息
+void printVolunteer(Volunteer v) {
+    cout << "=======志愿者信息======" << endl;
+    cout << "编号: " << v.getNumber() << endl;
+    cout << "姓名: " << v.getName() << endl;
+    cout << "身份证号码: " << v.getId() << endl;
+    cout << "性别: " << v.getGender() << endl;
+    cout << "出生日期: " << v.getBirthdate() << endl;
+    cout << "籍贯: " << v.getNativePlace() << endl;
+    cout << "民族: " << v.getNation() << endl;
+    cout << "单位: " << v.getCompany() << endl;
+    cout << "现居住地址: " << v.getAddress() << endl;
+    cout << "文化程度: " << v.getEducation() << endl;
+    cout << "电话号码: " << v.getPhone() << endl;
+    cout << "身体状况: " << v.getBodyCondition() << endl;
+    cout << "身高: " << v.getHeight() << "cm" << endl;
+    cout << "上岗起始时间: " << v.getStartTime() << endl;
+    cout << "上岗结束时间: " << v.getEndTime() << endl;
+    cout << "上岗地点: " << v.getPlace() << endl;
+    cout << "填报日期: " << v.getFillDate() << endl;
+    cout << "备注: " << v.getComment() << endl;
+    cout << "=" << endl;
+}
+
+// 车站接待志愿者信息管理
+void volunteerPage() {
+_tips:
+    cout << "====车站接待志愿者信息管理======" << endl
+        << "[1] 添加志愿者 " << endl
+        << "[2] 删除志愿者 " << endl
+        << "[3] 修改志愿者信息 " << endl
+        << "[4] 查询所有志愿者信息 " << endl
+        << "=======" << endl
+        << "请输入所需要进行的操作：";
+    int function;
+    cin >> function;
+    if (function > 4 || function < 1) {
+        cout << "[提示]输入的数字有误，请重试" << endl;
+        goto _tips;
+    }
+    switch (function) {
+    case 1:
+        volunteers.push_back(createVolunteer());
+        saveVolunteer();
+        cout << "[提示]添加成功! " << endl;
+        break;
+    case 2:
+        int number;
+    _remove:
+        cout << "[慎重]请输入需要删除的志愿者的编号: ";
+        cin >> number;
+        if (checkVolunteerNumber(number) != 1) {
+            cout << "[提示]输入的编号有误，请重试" << endl;
+            goto _remove;
+        }
+        removeVolunteer(number);
+        saveVolunteer();
+        cout << "[提示]删除完成! ";
+        break;
+    case 3:
+        modifyVolunteer();
+        saveVolunteer();
+        break;
+    case 4:
+        for (Volunteer v : volunteers) {
+            printVolunteer(v);
+        }
+        break;
+    }
+}
+
 void switchPage(int page) {
     switch (page) {
     case 1:
@@ -1519,8 +2574,10 @@ void switchPage(int page) {
         commentatorPage();
         break;
     case 5:
+        hotelPage();
         break;
     case 6:
+        volunteerPage();
         break;
     case 7:
         break;
@@ -1532,6 +2589,10 @@ void switchPage(int page) {
 int main() {
     loadRestruant();
     loadScence();
+    loadTeam();
+    loadCommentator();
+    loadHotel();
+    loadVolunteer();
     while (true) {
     _choose:
         int page;
@@ -1541,7 +2602,15 @@ int main() {
             cout << "[提示]输入的数字有误，请重试" << endl;
             goto _choose;
         }
-        if (page == 0) return 0;
+        if (page == 0) {
+            saveRestruant();
+            saveScence();
+            saveTeam();
+            saveCommentator();
+            saveHotel();
+            saveVolunteer();
+            return 0;
+        };
         switchPage(page);
     }
 }

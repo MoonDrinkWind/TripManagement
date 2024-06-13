@@ -24,12 +24,36 @@
     <ClCompile Include="Scence.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Commentator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Team.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Hotel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Volunteer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Restruant.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Scence.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Commentator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Team.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Hotel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Volunteer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
