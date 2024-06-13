@@ -7,6 +7,7 @@
 #include "Commentator.h"
 #include "Hotel.h"
 #include "Volunteer.h"
+#include "SecurityPerson.h"
 using namespace std;
 
 vector<Restruant> restruants;
@@ -15,6 +16,7 @@ vector<Team> teams;
 vector<Commentator> commentators;
 vector<Hotel> hotels;
 vector<Volunteer> volunteers;
+vector<SecurityPerson> securityPersons;
 
 void tips() {
     cout << "====特色旅游管理信息系统====" << endl
@@ -1525,6 +1527,16 @@ int checkHotelNumber(int number) {
     return 0;
 }
 
+// 检查酒店法人身份证号码是否存在
+int checkHotelID(string id) {
+    for (Hotel h : hotels) {
+        if (h.getId() == id) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 // 创建酒店
 Hotel createHotel() {
     _number:
@@ -1588,9 +1600,13 @@ Hotel createHotel() {
     cin >> legalPerson;
 
     string id;
+    _id:
     cout << "请输入酒店法人身份证号码：";
     cin >> id;
-
+    if (checkHotelID(id) == 1) {
+        cout << "[提示]输入的身份证号码已存在，请重试" << endl;
+        goto _id;
+    }
     string comment;
     cout << "请输入酒店备注：";
     cin >> comment;
@@ -2173,6 +2189,16 @@ int checkVolunteerNumber(int number) {
     return 0;
 }
 
+// 检查志愿者身份证号码是否存在
+int checkVolunteerId(string id) {
+    for (Volunteer v : volunteers) {
+        if (v.getId() == id) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 // 创建志愿者
 Volunteer createVolunteer() {
     int number;
@@ -2187,8 +2213,13 @@ Volunteer createVolunteer() {
         }
         cout << "请输入志愿者姓名: ";
         cin >> name;
+    _id:
         cout << "请输入志愿者身份证号码: ";
         cin >> id;
+        if (checkVolunteerId(id) == 1) {
+            cout << "[提示]输入的身份证号码已存在，请重试" << endl;
+            goto _id;
+        }
         cout << "请输入志愿者性别: ";
         cin >> gender;
         cout << "请输入志愿者出生日期: ";
@@ -2559,6 +2590,425 @@ _tips:
     }
 }
 
+// 检查安全员编号是否存在
+int checkSecurityNumber(int number) {
+    for (SecurityPerson s : securityPersons) {
+        if (s.getNumber() == number) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+// 检查安全员身份证号码是否存在
+int checkSecurityIdNumber(string idNumber) {
+    for (SecurityPerson s : securityPersons) {
+        if (s.getIdNumber() == idNumber) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+// 创建安全员
+SecurityPerson createSecurity() {
+    int number, workPlaceCount;
+    string name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phone, bodyCondition, startTime, endTime, workPlace, fillDate, comment;
+    _create:
+        cout << "请输入安全员编号: ";
+        cin >> number;
+        if (checkSecurityNumber(number) == 1) {
+            cout << "[提示]输入的编号已存在，请重试" << endl;
+            goto _create;
+        }
+        cout << "请输入安全员姓名: ";
+        cin >> name;
+    _id:
+        cout << "请输入安全员身份证号码: ";
+        cin >> idNumber;
+        if (checkSecurityIdNumber(idNumber) == 1) {
+            cout << "[提示]输入的身份证号码已存在，请重试" << endl;
+            goto _id;
+        }
+        cout << "请输入安全员性别: ";
+        cin >> gender;
+        cout << "请输入安全员出生日期: ";
+        cin >> birthDate;
+        cout << "请输入安全员籍贯: ";
+        cin >> nativePlace;
+        cout << "请输入安全员民族: ";
+        cin >> nation;
+        cout << "请输入安全员单位: ";
+        cin >> company;
+        cout << "请输入安全员现居住地址: ";
+        cin >> address;
+        cout << "请输入安全员文化程度: ";
+        cin >> education;
+        cout << "请输入安全员电话号码: ";
+        cin >> phone;
+        cout << "请输入安全员身体状况: ";
+        cin >> bodyCondition;
+        cout << "请输入安全员上岗起始时间: ";
+        cin >> startTime;
+        cout << "请输入安全员上岗结束时间: ";
+        cin >> endTime;
+        cout << "请输入安全员上岗地点（最多可选10个地点）: ";
+        cin >> workPlace;
+        cout << "请输入安全员上岗地点数量: ";
+        cin >> workPlaceCount;
+        cout << "请输入安全员填报日期: ";
+        cin >> fillDate;
+        cout << "请输入安全员备注: ";
+        cin >> comment;
+        SecurityPerson s(number, name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phone, bodyCondition, startTime, endTime, workPlace, workPlaceCount, fillDate, comment);
+        return s;
+}
+
+// 保存安全员
+void saveSecurity() {
+    ofstream file("security.txt");
+    if (file.is_open()) {
+        for (SecurityPerson s : securityPersons) {
+            file << s.getNumber() << ","
+                << s.getName() << ","
+                << s.getIdNumber() << ","
+                << s.getGender() << ","
+                << s.getBirthDate() << ","
+                << s.getNativePlace() << ","
+                << s.getNation() << ","
+                << s.getCompany() << ","
+                << s.getAddress() << ","
+                << s.getEducation() << ","
+                << s.getPhone() << ","
+                << s.getBodyCondition() << ","
+                << s.getStartTime() << ","
+                << s.getEndTime() << ","
+                << s.getWorkPlace() << ","
+                << s.getWorkPlaceCount() << ","
+                << s.getFillDate() << ","
+                << s.getComment() << "\n";
+        }
+        file.close();
+    }
+}
+
+// 加载安全员
+void loadSecurity() {
+    ifstream file("security.txt");
+    if (file.is_open()) {
+        while (file.good()) {
+            int number, workPlaceCount;
+            string name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phone, bodyCondition, startTime, endTime, workPlace, fillDate, comment;
+            file >> number;
+            file.ignore();
+            if (file.eof()) break;
+            getline(file, name, ',');
+            getline(file, idNumber, ',');
+            getline(file, gender, ',');
+            getline(file, birthDate, ',');
+            getline(file, nativePlace, ',');
+            getline(file, nation, ',');
+            getline(file, company, ',');
+            getline(file, address, ',');
+            getline(file, education, ',');
+            getline(file, phone, ',');
+            getline(file, bodyCondition, ',');
+            getline(file, startTime, ',');
+            getline(file, endTime, ',');
+            getline(file, workPlace, ',');
+            file >> workPlaceCount;
+            file.ignore();
+            getline(file, fillDate, ',');
+            getline(file, comment);
+            SecurityPerson s(number, name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phone, bodyCondition, startTime, endTime, workPlace, workPlaceCount, fillDate, comment);
+            securityPersons.push_back(s);
+        }
+        file.close();
+    }
+}
+
+// 打印安全员信息
+void printSecurity(SecurityPerson s) {
+    cout << "=======安全员信息======" << endl;
+    cout << "编号: " << s.getNumber() << endl;
+    cout << "姓名: " << s.getName() << endl;
+    cout << "身份证号码: " << s.getIdNumber() << endl;
+    cout << "性别: " << s.getGender() << endl;
+    cout << "出生日期: " << s.getBirthDate() << endl;
+    cout << "籍贯: " << s.getNativePlace() << endl;
+    cout << "民族: " << s.getNation() << endl;
+    cout << "单位: " << s.getCompany() << endl;
+    cout << "现居住地址: " << s.getAddress() << endl;
+    cout << "文化程度: " << s.getEducation() << endl;
+    cout << "电话号码: " << s.getPhone() << endl;
+    cout << "身体状况: " << s.getBodyCondition() << endl;
+    cout << "上岗起始时间: " << s.getStartTime() << endl;
+    cout << "上岗结束时间: " << s.getEndTime() << endl;
+    cout << "上岗地点: " << s.getWorkPlace() << endl;
+    cout << "上岗地点数量: " << s.getWorkPlaceCount() << endl;
+    cout << "填报日期: " << s.getFillDate() << endl;
+    cout << "备注: " << s.getComment() << endl;
+    cout << "=" << endl;
+}
+
+// 删除安全员
+void removeSecurity(int number) {
+    for (int i = 0; i < securityPersons.size(); i++) {
+        if (securityPersons[i].getNumber() == number) {
+            securityPersons.erase(securityPersons.begin() + i);
+            return;
+        }
+    }
+}
+
+// 修改安全员信息
+void modifySecurity() {
+    int number;
+    cout << "[慎重]请输入需要修改的安全员的编号: ";
+    cin >> number;
+    int found = 0;
+    for (SecurityPerson& s : securityPersons) {
+        if (s.getNumber() == number) {
+            found = 1;
+            cout << "=======请选择要修改的信息======" << endl;
+            cout << "[1] 编号 " << endl;
+            cout << "[2] 姓名 " << endl;
+            cout << "[3] 身份证号码 " << endl;
+            cout << "[4] 性别 " << endl;
+            cout << "[5] 出生日期 " << endl;
+            cout << "[6] 籍贯 " << endl;
+            cout << "[7] 民族 " << endl;
+            cout << "[8] 单位 " << endl;
+            cout << "[9] 现居住地址 " << endl;
+            cout << "[10] 文化程度 " << endl;
+            cout << "[11] 电话号码 " << endl;
+            cout << "[12] 身体状况 " << endl;
+            cout << "[13] 上岗起始时间 " << endl;
+            cout << "[14] 上岗结束时间 " << endl;
+            cout << "[15] 上岗地点 " << endl;
+            cout << "[16] 上岗地点数量 " << endl;
+            cout << "[17] 填报日期 " << endl;
+            cout << "[18] 备注 " << endl;
+            cout << "=======" << endl;
+            cout << "请输入要修改的信息的编号: ";
+            int choice;
+            cin >> choice;
+            switch (choice) {
+            case 1:
+            {
+                int newNumber;
+                cout << "请输入新的编号: ";
+                cin >> newNumber;
+                if (checkSecurityNumber(newNumber) != 1) {
+                    cout << "[提示]输入的编号有误，请重试" << endl;
+                    break;
+                }
+                s.setNumber(newNumber);
+                break;
+            }
+            case 2:
+            {
+                string newName;
+                cout << "请输入新的姓名: ";
+                cin >> newName;
+                s.setName(newName);
+                break;
+            }
+            case 3:
+            {
+                string newIdNumber;
+                cout << "请输入新的身份证号码: ";
+                cin >> newIdNumber;
+                if (checkSecurityIdNumber(newIdNumber) == 1) {
+                    cout << "[提示]输入的身份证号码已存在，请重试" << endl;
+                    break;
+                }
+                s.setIdNumber(newIdNumber);
+                break;
+            }
+            case 4:
+            {
+                string newGender;
+                cout << "请输入新的性别: ";
+                cin >> newGender;
+                s.setGender(newGender);
+                break;
+            }
+            case 5:
+            {
+                string newBirthDate;
+                cout << "请输入新的出生日期: ";
+                cin >> newBirthDate;
+                s.setBirthDate(newBirthDate);
+                break;
+            }
+            case 6:
+            {
+                string newNativePlace;
+                cout << "请输入新的籍贯: ";
+                cin >> newNativePlace;
+                s.setNativePlace(newNativePlace);
+                break;
+            }
+            case 7:
+            {
+                string newNation;
+                cout << "请输入新的民族: ";
+                cin >> newNation;
+                s.setNation(newNation);
+                break;
+            }
+            case 8:
+            {
+                string newCompany;
+                cout << "请输入新的单位: ";
+                cin >> newCompany;
+                s.setCompany(newCompany);
+                break;
+            }
+            case 9:
+            {
+                string newAddress;
+                cout << "请输入新的现居住地址: ";
+                cin >> newAddress;
+                s.setAddress(newAddress);
+                break;
+            }
+            case 10:
+            {
+                string newEducation;
+                cout << "请输入新的文化程度: ";
+                cin >> newEducation;
+                s.setEducation(newEducation);
+                break;
+            }
+            case 11:
+            {
+                string newPhone;
+                cout << "请输入新的电话号码: ";
+                cin >> newPhone;
+                s.setPhone(newPhone);
+                break;
+            }
+            case 12:
+            {
+                string newBodyCondition;
+                cout << "请输入新的身体状况: ";
+                cin >> newBodyCondition;
+                s.setBodyCondition(newBodyCondition);
+                break;
+            }
+            case 13:
+            {
+                string newStartTime;
+                cout << "请输入新的上岗起始时间: ";
+                cin >> newStartTime;
+                s.setStartTime(newStartTime);
+                break;
+            }
+            case 14:
+            {
+                string newEndTime;
+                cout << "请输入新的上岗结束时间: ";
+                cin >> newEndTime;
+                s.setEndTime(newEndTime);
+                break;
+            }
+            case 15:
+            {
+                string newWorkPlace;
+                cout << "请输入新的上岗地点: ";
+                cin >> newWorkPlace;
+                s.setWorkPlace(newWorkPlace);
+                break;
+            }
+            case 16:
+            {
+                int newWorkPlaceCount;
+                cout << "请输入新的上岗地点数量: ";
+                cin >> newWorkPlaceCount;
+                s.setWorkPlaceCount(newWorkPlaceCount);
+                break;
+            }
+            case 17:
+            {
+                string newFillDate;
+                cout << "请输入新的填报日期: ";
+                cin >> newFillDate;
+                s.setFillDate(newFillDate);
+                break;
+            }
+            case 18:
+            {
+                string newComment;
+                cout << "请输入新的备注: ";
+                cin >> newComment;
+                s.setComment(newComment);
+                break;
+            }
+            default:
+            {
+                cout << "[提示]输入的选项无效！" << endl;
+                break;
+            }
+            }
+        }
+        if (found == 0) {
+            cout << "[提示]输入的编号不存在，请重试" << endl;
+        }
+        else {
+            cout << "[提示]修改成功! " << endl;
+        }
+    }
+}
+// 安全员管理
+void securityPage() {
+_tips:
+    cout << "====安全员管理======" << endl
+        << "[1] 添加安全员 " << endl
+        << "[2] 删除安全员 " << endl
+        << "[3] 修改安全员信息 " << endl
+        << "[4] 查询所有安全员信息 " << endl
+        << "=======" << endl
+        << "请输入所需要进行的操作：";
+    int function;
+    cin >> function;
+    if (function > 4 || function < 1) {
+        cout << "[提示]输入的数字有误，请重试" << endl;
+        goto _tips;
+    }
+    switch (function) {
+    case 1:
+        securityPersons.push_back(createSecurity());
+        saveSecurity();
+        cout << "[提示]添加成功! " << endl;
+        break;
+    case 2:
+        int number;
+    _remove:
+        cout << "[慎重]请输入需要删除的安全员的编号: ";
+        cin >> number;
+        if (checkSecurityNumber(number) != 1) {
+            cout << "[提示]输入的编号有误，请重试" << endl;
+            goto _remove;
+        }
+        removeSecurity(number);
+        saveSecurity();
+        cout << "[提示]删除完成! ";
+        break;
+    case 3:
+        modifySecurity();
+        saveSecurity();
+        break;
+    case 4:
+        for (SecurityPerson s : securityPersons) {
+            printSecurity(s);
+        }
+        break;
+    }
+}
+
+
 void switchPage(int page) {
     switch (page) {
     case 1:
@@ -2580,6 +3030,7 @@ void switchPage(int page) {
         volunteerPage();
         break;
     case 7:
+        securityPage();
         break;
     case 8:
         break;
@@ -2593,6 +3044,7 @@ int main() {
     loadCommentator();
     loadHotel();
     loadVolunteer();
+    loadSecurity();
     while (true) {
     _choose:
         int page;
@@ -2609,6 +3061,7 @@ int main() {
             saveCommentator();
             saveHotel();
             saveVolunteer();
+            saveSecurity();
             return 0;
         };
         switchPage(page);

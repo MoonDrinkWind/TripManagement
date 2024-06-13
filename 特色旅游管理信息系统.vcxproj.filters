@@ -36,6 +36,9 @@
     <ClCompile Include="Volunteer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SecurityPerson.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Restruant.h">
@@ -54,6 +57,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Volunteer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SecurityPerson.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
