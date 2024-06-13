@@ -8,6 +8,7 @@
 #include "Hotel.h"
 #include "Volunteer.h"
 #include "SecurityPerson.h"
+#include "CarVolunteer.h"
 using namespace std;
 
 vector<Restruant> restruants;
@@ -17,6 +18,7 @@ vector<Commentator> commentators;
 vector<Hotel> hotels;
 vector<Volunteer> volunteers;
 vector<SecurityPerson> securityPersons;
+vector<CarVolunteer> carVolunteers;
 
 void tips() {
     cout << "====特色旅游管理信息系统====" << endl
@@ -3008,6 +3010,369 @@ _tips:
     }
 }
 
+// 检查车辆志愿者编号是否存在
+int checkCarVolunteerNumber(int number) {
+    for (CarVolunteer cv : carVolunteers) {
+        if (cv.getNumber() == number) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+// 检查车辆志愿者身份证号码是否存在
+int checkCarVolunteerIdNumber(string idNumber) {
+    for (CarVolunteer cv : carVolunteers) {
+        if (cv.getIdNumber() == idNumber) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+// 创建车辆志愿者
+CarVolunteer createCarVolunteer() {
+    int number, carNumber, passengerNumber;
+    string name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phoneNumber, bodyCondition, serviceRoute, serviceStartTime, serviceEndTime, fillDate, comment;
+    _create:
+        cout << "请输入志愿者编号: ";
+        cin >> number;
+        if (checkCarVolunteerNumber(number) == 1) {
+            cout << "[提示]输入的编号已存在，请重试" << endl;
+            goto _create;
+        }
+        cout << "请输入志愿者姓名: ";
+        cin >> name;
+    _id:
+        cout << "请输入志愿者身份证号码: ";
+        cin >> idNumber;
+        if (checkCarVolunteerIdNumber(idNumber) == 1) {
+            cout << "[提示]输入的身份证号码已存在，请重试" << endl;
+            goto _id;
+        }
+        cout << "请输入志愿者性别: ";
+        cin >> gender;
+        cout << "请输入志愿者出生日期: ";
+        cin >> birthDate;
+        cout << "请输入志愿者籍贯: ";
+        cin >> nativePlace;
+        cout << "请输入志愿者民族: ";
+        cin >> nation;
+        cout << "请输入志愿者单位: ";
+        cin >> company;
+        cout << "请输入志愿者现居住地址: ";
+        cin >> address;
+        cout << "请输入志愿者文化程度: ";
+        cin >> education;
+        cout << "请输入志愿者电话号码: ";
+        cin >> phoneNumber;
+        cout << "请输入志愿者身体状况: ";
+        cin >> bodyCondition;
+        cout << "请输入志愿者拥有车辆数量: ";
+        cin >> carNumber;
+        cout << "请输入志愿者可乘坐人数: ";
+        cin >> passengerNumber;
+        cout << "请输入志愿者志愿服务路线: ";
+        cin >> serviceRoute;
+        cout << "请输入志愿者志愿服务起始时间: ";
+        cin >> serviceStartTime;
+        cout << "请输入志愿者志愿服务结束时间: ";
+        cin >> serviceEndTime;
+        cout << "请输入志愿者填报日期: ";
+        cin >> fillDate;
+        cout << "请输入志愿者备注: ";
+        cin >> comment;
+        return CarVolunteer(number, name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phoneNumber, bodyCondition, carNumber, passengerNumber, serviceRoute, serviceStartTime, serviceEndTime, fillDate, comment);
+}
+// 保存车辆志愿者信息
+void saveCarVolunteer() {
+    ofstream file("carVolunteer.txt");
+    if(file.is_open()){
+        for (CarVolunteer cv : carVolunteers) {
+            file << cv.getNumber() << ","
+                 << cv.getName() << ","
+                 << cv.getIdNumber() << ","
+                 << cv.getGender() << ","
+                 << cv.getBirthDate() << ","
+                 << cv.getNativePlace() << ","
+                 << cv.getNation() << ","
+                 << cv.getCompany() << ","
+                 << cv.getAddress() << ","
+                 << cv.getEducation() << ","
+                 << cv.getPhoneNumber() << ","
+                 << cv.getBodyCondition() << ","
+                 << cv.getCarNumber() << ","
+                 << cv.getPassengerNumber() << ","
+                 << cv.getServiceRoute() << ","
+                 << cv.getServiceStartTime() << ","
+                 << cv.getServiceEndTime() << ","
+                 << cv.getFillDate() << ","
+                 << cv.getComment() << "\n";
+        }
+        file.close();
+    }
+}
+
+// 加载车辆志愿者信息
+void loadCarVolunteer() {
+    ifstream file("carVolunteer.txt");
+    if (file.is_open()) {
+        int number, carNumber, passengerNumber;
+        string name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phoneNumber, bodyCondition, serviceRoute, serviceStartTime, serviceEndTime, fillDate, comment;
+        while (file.good()) {
+            file >> number;
+            file.ignore();
+            if (file.eof()) break;
+            getline(file, name, ',');
+            getline(file, idNumber, ',');
+            getline(file, gender, ',');
+            getline(file, birthDate, ',');
+            getline(file, nativePlace, ',');
+            getline(file, nation, ',');
+            getline(file, company, ',');
+            getline(file, address, ',');
+            getline(file, education, ',');
+            getline(file, phoneNumber, ',');
+            getline(file, bodyCondition, ',');
+            file >> carNumber;
+            file.ignore();
+            file >> passengerNumber;
+            file.ignore();
+            getline(file, serviceRoute, ',');
+            getline(file, serviceStartTime, ',');
+            getline(file, serviceEndTime, ',');
+            getline(file, fillDate, ',');
+            getline(file, comment);
+            CarVolunteer cv(number, name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phoneNumber, bodyCondition, carNumber, passengerNumber, serviceRoute, serviceStartTime, serviceEndTime, fillDate, comment);
+            carVolunteers.push_back(cv);
+        }
+        file.close();
+    }
+}
+
+// 打印车辆志愿者信息
+void printCarVolunteer(CarVolunteer cv) {
+    cout << "=======车辆志愿者信息======" << endl;
+    cout << "编号: " << cv.getNumber() << endl;
+    cout << "姓名: " << cv.getName() << endl;
+    cout << "身份证号码: " << cv.getIdNumber() << endl;
+    cout << "性别: " << cv.getGender() << endl;
+    cout << "出生日期: " << cv.getBirthDate() << endl;
+    cout << "籍贯: " << cv.getNativePlace() << endl;
+    cout << "民族: " << cv.getNation() << endl;
+    cout << "单位: " << cv.getCompany() << endl;
+    cout << "现居住地址: " << cv.getAddress() << endl;
+    cout << "文化程度: " << cv.getEducation() << endl;
+    cout << "电话号码: " << cv.getPhoneNumber() << endl;
+    cout << "身体状况: " << cv.getBodyCondition() << endl;
+    cout << "拥有车辆数量: " << cv.getCarNumber() << endl;
+    cout << "可乘坐人数: " << cv.getPassengerNumber() << endl;
+    cout << "志愿服务路线: " << cv.getServiceRoute() << endl;
+    cout << "志愿服务起始时间: " << cv.getServiceStartTime() << endl;
+    cout << "志愿服务结束时间: " << cv.getServiceEndTime() << endl;
+    cout << "填报日期: " << cv.getFillDate() << endl;
+    cout << "备注: " << cv.getComment() << endl;
+    cout << "=" << endl;
+}
+
+// 删除车辆志愿者
+void removeCarVolunteer(int number) {
+    for (int i = 0; i < carVolunteers.size(); i++) {
+        if (carVolunteers[i].getNumber() == number) {
+            carVolunteers.erase(carVolunteers.begin() + i);
+            return;
+        }
+    }
+}
+
+// 修改车辆志愿者信息
+void modifyCarVolunteer() {
+    int number, carNumber, passengerNumber;
+    string name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phoneNumber, bodyCondition, serviceRoute, serviceStartTime, serviceEndTime, fillDate, comment;
+    int found = 0;
+    cout << "请输入需要修改的车辆志愿者的编号: ";
+    cin >> number;
+    for (int i = 0; i < carVolunteers.size(); i++) {
+        if (carVolunteers[i].getNumber() == number) {
+            found = 1;
+            cout << "======选择要修改的信息======" << endl;
+            cout << "[1] 姓名 " << endl;
+            cout << "[2] 身份证号码 " << endl;
+            cout << "[3] 性别 " << endl;
+            cout << "[4] 出生日期 " << endl;
+            cout << "[5] 籍贯 " << endl;
+            cout << "[6] 民族 " << endl;
+            cout << "[7] 单位 " << endl;
+            cout << "[8] 现居住地址 " << endl;
+            cout << "[9] 文化程度 " << endl;
+            cout << "[10] 电话号码 " << endl;
+            cout << "[11] 身体状况 " << endl;
+            cout << "[12] 车辆数量 " << endl;
+            cout << "[13] 可乘坐人数 " << endl;
+            cout << "[14] 志愿服务路线 " << endl;
+            cout << "[15] 志愿服务起始时间 " << endl;
+            cout << "[16] 志愿服务结束时间 " << endl;
+            cout << "[17] 填报日期 " << endl;
+            cout << "[18] 备注 " << endl;
+            cout << "=======" << endl;
+            cout << "请输入要修改的信息的编号: ";
+            int choice;
+            cin >> choice;
+            switch (choice) {
+            case 1:
+                cout << "请输入新的姓名: ";
+                cin >> name;
+                carVolunteers[i].setName(name);
+                break;
+            case 2:
+                cout << "请输入新的身份证号码: ";
+                cin >> idNumber;
+                if (checkCarVolunteerIdNumber(idNumber) == 1) {
+                    cout << "[提示]输入的身份证号码已存在，请重试" << endl;
+                    break;
+                }
+                carVolunteers[i].setIdNumber(idNumber);
+                break;
+            case 3:
+                cout << "请输入新的性别: ";
+                cin >> gender;
+                carVolunteers[i].setGender(gender);
+                break;
+            case 4:
+                cout << "请输入新的出生日期: ";
+                cin >> birthDate;
+                carVolunteers[i].setBirthDate(birthDate);
+                break;
+            case 5:
+                cout << "请输入新的籍贯: ";
+                cin >> nativePlace;
+                carVolunteers[i].setNativePlace(nativePlace);
+                break;
+            case 6:
+                cout << "请输入新的民族: ";
+                cin >> nation;
+                carVolunteers[i].setNation(nation);
+                break;
+            case 7:
+                cout << "请输入新的单位: ";
+                cin >> company;
+                carVolunteers[i].setCompany(company);
+                break;
+            case 8:
+                cout << "请输入新的现居住地址: ";
+                cin >> address;
+                carVolunteers[i].setAddress(address);
+                break;
+            case 9:
+                cout << "请输入新的文化程度: ";
+                cin >> education;
+                carVolunteers[i].setEducation(education);
+                break;
+            case 10:
+                cout << "请输入新的电话号码: ";
+                cin >> phoneNumber;
+                carVolunteers[i].setPhoneNumber(phoneNumber);
+                break;
+            case 11:
+                cout << "请输入新的身体状况: ";
+                cin >> bodyCondition;
+                carVolunteers[i].setBodyCondition(bodyCondition);
+                break;
+            case 12:
+                cout << "请输入新的车辆数量: ";
+                cin >> carNumber;
+                carVolunteers[i].setCarNumber(carNumber);
+                break;
+            case 13:
+                cout << "请输入新的可乘坐人数: ";
+                cin >> passengerNumber;
+                carVolunteers[i].setPassengerNumber(passengerNumber);
+                break;
+            case 14:
+                cout << "请输入新的志愿服务路线: ";
+                cin >> serviceRoute;
+                carVolunteers[i].setServiceRoute(serviceRoute);
+                break;
+            case 15:
+                cout << "请输入新的志愿服务起始时间: ";
+                cin >> serviceStartTime;
+                carVolunteers[i].setServiceStartTime(serviceStartTime);
+                break;
+            case 16:
+                cout << "请输入新的志愿服务结束时间: ";
+                cin >> serviceEndTime;
+                carVolunteers[i].setServiceEndTime(serviceEndTime);
+                break;
+            case 17:
+                cout << "请输入新的填报日期: ";
+                cin >> fillDate;
+                carVolunteers[i].setFillDate(fillDate);
+                break;
+            case 18:
+                cout << "请输入新的备注: ";
+                cin >> comment;
+                carVolunteers[i].setComment(comment);
+                break;
+            default:
+                cout << "[提示]输入的选项无效！" << endl;
+                break;
+            }
+        }
+        
+    }
+    if (found == 0) {
+            cout << "[提示]输入的编号不存在，请重试" << endl;
+    }else {
+            cout << "[提示]修改成功! " << endl;
+     }
+}
+
+// 车辆志愿者管理
+void carVolunteerPage() {
+_tips:
+    cout << "====车辆志愿者管理======" << endl
+        << "[1] 添加车辆志愿者 " << endl
+        << "[2] 删除车辆志愿者 " << endl
+        << "[3] 修改车辆志愿者信息 " << endl
+        << "[4] 查询所有车辆志愿者信息 " << endl
+        << "=======" << endl
+        << "请输入所需要进行的操作：";
+    int function;
+    cin >> function;
+    if (function > 4 || function < 1) {
+        cout << "[提示]输入的数字有误，请重试" << endl;
+        goto _tips;
+    }
+    switch (function) {
+    case 1:
+        carVolunteers.push_back(createCarVolunteer());
+        saveCarVolunteer();
+        cout << "[提示]添加成功! " << endl;
+        break;
+    case 2:
+        int number;
+    _remove:
+        cout << "[慎重]请输入需要删除的车辆志愿者的编号: ";
+        cin >> number;
+        if (checkCarVolunteerNumber(number) != 1) {
+            cout << "[提示]输入的编号有误，请重试" << endl;
+            goto _remove;
+        }
+        removeCarVolunteer(number);
+        saveCarVolunteer();
+        cout << "[提示]删除完成! ";
+        break;
+    case 3:
+        modifyCarVolunteer();
+        saveCarVolunteer();
+        break;
+    case 4:
+        for (CarVolunteer cv : carVolunteers) {
+            printCarVolunteer(cv);
+        }
+        break;
+    }
+}
 
 void switchPage(int page) {
     switch (page) {
@@ -3033,11 +3398,13 @@ void switchPage(int page) {
         securityPage();
         break;
     case 8:
+        carVolunteerPage();
         break;
     }
 }
 
 int main() {
+    // 初始化每个系统的数据
     loadRestruant();
     loadScence();
     loadTeam();
@@ -3045,6 +3412,7 @@ int main() {
     loadHotel();
     loadVolunteer();
     loadSecurity();
+    loadCarVolunteer();
     while (true) {
     _choose:
         int page;
@@ -3062,6 +3430,7 @@ int main() {
             saveHotel();
             saveVolunteer();
             saveSecurity();
+            saveCarVolunteer();
             return 0;
         };
         switchPage(page);
