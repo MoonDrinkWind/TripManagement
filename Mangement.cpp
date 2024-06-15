@@ -1058,7 +1058,7 @@ void modifyTeam() {
 
 // 打印团队信息
 void printTeam(Team t) {
-    cout << "===========团队信息=" << endl
+    cout << "===========团队信息==============" << endl
         << "团队编号: " << t.getNumber() << endl
         << "团队名称: " << t.getName() << endl
         << "团队名族: " << t.getNation() << endl
@@ -1452,7 +1452,7 @@ void modifyCommentator() {
 
 // 打印解说员信息
 void printCommentator(Commentator c) {
-    cout << "===========解说员信息=" << endl
+    cout << "===========解说员信息============" << endl
         << "解说员编号: " << c.getNumber() << endl
         << "解说员姓名: " << c.getName() << endl
         << "解说员身份证号码: " << c.getId() << endl
@@ -1470,18 +1470,18 @@ void printCommentator(Commentator c) {
         << "解说员擅长解说内容: " << c.getContent() << endl
         << "解说员填报日期: " << c.getFillDate() << endl
         << "备注: " << c.getComment() << endl
-        << "=" << endl;
+        << "===================================" << endl;
 }
 
 // 解说员管理
 void commentatorPage() {
 _tips:
-    cout << "====解说员信息管理======" << endl
+    cout << "======解说员信息管理======" << endl
         << "[1] 添加解说员 " << endl
         << "[2] 删除解说员 " << endl
         << "[3] 修改解说员信息 " << endl
         << "[4] 查询所有解说员信息 " << endl
-        << "=======" << endl
+        << "================================" << endl
         << "请输入所需要进行的操作：";
     int function;
     cin >> function;
@@ -1839,7 +1839,7 @@ void modifyHotel() {
 
 // 打印酒店信息
 void printHotel(Hotel h) {
-    cout << "===========酒店信息=" << endl
+    cout << "===========酒店信息===========" << endl
         << "酒店编号: " << h.getNumber() << endl
         << "酒店名称: " << h.getName() << endl
         << "酒店星级: " << h.getStar() << endl
@@ -1856,7 +1856,7 @@ void printHotel(Hotel h) {
         << "酒店法人: " << h.getLegalPerson() << endl
         << "酒店法人身份证号码: " << h.getId() << endl
         << "酒店备注: " << h.getComment() << endl
-        << "=" << endl;
+        << "==================================" << endl;
 }
 
 // 酒店统计信息
@@ -1885,7 +1885,7 @@ _tips:
     cout << "[20] 支持卡类含国内发行银联卡的酒店数量" << endl;
     cout << "[21] 支持卡类含支付宝的酒店数量" << endl;
     cout << "[22] 支持卡类含微信的酒店数量" << endl;
-    cout << "=========================" << endl;
+    cout << "=============================" << endl;
     cout << "请输入所需要查询统计信息:";
     int choice;
     cin >> choice;
@@ -2140,7 +2140,7 @@ _tips:
         << "[3] 修改酒店信息 " << endl
         << "[4] 查询所有酒店信息 " << endl
         << "[5] 查询酒店统计信息" << endl
-        << "=======" << endl
+        << "========================" << endl
         << "请输入所需要进行的操作：";
     int function;
     cin >> function;
@@ -2542,7 +2542,7 @@ void printVolunteer(Volunteer v) {
     cout << "上岗地点: " << v.getPlace() << endl;
     cout << "填报日期: " << v.getFillDate() << endl;
     cout << "备注: " << v.getComment() << endl;
-    cout << "=" << endl;
+    cout << "==========================" << endl;
 }
 
 // 车站接待志愿者信息管理
@@ -2553,7 +2553,7 @@ _tips:
         << "[2] 删除志愿者 " << endl
         << "[3] 修改志愿者信息 " << endl
         << "[4] 查询所有志愿者信息 " << endl
-        << "=======" << endl
+        << "===============================" << endl
         << "请输入所需要进行的操作：";
     int function;
     cin >> function;
@@ -2750,7 +2750,7 @@ void printSecurity(SecurityPerson s) {
     cout << "上岗地点数量: " << s.getWorkPlaceCount() << endl;
     cout << "填报日期: " << s.getFillDate() << endl;
     cout << "备注: " << s.getComment() << endl;
-    cout << "=" << endl;
+    cout << "============================" << endl;
 }
 
 // 删除安全员
@@ -2791,7 +2791,7 @@ void modifySecurity() {
             cout << "[16] 上岗地点数量 " << endl;
             cout << "[17] 填报日期 " << endl;
             cout << "[18] 备注 " << endl;
-            cout << "=======" << endl;
+            cout << "============================" << endl;
             cout << "请输入要修改的信息的编号: ";
             int choice;
             cin >> choice;
@@ -2971,7 +2971,7 @@ _tips:
         << "[2] 删除安全员 " << endl
         << "[3] 修改安全员信息 " << endl
         << "[4] 查询所有安全员信息 " << endl
-        << "=======" << endl
+        << "======================" << endl
         << "请输入所需要进行的操作：";
     int function;
     cin >> function;
@@ -3172,7 +3172,7 @@ void printCarVolunteer(CarVolunteer cv) {
     cout << "志愿服务结束时间: " << cv.getServiceEndTime() << endl;
     cout << "填报日期: " << cv.getFillDate() << endl;
     cout << "备注: " << cv.getComment() << endl;
-    cout << "=" << endl;
+    cout << "============================" << endl;
 }
 
 // 删除车辆志愿者
@@ -3335,7 +3335,7 @@ _tips:
         << "[2] 删除车辆志愿者 " << endl
         << "[3] 修改车辆志愿者信息 " << endl
         << "[4] 查询所有车辆志愿者信息 " << endl
-        << "=======" << endl
+        << "=========================" << endl
         << "请输入所需要进行的操作：";
     int function;
     cin >> function;
