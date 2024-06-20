@@ -21,21 +21,21 @@ vector<SecurityPerson> securityPersons;
 vector<CarVolunteer> carVolunteers;
 
 void tips() {
-    cout << "====Ãÿ…´¬√”Œπ‹¿Ì–≈œ¢œµÕ≥====" << endl
-        << "[1] ≤Õ“˚…Ãº“–≈œ¢π‹¿Ì " << endl
-        << "[2] æ∞µ„–≈œ¢π‹¿Ì " << endl
-        << "[3] √˚◊ÂÃÿ…´—›“’π‹¿Ì " << endl
-        << "[4] Ω‚Àµ‘±π‹¿Ì " << endl
-        << "[5] æ∆µÍ±ˆπ›–≈œ¢π‹¿Ì " << endl
-        << "[6] ≥µ’æΩ”¥˝÷æ‘∏’ﬂ–≈œ¢π‹¿Ì " << endl
-        << "[7] ∞≤»´±£’œ»À‘±–≈œ¢π‹¿Ì" << endl
-        << "[8] ≥µ¡æ÷æ‘∏’ﬂπ‹¿Ì " << endl
-        << "[0] ÕÀ≥ˆ " << endl
+    cout << "====ÁâπËâ≤ÊóÖÊ∏∏ÁÆ°ÁêÜ‰ø°ÊÅØÁ≥ªÁªü====" << endl
+        << "[1] È§êÈ•ÆÂïÜÂÆ∂‰ø°ÊÅØÁÆ°ÁêÜ " << endl
+        << "[2] ÊôØÁÇπ‰ø°ÊÅØÁÆ°ÁêÜ " << endl
+        << "[3] ÂêçÊóèÁâπËâ≤ÊºîËâ∫ÁÆ°ÁêÜ " << endl
+        << "[4] Ëß£ËØ¥ÂëòÁÆ°ÁêÜ " << endl
+        << "[5] ÈÖíÂ∫óÂÆæÈ¶Ü‰ø°ÊÅØÁÆ°ÁêÜ " << endl
+        << "[6] ËΩ¶Á´ôÊé•ÂæÖÂøóÊÑøËÄÖ‰ø°ÊÅØÁÆ°ÁêÜ " << endl
+        << "[7] ÂÆâÂÖ®‰øùÈöú‰∫∫Âëò‰ø°ÊÅØÁÆ°ÁêÜ" << endl
+        << "[8] ËΩ¶ËæÜÂøóÊÑøËÄÖÁÆ°ÁêÜ " << endl
+        << "[0] ÈÄÄÂá∫ " << endl
         << "============================" << endl
-        << "«Î ‰»ÎÀ˘–Ë“™Ω¯»Îµƒ∂˛º∂“≥√Ê£∫";
+        << "ËØ∑ËæìÂÖ•ÊâÄÈúÄË¶ÅËøõÂÖ•ÁöÑ‰∫åÁ∫ßÈ°µÈù¢Ôºö";
 }
 
-// ºÏ≤È≤ÕÃ¸±‡∫≈ «∑Ò÷ÿ∏¥
+// Ê£ÄÊü•È§êÂéÖÁºñÂè∑ÊòØÂê¶ÈáçÂ§ç
 int checkRestruantNumber(int number) {
     for (Restruant r : restruants) {
         if (r.getNumber() == number) {
@@ -44,7 +44,7 @@ int checkRestruantNumber(int number) {
     }
     return 0;
 }
-// ¥¥Ω®≤ÕÃ¸
+// ÂàõÂª∫È§êÂéÖ
 Restruant createRestruant() {
     int number;
     string name, openTime, address, trafficStatus, cateringType, workTime, hasPerformance, leaglPerson, id, comment;
@@ -52,79 +52,79 @@ Restruant createRestruant() {
 
     Restruant r = Restruant();
 _number:
-    cout << "«Î ‰»Î≤ÕÃ¸±‡∫≈£∫";
+    cout << "ËØ∑ËæìÂÖ•È§êÂéÖÁºñÂè∑Ôºö";
     cin >> number;
     if (checkRestruantNumber(number) == 1) {
-        cout << "[Ã· æ]±‡∫≈“—÷ÿ∏¥£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ÁºñÂè∑Â∑≤ÈáçÂ§çÔºåËØ∑ÈáçËØï" << endl;
         goto _number;
     }
     r.setNumber(number);
 
-    cout << "«Î ‰»Î≤ÕÃ¸√˚≥∆£∫";
+    cout << "ËØ∑ËæìÂÖ•È§êÂéÖÂêçÁß∞Ôºö";
     cin >> name;
     r.setName(name);
 
-    cout << "«Î ‰»Î≤ÕÃ¸ø™“µ ±º‰ (yyyy-mm-dd)£∫";
+    cout << "ËØ∑ËæìÂÖ•È§êÂéÖÂºÄ‰∏öÊó∂Èó¥ (yyyy-mm-dd)Ôºö";
     cin >> openTime;
     r.setOpenTime(openTime);
 
 _roomType:
-    cout << "«Î ‰»Î∞¸œ·¿‡–Õ([1]10»À“‘œ¬æÕ≤Õ°¢[2]10-20»ÀæÕ≤Õ°¢[3]30»À“‘…œæÕ≤Õ)£∫";
+    cout << "ËØ∑ËæìÂÖ•ÂåÖÂé¢Á±ªÂûã([1]10‰∫∫‰ª•‰∏ãÂ∞±È§ê„ÄÅ[2]10-20‰∫∫Â∞±È§ê„ÄÅ[3]30‰∫∫‰ª•‰∏äÂ∞±È§ê)Ôºö";
     cin >> roomType;
     if (roomType < 1 || roomType > 3) {
-        cout << "[Ã· æ] ‰»Îµƒ ˝◊÷”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊï∞Â≠óÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
         goto _roomType;
     }
     r.setRoomType(roomType);
 
-    cout << "«Î ‰»Î∞¸œ· ˝¡ø£∫";
+    cout << "ËØ∑ËæìÂÖ•ÂåÖÂé¢Êï∞ÈáèÔºö";
     cin >> roomCount;
     r.setRoomCount(roomCount);
 
-    cout << "«Î ‰»ÎœÍœ∏µÿ÷∑£∫";
+    cout << "ËØ∑ËæìÂÖ•ËØ¶ÁªÜÂú∞ÂùÄÔºö";
     cin >> address;
     r.setAddress(address);
 
-    cout << "«Î ‰»ÎΩªÕ®◊¥øˆ (”µ∂¬°¢Õ®≥©)£∫";
+    cout << "ËØ∑ËæìÂÖ•‰∫§ÈÄöÁä∂ÂÜµ (Êã•Â†µ„ÄÅÈÄöÁïÖ)Ôºö";
     cin >> trafficStatus;
     r.setTrafficStatus(trafficStatus);
 
-    cout << "«Î ‰»Î≤Õ“˚÷÷¿‡ (“‘∂Ÿ∫≈∑÷∏Ó)£∫";
+    cout << "ËØ∑ËæìÂÖ•È§êÈ•ÆÁßçÁ±ª (‰ª•È°øÂè∑ÂàÜÂâ≤)Ôºö";
     cin >> cateringType;
     r.setCateringType(cateringType);
 
-    cout << "«Î ‰»Î”™“µ ±º‰ (HH:mm-HH:mm):";
+    cout << "ËØ∑ËæìÂÖ•Ëê•‰∏öÊó∂Èó¥ (HH:mm-HH:mm):";
     cin >> workTime;
     r.setWorkTime(workTime);
 
-    cout << "«Î ‰»Î”–Œﬁ—›“’±Ì—› (Œﬁ°¢”–)£∫";
+    cout << "ËØ∑ËæìÂÖ•ÊúâÊó†ÊºîËâ∫Ë°®Êºî (Êó†„ÄÅÊúâ)Ôºö";
     cin >> hasPerformance;
     r.setHasPerformance(hasPerformance);
 
-    cout << "«Î ‰»Î∆Ωæ˘œ˚∑—º€Œª£∫";
+    cout << "ËØ∑ËæìÂÖ•Âπ≥ÂùáÊ∂àË¥π‰ª∑‰ΩçÔºö";
     cin >> average;
     r.setAverage(average);
 
-    cout << "«Î ‰»Î≤ÕÃ¸∑®»À£∫";
+    cout << "ËØ∑ËæìÂÖ•È§êÂéÖÊ≥ï‰∫∫Ôºö";
     cin >> leaglPerson;
     r.setLegalPerson(leaglPerson);
 
 _id:
-    cout << "«Î ‰»Î∑®»À…Ì∑›÷§∫≈ (18Œª)£∫";
+    cout << "ËØ∑ËæìÂÖ•Ê≥ï‰∫∫Ë∫´‰ªΩËØÅÂè∑ (18‰Ωç)Ôºö";
     cin >> id;
     if (id.length() != 18) {
-        cout << "[Ã· æ] ‰»Îµƒ…Ì∑›÷§≥§∂»”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑË∫´‰ªΩËØÅÈïøÂ∫¶ÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
         goto _id;
     }
     r.setId(id);
 
-    cout << "«Î ‰»Î±∏◊¢£∫";
+    cout << "ËØ∑ËæìÂÖ•Â§áÊ≥®Ôºö";
     cin >> comment;
     r.setComment(comment);
     return r;
 }
 
-// ±£¥Ê≤ÕÃ¸
+// ‰øùÂ≠òÈ§êÂéÖ
 void saveRestruant() {
     ofstream file("restruant.txt");
     if (file.is_open()) {
@@ -142,24 +142,24 @@ void saveRestruant() {
                 << r.getAverage() << ","
                 << r.getLegalPerson() << ","
                 << r.getId() << ","
-                << r.getComment() << "\n"; // –ﬁ∏ƒªª––∑˚Œ™\n
+                << r.getComment() << "\n"; // ‰øÆÊîπÊç¢Ë°åÁ¨¶‰∏∫\n
         }
     }
     file.close();
 }
 
-// º”‘ÿ≤ÕÃ¸
+// Âä†ËΩΩÈ§êÂéÖ
 void loadRestruant() {
     ifstream file("restruant.txt");
     if (file.is_open()) {
-        while (file.good()) { // –ﬁ∏ƒÃıº˛Œ™file.good()
+        while (file.good()) { // ‰øÆÊîπÊù°‰ª∂‰∏∫file.good()
             int number;
             string name, openTime, address, trafficStatus, cateringType, workTime, hasPerformance, leaglPerson, id, comment;
             int roomType, roomCount, average;
 
             file >> number;
             file.ignore(); 
-            if (file.eof()) break; // »Áπ˚“—æ≠µΩ¥ÔŒƒº˛ƒ©Œ≤£¨Ã¯≥ˆ—≠ª∑
+            if (file.eof()) break; // Â¶ÇÊûúÂ∑≤ÁªèÂà∞ËææÊñá‰ª∂Êú´Â∞æÔºåË∑≥Âá∫Âæ™ÁéØ
             getline(file, name, ',');
             getline(file, openTime, ',');
             file >> roomType;
@@ -175,7 +175,7 @@ void loadRestruant() {
             file.ignore(); 
             getline(file, leaglPerson, ',');
             getline(file, id, ',');
-            getline(file, comment, '\n'); // –ﬁ∏ƒ∂¡»°∑÷∏Ù∑˚Œ™\n
+            getline(file, comment, '\n'); // ‰øÆÊîπËØªÂèñÂàÜÈöîÁ¨¶‰∏∫\n
 
             Restruant r = Restruant();
             r.setNumber(number);
@@ -198,7 +198,7 @@ void loadRestruant() {
     file.close();
 }
 
-// …æ≥˝≤ÕÃ¸
+// Âà†Èô§È§êÂéÖ
 void removeRestruant(int number) {
     for (int i = 0; i < restruants.size(); i++) {
         if (restruants.at(i).getNumber() == number) {
@@ -208,32 +208,32 @@ void removeRestruant(int number) {
     }
 }
 
-// –ﬁ∏ƒ≤ÕÃ¸–≈œ¢
+// ‰øÆÊîπÈ§êÂéÖ‰ø°ÊÅØ
 void modifyRestruant() {
     int number;
-    cout << "«Î ‰»Î“™–ﬁ∏ƒµƒ≤ÕÃ¸±‡∫≈£∫";
+    cout << "ËØ∑ËæìÂÖ•Ë¶Å‰øÆÊîπÁöÑÈ§êÂéÖÁºñÂè∑Ôºö";
     cin >> number;
 
-    // ºÏ≤È≤ÕÃ¸±‡∫≈ «∑Ò¥Ê‘⁄
+    // Ê£ÄÊü•È§êÂéÖÁºñÂè∑ÊòØÂê¶Â≠òÂú®
     int found = 0;
     for (Restruant& r : restruants) {
         if (r.getNumber() == number) {
             found = 1;
-            cout << "—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢£∫" << endl;
-            cout << "[1] ≤ÕÃ¸√˚≥∆" << endl;
-            cout << "[2] ≤ÕÃ¸ø™“µ ±º‰" << endl;
-            cout << "[3] ∞¸œ·¿‡–Õ" << endl;
-            cout << "[4] ∞¸œ· ˝¡ø" << endl;
-            cout << "[5] œÍœ∏µÿ÷∑" << endl;
-            cout << "[6] ΩªÕ®◊¥øˆ" << endl;
-            cout << "[7] ≤Õ“˚÷÷¿‡" << endl;
-            cout << "[8] ”™“µ ±º‰" << endl;
-            cout << "[9] ”–Œﬁ—›“’±Ì—›" << endl;
-            cout << "[10] ∆Ωæ˘œ˚∑—º€Œª" << endl;
-            cout << "[11] ≤ÕÃ¸∑®»À" << endl;
-            cout << "[12] ∑®»À…Ì∑›÷§∫≈" << endl;
-            cout << "[13] ±∏◊¢" << endl;
-            cout << "«Î—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢–Ú∫≈£∫";
+            cout << "ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÔºö" << endl;
+            cout << "[1] È§êÂéÖÂêçÁß∞" << endl;
+            cout << "[2] È§êÂéÖÂºÄ‰∏öÊó∂Èó¥" << endl;
+            cout << "[3] ÂåÖÂé¢Á±ªÂûã" << endl;
+            cout << "[4] ÂåÖÂé¢Êï∞Èáè" << endl;
+            cout << "[5] ËØ¶ÁªÜÂú∞ÂùÄ" << endl;
+            cout << "[6] ‰∫§ÈÄöÁä∂ÂÜµ" << endl;
+            cout << "[7] È§êÈ•ÆÁßçÁ±ª" << endl;
+            cout << "[8] Ëê•‰∏öÊó∂Èó¥" << endl;
+            cout << "[9] ÊúâÊó†ÊºîËâ∫Ë°®Êºî" << endl;
+            cout << "[10] Âπ≥ÂùáÊ∂àË¥π‰ª∑‰Ωç" << endl;
+            cout << "[11] È§êÂéÖÊ≥ï‰∫∫" << endl;
+            cout << "[12] Ê≥ï‰∫∫Ë∫´‰ªΩËØÅÂè∑" << endl;
+            cout << "[13] Â§áÊ≥®" << endl;
+            cout << "ËØ∑ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÂ∫èÂè∑Ôºö";
 
             int choice;
             cin >> choice;
@@ -241,24 +241,24 @@ void modifyRestruant() {
             switch (choice) {
             case 1: {
                 string name;
-                cout << "«Î ‰»Î–¬µƒ≤ÕÃ¸√˚≥∆£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈ§êÂéÖÂêçÁß∞Ôºö";
                 cin >> name;
                 r.setName(name);
                 break;
             }
             case 2: {
                 string openTime;
-                cout << "«Î ‰»Î–¬µƒ≤ÕÃ¸ø™“µ ±º‰ (yyyy-mm-dd)£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈ§êÂéÖÂºÄ‰∏öÊó∂Èó¥ (yyyy-mm-dd)Ôºö";
                 cin >> openTime;
                 r.setOpenTime(openTime);
                 break;
             }
             case 3: {
                 int roomType;
-                cout << "«Î ‰»Î–¬µƒ∞¸œ·¿‡–Õ([1]10»À“‘œ¬æÕ≤Õ°¢[2]10-20»ÀæÕ≤Õ°¢[3]30»À“‘…œæÕ≤Õ)£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂåÖÂé¢Á±ªÂûã([1]10‰∫∫‰ª•‰∏ãÂ∞±È§ê„ÄÅ[2]10-20‰∫∫Â∞±È§ê„ÄÅ[3]30‰∫∫‰ª•‰∏äÂ∞±È§ê)Ôºö";
                 cin >> roomType;
                 if (roomType < 1 || roomType > 3) {
-                    cout << "[Ã· æ] ‰»Îµƒ ˝◊÷”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+                    cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊï∞Â≠óÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
                     break;
                 }
                 r.setRoomType(roomType);
@@ -266,66 +266,66 @@ void modifyRestruant() {
             }
             case 4: {
                 int roomCount;
-                cout << "«Î ‰»Î–¬µƒ∞¸œ· ˝¡ø£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂåÖÂé¢Êï∞ÈáèÔºö";
                 cin >> roomCount;
                 r.setRoomCount(roomCount);
                 break;
             }
             case 5: {
                 string address;
-                cout << "«Î ‰»Î–¬µƒœÍœ∏µÿ÷∑£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËØ¶ÁªÜÂú∞ÂùÄÔºö";
                 cin >> address;
                 r.setAddress(address);
                 break;
             }
             case 6: {
                 string trafficStatus;
-                cout << "«Î ‰»Î–¬µƒΩªÕ®◊¥øˆ (”µ∂¬°¢Õ®≥©)£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑ‰∫§ÈÄöÁä∂ÂÜµ (Êã•Â†µ„ÄÅÈÄöÁïÖ)Ôºö";
                 cin >> trafficStatus;
                 r.setTrafficStatus(trafficStatus);
                 break;
             }
             case 7: {
                 string cateringType;
-                cout << "«Î ‰»Î–¬µƒ≤Õ“˚÷÷¿‡ (“‘∂Ÿ∫≈∑÷∏Ó)£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈ§êÈ•ÆÁßçÁ±ª (‰ª•È°øÂè∑ÂàÜÂâ≤)Ôºö";
                 cin >> cateringType;
                 r.setCateringType(cateringType);
                 break;
             }
             case 8: {
                 string workTime;
-                cout << "«Î ‰»Î–¬µƒ”™“µ ±º‰ (HH:mm-HH:mm):";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËê•‰∏öÊó∂Èó¥ (HH:mm-HH:mm):";
                 cin >> workTime;
                 r.setWorkTime(workTime);
                 break;
             }
             case 9: {
                 string hasPerformance;
-                cout << "«Î ‰»Î–¬µƒ”–Œﬁ—›“’±Ì—› (Œﬁ°¢”–)£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊúâÊó†ÊºîËâ∫Ë°®Êºî (Êó†„ÄÅÊúâ)Ôºö";
                 cin >> hasPerformance;
                 r.setHasPerformance(hasPerformance);
                 break;
             }
             case 10: {
                 int average;
-                cout << "«Î ‰»Î–¬µƒ∆Ωæ˘œ˚∑—º€Œª£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂπ≥ÂùáÊ∂àË¥π‰ª∑‰ΩçÔºö";
                 cin >> average;
                 r.setAverage(average);
                 break;
             }
             case 11: {
                 string leaglPerson;
-                cout << "«Î ‰»Î–¬µƒ≤ÕÃ¸∑®»À£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈ§êÂéÖÊ≥ï‰∫∫Ôºö";
                 cin >> leaglPerson;
                 r.setLegalPerson(leaglPerson);
                 break;
             }
             case 12: {
                 string id;
-                cout << "«Î ‰»Î–¬µƒ∑®»À…Ì∑›÷§∫≈ (18Œª)£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊ≥ï‰∫∫Ë∫´‰ªΩËØÅÂè∑ (18‰Ωç)Ôºö";
                 cin >> id;
                 if (id.length() != 18) {
-                    cout << "[Ã· æ] ‰»Îµƒ…Ì∑›÷§≥§∂»”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+                    cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑË∫´‰ªΩËØÅÈïøÂ∫¶ÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
                     break;
                 }
                 r.setId(id);
@@ -333,72 +333,72 @@ void modifyRestruant() {
             }
             case 13: {
                 string comment;
-                cout << "«Î ‰»Î–¬µƒ±∏◊¢£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂ§áÊ≥®Ôºö";
                 cin >> comment;
                 r.setComment(comment);
                 break;
             }
             default:
-                cout << "[Ã· æ] ‰»Îµƒ—°œÓŒﬁ–ß£°" << endl;
+                cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÈÄâÈ°πÊó†ÊïàÔºÅ" << endl;
             }
         }
     }
     if (found == 0) {
-        cout << "[Ã· æ] ‰»Îµƒ≤ÕÃ¸±‡∫≈≤ª¥Ê‘⁄£°" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÈ§êÂéÖÁºñÂè∑‰∏çÂ≠òÂú®ÔºÅ" << endl;
     }
     else {
-        cout << "[Ã· æ]–ﬁ∏ƒ≥…π¶£°" << endl;
+        cout << "[ÊèêÁ§∫]‰øÆÊîπÊàêÂäüÔºÅ" << endl;
 
     }
 }
 
-// ¥Ú”°≤ÕÃ¸–≈œ¢
+// ÊâìÂç∞È§êÂéÖ‰ø°ÊÅØ
 void printRestruant(Restruant r) {
     string roomType;
     switch (r.getRoomType()) {
     case 1:
-        roomType = "10»À“‘œ¬æÕ≤Õ";
+        roomType = "10‰∫∫‰ª•‰∏ãÂ∞±È§ê";
         break;
     case 2:
-        roomType = "10-20»ÀæÕ≤Õ";
+        roomType = "10-20‰∫∫Â∞±È§ê";
         break;
     case 3:
-        roomType = "30»À“‘…œæÕ≤Õ";
+        roomType = "30‰∫∫‰ª•‰∏äÂ∞±È§ê";
         break;
     }
-    cout << "===============≤ÕÃ¸–≈œ¢==============" << endl
-        << "≤ÕÃ¸±‡∫≈: " << r.getNumber() << endl
-        << "≤ÕÃ¸√˚≥∆: " << r.getName() << endl
-        << "ø™“µ ±º‰: " << r.getOpenTime() << endl
-        << "∞¸º‰¿‡–Õ: " << roomType << endl
-        << "∞¸º‰ ˝¡ø: " << r.getRoomCount() << endl
-        << "œÍœ∏µÿ÷∑: " << r.getAddress() << endl
-        << "ΩªÕ®«Èøˆ: " << r.getTrafficStatus() << endl
-        << "≤Õ“˚÷÷¿‡: " << r.getCateringType() << endl
-        << "”™“µ ±º‰: " << r.getWorkTime() << endl
-        << "”–Œﬁ—›“’±Ì—›: " << r.getHasPerformance() << endl
-        << "∆Ωæ˘œ˚∑—º€Œª: " << r.getAverage() << endl
-        << "≤ÕÃ¸∑®»À: " << r.getLegalPerson() << endl
-        << "≤ÕÃ¸∑®»À…Ì∑›÷§∫≈" << r.getId() << endl
-        << "±∏◊¢: " << r.getComment() << endl
+    cout << "===============È§êÂéÖ‰ø°ÊÅØ==============" << endl
+        << "È§êÂéÖÁºñÂè∑: " << r.getNumber() << endl
+        << "È§êÂéÖÂêçÁß∞: " << r.getName() << endl
+        << "ÂºÄ‰∏öÊó∂Èó¥: " << r.getOpenTime() << endl
+        << "ÂåÖÈó¥Á±ªÂûã: " << roomType << endl
+        << "ÂåÖÈó¥Êï∞Èáè: " << r.getRoomCount() << endl
+        << "ËØ¶ÁªÜÂú∞ÂùÄ: " << r.getAddress() << endl
+        << "‰∫§ÈÄöÊÉÖÂÜµ: " << r.getTrafficStatus() << endl
+        << "È§êÈ•ÆÁßçÁ±ª: " << r.getCateringType() << endl
+        << "Ëê•‰∏öÊó∂Èó¥: " << r.getWorkTime() << endl
+        << "ÊúâÊó†ÊºîËâ∫Ë°®Êºî: " << r.getHasPerformance() << endl
+        << "Âπ≥ÂùáÊ∂àË¥π‰ª∑‰Ωç: " << r.getAverage() << endl
+        << "È§êÂéÖÊ≥ï‰∫∫: " << r.getLegalPerson() << endl
+        << "È§êÂéÖÊ≥ï‰∫∫Ë∫´‰ªΩËØÅÂè∑" << r.getId() << endl
+        << "Â§áÊ≥®: " << r.getComment() << endl
         << "=====================================" << endl;
 }
 
-// ≤ÕÃ¸Õ≥º∆–≈œ¢
+// È§êÂéÖÁªüËÆ°‰ø°ÊÅØ
 void countRestaurantsByCondition() {
     _tips:
-    cout << "========Õ≥º∆–≈œ¢========" << endl;
-    cout << "[1] 10»À“‘œ¬æÕ≤Õ" << endl;
-    cout << "[2] 10-20»ÀæÕ≤Õ" << endl;
-    cout << "[3] 30»À“‘…œæÕ≤Õ" << endl;
-    cout << "[4] ΩªÕ®≥©Õ®" << endl;
-    cout << "[5] ΩªÕ®”µ∂¬" << endl;
+    cout << "========ÁªüËÆ°‰ø°ÊÅØ========" << endl;
+    cout << "[1] 10‰∫∫‰ª•‰∏ãÂ∞±È§ê" << endl;
+    cout << "[2] 10-20‰∫∫Â∞±È§ê" << endl;
+    cout << "[3] 30‰∫∫‰ª•‰∏äÂ∞±È§ê" << endl;
+    cout << "[4] ‰∫§ÈÄöÁïÖÈÄö" << endl;
+    cout << "[5] ‰∫§ÈÄöÊã•Â†µ" << endl;
     cout << "=========================" << endl;
-    cout << "«Î ‰»Î–Ë“™Õ≥º∆µƒÃıº˛£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈúÄË¶ÅÁªüËÆ°ÁöÑÊù°‰ª∂Ôºö";
     int condition;
     cin >> condition;
     if (condition > 5 || condition < 1) {
-        cout << "[Ã· æ] ‰»Îµƒ ˝◊÷”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊï∞Â≠óÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
         goto _tips;
     }
     int count1 = 0;
@@ -407,84 +407,85 @@ void countRestaurantsByCondition() {
     int count4 = 0;
     int count5 = 0;
     switch (condition) {
-    case 1: // 10»À“‘œ¬æÕ≤Õ
+    case 1: // 10‰∫∫‰ª•‰∏ãÂ∞±È§ê
         for (Restruant r : restruants) {
             if (r.getRoomType() == 1) {
                 count1++;
             }
         }
-        cout << "10»À“‘œ¬æÕ≤Õµƒ≤ÕÃ¸ ˝¡ø£∫" << count1 << endl;
+        cout << "10‰∫∫‰ª•‰∏ãÂ∞±È§êÁöÑÈ§êÂéÖÊï∞ÈáèÔºö" << count1 << endl;
         break;
-    case 2: // 10-20»ÀæÕ≤Õ
+    case 2: // 10-20‰∫∫Â∞±È§ê
         for (Restruant r : restruants) {
             if (r.getRoomType() == 2) {
                 count2++;
             }
         }
-        cout << "10-20»ÀæÕ≤Õµƒ≤ÕÃ¸ ˝¡ø£∫" << count2 << endl;
+        cout << "10-20‰∫∫Â∞±È§êÁöÑÈ§êÂéÖÊï∞ÈáèÔºö" << count2 << endl;
         break;
-    case 3: // 30»À“‘…œæÕ≤Õ
+    case 3: // 30‰∫∫‰ª•‰∏äÂ∞±È§ê
         for (Restruant r : restruants) {
             if (r.getRoomType() == 3) {
                 count3++;
             }
         }
-        cout << "30»À“‘…œæÕ≤Õµƒ≤ÕÃ¸ ˝¡ø£∫" << count3 << endl;
+        cout << "30‰∫∫‰ª•‰∏äÂ∞±È§êÁöÑÈ§êÂéÖÊï∞ÈáèÔºö" << count3 << endl;
         break;
-    case 4: // ΩªÕ®≥©Õ®
+    case 4: // ‰∫§ÈÄöÁïÖÈÄö
         for (Restruant r : restruants) {
-            if (r.getTrafficStatus() == "Õ®≥©") {
+            if (r.getTrafficStatus() == "ÈÄöÁïÖ") {
                 count4++;
             }
         }
-        cout << "ΩªÕ®≥©Õ®µƒ≤ÕÃ¸ ˝¡ø£∫" << count4 << endl;
+        cout << "‰∫§ÈÄöÁïÖÈÄöÁöÑÈ§êÂéÖÊï∞ÈáèÔºö" << count4 << endl;
         break;
-    case 5: // ΩªÕ®”µ∂¬
+    case 5: // ‰∫§ÈÄöÊã•Â†µ
         for (Restruant r : restruants) {
-            if (r.getTrafficStatus() == "”µ∂¬") {
+            if (r.getTrafficStatus() == "Êã•Â†µ") {
                 count5++;
             }
         }
-        cout << "ΩªÕ®”µ∂¬µƒ≤ÕÃ¸ ˝¡ø£∫" << count5 << endl;
+        cout << "‰∫§ÈÄöÊã•Â†µÁöÑÈ§êÂéÖÊï∞ÈáèÔºö" << count5 << endl;
         break;
     }
 }
 
-// ≤Õ“˚…Ãº“–≈œ¢π‹¿Ì
+// È§êÈ•ÆÂïÜÂÆ∂‰ø°ÊÅØÁÆ°ÁêÜ
 void cateringPage() {
 _tips:
-    cout << "====≤Õ“˚…Ãº“–≈œ¢π‹¿Ì====" << endl
-        << "[1] ÃÌº”≤ÕÃ¸ " << endl
-        << "[2] …æ≥˝≤ÕÃ¸ " << endl
-        << "[3] –ﬁ∏ƒ≤ÕÃ¸–≈œ¢ " << endl
-        << "[4] ≤È—ØÀ˘”–≤ÕÃ¸–≈œ¢ " << endl
-        << "[5] ≤È—ØÕ≥º∆–≈œ¢ " << endl
+    cout << "====È§êÈ•ÆÂïÜÂÆ∂‰ø°ÊÅØÁÆ°ÁêÜ====" << endl
+        << "[1] Ê∑ªÂä†È§êÂéÖ " << endl
+        << "[2] Âà†Èô§È§êÂéÖ " << endl
+        << "[3] ‰øÆÊîπÈ§êÂéÖ‰ø°ÊÅØ " << endl
+        << "[4] Êü•ËØ¢ÊâÄÊúâÈ§êÂéÖ‰ø°ÊÅØ " << endl
+        << "[5] Êü•ËØ¢ÁªüËÆ°‰ø°ÊÅØ " << endl
         << "============================" << endl
-        << "«Î ‰»ÎÀ˘–Ë“™Ω¯––µƒ≤Ÿ◊˜£∫";
+        << "ËØ∑ËæìÂÖ•ÊâÄÈúÄË¶ÅËøõË°åÁöÑÊìç‰ΩúÔºö";
     int function;
     cin >> function;
     if (function > 6 || function < 1) {
-        cout << "[Ã· æ] ‰»Îµƒ ˝◊÷”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊï∞Â≠óÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
         goto _tips;
     }
     switch (function) {
     case 1:
         restruants.push_back(createRestruant());
         saveRestruant();
-        cout << "[Ã· æ]ÃÌº”≥…π¶! " << endl;
+        cout << "[ÊèêÁ§∫]Ê∑ªÂä†ÊàêÂäü! " << endl;
         break;
     case 2:
         int number;
     _remove:
-        cout << "[…˜÷ÿ]«Î ‰»Î–Ë“™…æ≥˝µƒ≤ÕÃ¸µƒ±‡∫≈: ";
+        cout << "[ÊÖéÈáç]ËØ∑ËæìÂÖ•ÈúÄË¶ÅÂà†Èô§ÁöÑÈ§êÂéÖÁöÑÁºñÂè∑: ";
         cin >> number;
         if (checkRestruantNumber(number) != 1) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑ÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
             goto _remove;
         }
         removeRestruant(number);
         saveRestruant();
-        cout << "[Ã· æ]…æ≥˝ÕÍ≥…! ";
+        cout << "[ÊèêÁ§∫]Âà†Èô§ÂÆåÊàê! ";
+        break;
     case 3:
         modifyRestruant();
         saveRestruant();
@@ -501,7 +502,7 @@ _tips:
     }
 }
 
-// ºÏ≤Èæ∞µ„±‡∫≈ «∑Ò¥Ê‘⁄
+// Ê£ÄÊü•ÊôØÁÇπÁºñÂè∑ÊòØÂê¶Â≠òÂú®
 int checkScenceNumber(int number) {
     for (Scence s : scences) {
         if (s.getNumber() == number) {
@@ -511,54 +512,54 @@ int checkScenceNumber(int number) {
     return 0;
 }
 
-// ¥¥Ω®æ∞µ„
+// ÂàõÂª∫ÊôØÁÇπ
 Scence createScence() {
     _number:
     int number;
-    cout << "«Î ‰»Îæ∞µ„±‡∫≈£∫";
+    cout << "ËØ∑ËæìÂÖ•ÊôØÁÇπÁºñÂè∑Ôºö";
     cin >> number;
     if (checkScenceNumber(number) == 1) {
-        cout << "[Ã· æ] ‰»Îµƒæ∞µ„±‡∫≈“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊôØÁÇπÁºñÂè∑Â∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
         goto _number;
     }
     string name;
-    cout << "«Î ‰»Îæ∞µ„√˚≥∆£∫";
+    cout << "ËØ∑ËæìÂÖ•ÊôØÁÇπÂêçÁß∞Ôºö";
     cin >> name;
     string address;
-    cout << "«Î ‰»Îæ∞µ„µÿ÷∑£∫";
+    cout << "ËØ∑ËæìÂÖ•ÊôØÁÇπÂú∞ÂùÄÔºö";
     cin >> address;
     string feature;
-    cout << "«Î ‰»Îæ∞µ„Ãÿ…´£∫";
+    cout << "ËØ∑ËæìÂÖ•ÊôØÁÇπÁâπËâ≤Ôºö";
     cin >> feature;
     string traffic;
-    cout << "«Î ‰»Îæ∞µ„ΩªÕ®£∫";
+    cout << "ËØ∑ËæìÂÖ•ÊôØÁÇπ‰∫§ÈÄöÔºö";
     cin >> traffic;
     string openTime;
-    cout << "«Î ‰»Îæ∞µ„ø™∑≈ ±º‰ (HH:mm-HH:mm)£∫";
+    cout << "ËØ∑ËæìÂÖ•ÊôØÁÇπÂºÄÊîæÊó∂Èó¥ (HH:mm-HH:mm)Ôºö";
     cin >> openTime;
     int capacity;
-    cout << "«Î ‰»Îæ∞µ„»›ƒ…»À ˝£∫";
+    cout << "ËØ∑ËæìÂÖ•ÊôØÁÇπÂÆπÁ∫≥‰∫∫Êï∞Ôºö";
     cin >> capacity;
     double price;
-    cout << "«Î ‰»Îæ∞µ„√≈∆±º€∏Ò£∫";
+    cout << "ËØ∑ËæìÂÖ•ÊôØÁÇπÈó®Á•®‰ª∑Ê†ºÔºö";
     cin >> price;
     double recommend;
-    cout << "«Î ‰»Îæ∞µ„Õ∆ºˆ∂»£∫";
+    cout << "ËØ∑ËæìÂÖ•ÊôØÁÇπÊé®ËçêÂ∫¶Ôºö";
     cin >> recommend;
     double waitTime;
-    cout << "«Î ‰»Îæ∞µ„»Î≥°∆Ωæ˘µ»¥˝ ±º‰£∫";
+    cout << "ËØ∑ËæìÂÖ•ÊôØÁÇπÂÖ•Âú∫Âπ≥ÂùáÁ≠âÂæÖÊó∂Èó¥Ôºö";
     cin >> waitTime;
     string notice;
-    cout << "«Î ‰»Îæ∞µ„”Œ¿¿◊¢“‚ ¬œÓ£∫";
+    cout << "ËØ∑ËæìÂÖ•ÊôØÁÇπÊ∏∏ËßàÊ≥®ÊÑè‰∫ãÈ°πÔºö";
     cin >> notice;
     string comment;
-    cout << "«Î ‰»Î±∏◊¢£∫";
+    cout << "ËØ∑ËæìÂÖ•Â§áÊ≥®Ôºö";
     cin >> comment;
     Scence s = Scence(number, name, address, feature, traffic, openTime, capacity, price, recommend, waitTime, notice, comment);
     return s;
 }
 
-// ±£¥Êæ∞µ„
+// ‰øùÂ≠òÊôØÁÇπ
 void saveScence() {
     ofstream file("scence.txt");
     if (file.is_open()) {
@@ -574,13 +575,13 @@ void saveScence() {
                 << s.getRecommend() << ","
                 << s.getWaitTime() << ","
                 << s.getNotice() << ","
-                << s.getComment() << "\n"; // –ﬁ∏ƒªª––∑˚Œ™\n
+                << s.getComment() << "\n"; // ‰øÆÊîπÊç¢Ë°åÁ¨¶‰∏∫\n
         }
     }
     file.close();
 }
 
-// º”‘ÿæ∞µ„
+// Âä†ËΩΩÊôØÁÇπ
 void loadScence() {
     ifstream file("scence.txt");
     if (file.is_open()) {
@@ -613,7 +614,7 @@ void loadScence() {
     file.close();
 }
 
-// …æ≥˝æ∞µ„
+// Âà†Èô§ÊôØÁÇπ
 void removeScence(int number) {
     for (int i = 0; i < scences.size(); i++) {
         if (scences[i].getNumber() == number) {
@@ -623,30 +624,30 @@ void removeScence(int number) {
     }
 }
 
-// –ﬁ∏ƒæ∞µ„–≈œ¢
+// ‰øÆÊîπÊôØÁÇπ‰ø°ÊÅØ
 void modifyScence() {
     int number;
-    cout << "«Î ‰»Î“™–ﬁ∏ƒµƒæ∞µ„±‡∫≈£∫";
+    cout << "ËØ∑ËæìÂÖ•Ë¶Å‰øÆÊîπÁöÑÊôØÁÇπÁºñÂè∑Ôºö";
     cin >> number;
 
-    // ºÏ≤Èæ∞µ„±‡∫≈ «∑Ò¥Ê‘⁄
+    // Ê£ÄÊü•ÊôØÁÇπÁºñÂè∑ÊòØÂê¶Â≠òÂú®
     int found = 0;
     for (Scence& s : scences) {
         if (s.getNumber() == number) {
             found = 1;
-            cout << "—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢£∫" << endl;
-            cout << "[1] æ∞µ„√˚≥∆" << endl;
-            cout << "[2] æ∞µ„µÿ÷∑" << endl;
-            cout << "[3] æ∞µ„Ãÿ…´" << endl;
-            cout << "[4] æ∞µ„ΩªÕ®" << endl;
-            cout << "[5] æ∞µ„ø™∑≈ ±º‰" << endl;
-            cout << "[6] æ∞µ„»›ƒ…»À ˝" << endl;
-            cout << "[7] æ∞µ„√≈∆±º€∏Ò" << endl;
-            cout << "[8] æ∞µ„Õ∆ºˆ∂»" << endl;
-            cout << "[9] æ∞µ„»Î≥°∆Ωæ˘µ»¥˝ ±º‰" << endl;
-            cout << "[10] æ∞µ„”Œ¿¿◊¢“‚ ¬œÓ" << endl;
-            cout << "[11] ±∏◊¢" << endl;
-            cout << "«Î—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢–Ú∫≈£∫";
+            cout << "ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÔºö" << endl;
+            cout << "[1] ÊôØÁÇπÂêçÁß∞" << endl;
+            cout << "[2] ÊôØÁÇπÂú∞ÂùÄ" << endl;
+            cout << "[3] ÊôØÁÇπÁâπËâ≤" << endl;
+            cout << "[4] ÊôØÁÇπ‰∫§ÈÄö" << endl;
+            cout << "[5] ÊôØÁÇπÂºÄÊîæÊó∂Èó¥" << endl;
+            cout << "[6] ÊôØÁÇπÂÆπÁ∫≥‰∫∫Êï∞" << endl;
+            cout << "[7] ÊôØÁÇπÈó®Á•®‰ª∑Ê†º" << endl;
+            cout << "[8] ÊôØÁÇπÊé®ËçêÂ∫¶" << endl;
+            cout << "[9] ÊôØÁÇπÂÖ•Âú∫Âπ≥ÂùáÁ≠âÂæÖÊó∂Èó¥" << endl;
+            cout << "[10] ÊôØÁÇπÊ∏∏ËßàÊ≥®ÊÑè‰∫ãÈ°π" << endl;
+            cout << "[11] Â§áÊ≥®" << endl;
+            cout << "ËØ∑ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÂ∫èÂè∑Ôºö";
 
             int choice;
             cin >> choice;
@@ -654,147 +655,147 @@ void modifyScence() {
             switch (choice) {
             case 1: {
                 string name;
-                cout << "«Î ‰»Î–¬µƒæ∞µ„√˚≥∆£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊôØÁÇπÂêçÁß∞Ôºö";
                 cin >> name;
                 s.setName(name);
                 break;
             }
             case 2: {
                 string address;
-                cout << "«Î ‰»Î–¬µƒæ∞µ„µÿ÷∑£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊôØÁÇπÂú∞ÂùÄÔºö";
                 cin >> address;
                 s.setAddress(address);
                 break;
             }
             case 3: {
                 string feature;
-                cout << "«Î ‰»Î–¬µƒæ∞µ„Ãÿ…´£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊôØÁÇπÁâπËâ≤Ôºö";
                 cin >> feature;
                 s.setFeature(feature);
                 break;
             }
             case 4: {
                 string traffic;
-                cout << "«Î ‰»Î–¬µƒæ∞µ„ΩªÕ®£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊôØÁÇπ‰∫§ÈÄöÔºö";
                 cin >> traffic;
                 s.setTraffic(traffic);
                 break;
             }
             case 5: {
                 string openTime;
-                cout << "«Î ‰»Î–¬µƒæ∞µ„ø™∑≈ ±º‰£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊôØÁÇπÂºÄÊîæÊó∂Èó¥Ôºö";
                 cin >> openTime;
                 s.setOpenTime(openTime);
                 break;
             }
             case 6: {
                 int capacity;
-                cout << "«Î ‰»Î–¬µƒæ∞µ„»›ƒ…»À ˝£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊôØÁÇπÂÆπÁ∫≥‰∫∫Êï∞Ôºö";
                 cin >> capacity;
                 s.setCapacity(capacity);
                 break;
             }
             case 7: {
                 double price;    
-                cout << "«Î ‰»Î–¬µƒæ∞µ„√≈∆±º€∏Ò£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊôØÁÇπÈó®Á•®‰ª∑Ê†ºÔºö";
                 cin >> price;
                 s.setPrice(price);
                 break;
             }
             case 8: {
                 double recommend;
-                cout << "«Î ‰»Î–¬µƒæ∞µ„Õ∆ºˆ∂»£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊôØÁÇπÊé®ËçêÂ∫¶Ôºö";
                 cin >> recommend;
                 s.setRecommend(recommend);
                 break;
             }
             case 9: {
                 double waitTime;
-                cout << "«Î ‰»Î–¬µƒæ∞µ„»Î≥°∆Ωæ˘µ»¥˝ ±º‰£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊôØÁÇπÂÖ•Âú∫Âπ≥ÂùáÁ≠âÂæÖÊó∂Èó¥Ôºö";
                 cin >> waitTime;
                 s.setWaitTime(waitTime);
                 break;
             }
             case 10: {
                 string notice;
-                cout << "«Î ‰»Î–¬µƒæ∞µ„”Œ¿¿◊¢“‚ ¬œÓ£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊôØÁÇπÊ∏∏ËßàÊ≥®ÊÑè‰∫ãÈ°πÔºö";
                 cin >> notice;
                 s.setNotice(notice);
                 break;
             }
             case 11: {
                 string comment;
-                cout << "«Î ‰»Î–¬µƒ±∏◊¢£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂ§áÊ≥®Ôºö";
                 cin >> comment;
                 s.setComment(comment);
                 break;
             }
             default:
-                cout << "[Ã· æ] ‰»Îµƒ—°œÓŒﬁ–ß£°" << endl;
+                cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÈÄâÈ°πÊó†ÊïàÔºÅ" << endl;
             }
         }
     }
     if (found == 0) {
-        cout << "[Ã· æ] ‰»Îµƒæ∞µ„±‡∫≈≤ª¥Ê‘⁄£°" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊôØÁÇπÁºñÂè∑‰∏çÂ≠òÂú®ÔºÅ" << endl;
     }
     else {
-        cout << "[Ã· æ]–ﬁ∏ƒ≥…π¶£°" << endl;
+        cout << "[ÊèêÁ§∫]‰øÆÊîπÊàêÂäüÔºÅ" << endl;
 
     }
 }
 
-// ¥Ú”°æ∞µ„–≈œ¢
+// ÊâìÂç∞ÊôØÁÇπ‰ø°ÊÅØ
 void printScence(Scence s) {
-    cout << "===========æ∞µ„–≈œ¢===========" << endl
-        << "æ∞µ„±‡∫≈: " << s.getNumber() << endl
-        << "æ∞µ„√˚≥∆: " << s.getName() << endl
-        << "æ∞µ„µÿ÷∑: " << s.getAddress() << endl
-        << "æ∞µ„Ãÿ…´: " << s.getFeature() << endl
-        << "æ∞µ„ΩªÕ®: " << s.getTraffic() << endl
-        << "æ∞µ„ø™∑≈ ±º‰: " << s.getOpenTime() << endl
-        << "æ∞µ„»›ƒ…»À ˝: " << s.getCapacity() << endl
-        << "æ∞µ„√≈∆±º€∏Ò: " << s.getPrice() << endl
-        << "æ∞µ„Õ∆ºˆ∂»: " << s.getRecommend() << endl
-        << "æ∞µ„»Î≥°∆Ωæ˘µ»¥˝ ±º‰: " << s.getWaitTime() << endl
-        << "æ∞µ„”Œ¿¿◊¢“‚ ¬œÓ: " << s.getNotice() << endl
-        << "±∏◊¢: " << s.getComment() << endl
+    cout << "===========ÊôØÁÇπ‰ø°ÊÅØ===========" << endl
+        << "ÊôØÁÇπÁºñÂè∑: " << s.getNumber() << endl
+        << "ÊôØÁÇπÂêçÁß∞: " << s.getName() << endl
+        << "ÊôØÁÇπÂú∞ÂùÄ: " << s.getAddress() << endl
+        << "ÊôØÁÇπÁâπËâ≤: " << s.getFeature() << endl
+        << "ÊôØÁÇπ‰∫§ÈÄö: " << s.getTraffic() << endl
+        << "ÊôØÁÇπÂºÄÊîæÊó∂Èó¥: " << s.getOpenTime() << endl
+        << "ÊôØÁÇπÂÆπÁ∫≥‰∫∫Êï∞: " << s.getCapacity() << endl
+        << "ÊôØÁÇπÈó®Á•®‰ª∑Ê†º: " << s.getPrice() << endl
+        << "ÊôØÁÇπÊé®ËçêÂ∫¶: " << s.getRecommend() << endl
+        << "ÊôØÁÇπÂÖ•Âú∫Âπ≥ÂùáÁ≠âÂæÖÊó∂Èó¥: " << s.getWaitTime() << endl
+        << "ÊôØÁÇπÊ∏∏ËßàÊ≥®ÊÑè‰∫ãÈ°π: " << s.getNotice() << endl
+        << "Â§áÊ≥®: " << s.getComment() << endl
         << "===============================" << endl;
 }
 
-// æ∞µ„–≈œ¢π‹¿Ì
+// ÊôØÁÇπ‰ø°ÊÅØÁÆ°ÁêÜ
 void scencePage() {
 _tips:
-    cout << "====æ∞µ„–≈œ¢π‹¿Ì======" << endl
-        << "[1] ÃÌº”æ∞µ„ " << endl
-        << "[2] …æ≥˝æ∞µ„ " << endl
-        << "[3] –ﬁ∏ƒæ∞µ„–≈œ¢ " << endl
-        << "[4] ≤È—ØÀ˘”–æ∞µ„–≈œ¢ " << endl
+    cout << "====ÊôØÁÇπ‰ø°ÊÅØÁÆ°ÁêÜ======" << endl
+        << "[1] Ê∑ªÂä†ÊôØÁÇπ " << endl
+        << "[2] Âà†Èô§ÊôØÁÇπ " << endl
+        << "[3] ‰øÆÊîπÊôØÁÇπ‰ø°ÊÅØ " << endl
+        << "[4] Êü•ËØ¢ÊâÄÊúâÊôØÁÇπ‰ø°ÊÅØ " << endl
         << "======================" << endl
-        << "«Î ‰»ÎÀ˘–Ë“™Ω¯––µƒ≤Ÿ◊˜£∫";
+        << "ËØ∑ËæìÂÖ•ÊâÄÈúÄË¶ÅËøõË°åÁöÑÊìç‰ΩúÔºö";
     int function;
     cin >> function;
     if (function > 6 || function < 1) {
-        cout << "[Ã· æ] ‰»Îµƒ ˝◊÷”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊï∞Â≠óÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
         goto _tips;
     }
     switch (function) {
     case 1:
         scences.push_back(createScence());
         saveScence();
-        cout << "[Ã· æ]ÃÌº”≥…π¶! " << endl;
+        cout << "[ÊèêÁ§∫]Ê∑ªÂä†ÊàêÂäü! " << endl;
         break;
     case 2:
         int number;
     _remove:
-        cout << "[…˜÷ÿ]«Î ‰»Î–Ë“™…æ≥˝µƒæ∞µ„µƒ±‡∫≈: ";
+        cout << "[ÊÖéÈáç]ËØ∑ËæìÂÖ•ÈúÄË¶ÅÂà†Èô§ÁöÑÊôØÁÇπÁöÑÁºñÂè∑: ";
         cin >> number;
         if (checkScenceNumber(number) != 1) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑ÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
             goto _remove;
         }
         removeScence(number);
         saveScence();
-        cout << "[Ã· æ]…æ≥˝ÕÍ≥…! ";
+        cout << "[ÊèêÁ§∫]Âà†Èô§ÂÆåÊàê! ";
     case 3:
         modifyScence();
         saveScence();
@@ -807,7 +808,7 @@ _tips:
     }
 }
 
-// ºÏ≤ÈÕ≈∂”±‡∫≈ «∑Ò¥Ê‘⁄
+// Ê£ÄÊü•Âõ¢ÈòüÁºñÂè∑ÊòØÂê¶Â≠òÂú®
 int checkTeamNumber(int number) {
     for (Team t : teams) {
         if (t.getNumber() == number) {
@@ -817,58 +818,58 @@ int checkTeamNumber(int number) {
     return 0;
 }
 
-// ¥¥Ω®Õ≈∂”
+// ÂàõÂª∫Âõ¢Èòü
 Team createTeam() {
     _number:
     int number;
-    cout << "«Î ‰»ÎÕ≈∂”±‡∫≈£∫";
+    cout << "ËØ∑ËæìÂÖ•Âõ¢ÈòüÁºñÂè∑Ôºö";
     cin >> number;
     if (checkTeamNumber(number) == 1) {
-        cout << "[Ã· æ] ‰»ÎµƒÕ≈∂”±‡∫≈“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÂõ¢ÈòüÁºñÂè∑Â∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
         goto _number;
     }
     string name;
-    cout << "«Î ‰»ÎÕ≈∂”√˚≥∆£∫";
+    cout << "ËØ∑ËæìÂÖ•Âõ¢ÈòüÂêçÁß∞Ôºö";
     cin >> name;
 
     string nation;
-    cout << "«Î ‰»ÎÕ≈∂”√˚◊Â£∫";
+    cout << "ËØ∑ËæìÂÖ•Âõ¢ÈòüÂêçÊóèÔºö";
     cin >> nation;
 
     int members;
-    cout << "«Î ‰»ÎÕ≈∂”»À ˝£∫";
+    cout << "ËØ∑ËæìÂÖ•Âõ¢Èòü‰∫∫Êï∞Ôºö";
     cin >> members;
 
     string membersList;
-    cout << "«Î ‰»ÎÕ≈∂”≥…‘±√˚µ•¡–±Ì£∫";
+    cout << "ËØ∑ËæìÂÖ•Âõ¢ÈòüÊàêÂëòÂêçÂçïÂàóË°®Ôºö";
     cin >> membersList;
 
     string leader;
-    cout << "«Î ‰»ÎÕ≈∂”∏∫‘»À£∫";
+    cout << "ËØ∑ËæìÂÖ•Âõ¢ÈòüË¥üË¥£‰∫∫Ôºö";
     cin >> leader;
 
     string phone;
-    cout << "«Î ‰»ÎÕ≈∂”¡™œµ»ÀµÁª∞£∫";
+    cout << "ËØ∑ËæìÂÖ•Âõ¢ÈòüËÅîÁ≥ª‰∫∫ÁîµËØùÔºö";
     cin >> phone;
 
     string style;
-    cout << "«Î ‰»ÎÕ≈∂”±Ì—›Ãÿ…´£∫";
+    cout << "ËØ∑ËæìÂÖ•Âõ¢ÈòüË°®ÊºîÁâπËâ≤Ôºö";
     cin >> style;
 
     string program;
-    cout << "«Î ‰»ÎÕ≈∂”Ω⁄ƒøµ•£∫";
+    cout << "ËØ∑ËæìÂÖ•Âõ¢ÈòüËäÇÁõÆÂçïÔºö";
     cin >> program;
 
     string time;
-    cout << "«Î ‰»ÎÕ≈∂”±Ì—› ±º‰£∫";
+    cout << "ËØ∑ËæìÂÖ•Âõ¢ÈòüË°®ÊºîÊó∂Èó¥Ôºö";
     cin >> time;
 
     string place;
-    cout << "«Î ‰»ÎÕ≈∂”±Ì—›µÿµ„£∫";
+    cout << "ËØ∑ËæìÂÖ•Âõ¢ÈòüË°®ÊºîÂú∞ÁÇπÔºö";
     cin >> place;
 
     string comment;
-    cout << "«Î ‰»Î±∏◊¢£∫";
+    cout << "ËØ∑ËæìÂÖ•Â§áÊ≥®Ôºö";
     cin >> comment;
 
     Team t = Team(number, name, nation, members, membersList, leader, phone, style, program, time, place, comment);
@@ -876,7 +877,7 @@ Team createTeam() {
 }
 
 
-// ±£¥ÊÕ≈∂”
+// ‰øùÂ≠òÂõ¢Èòü
 void saveTeam() {
     ofstream file("team.txt");
     if (file.is_open()) {
@@ -892,13 +893,13 @@ void saveTeam() {
                 << t.getProgram() << ","
                 << t.getTime() << ","
                 << t.getPlace() << ","
-                << t.getComment() << "\n"; // –ﬁ∏ƒªª––∑˚Œ™\n
+                << t.getComment() << "\n"; // ‰øÆÊîπÊç¢Ë°åÁ¨¶‰∏∫\n
         }
     }
     file.close();
 }
 
-// º”‘ÿÕ≈∂”
+// Âä†ËΩΩÂõ¢Èòü
 void loadTeam() {
     ifstream file("team.txt");
     if (file.is_open()) {
@@ -926,7 +927,7 @@ void loadTeam() {
     file.close();
 }
 
-// …æ≥˝Õ≈∂”
+// Âà†Èô§Âõ¢Èòü
 void removeTeam(int number) {
     for (int i = 0; i < teams.size(); i++) {
         if (teams[i].getNumber() == number) {
@@ -936,30 +937,30 @@ void removeTeam(int number) {
     }
 }
 
-// –ﬁ∏ƒÕ≈∂”–≈œ¢
+// ‰øÆÊîπÂõ¢Èòü‰ø°ÊÅØ
 void modifyTeam() {
     int number;
-    cout << "«Î ‰»Î“™–ﬁ∏ƒµƒÕ≈∂”±‡∫≈£∫";
+    cout << "ËØ∑ËæìÂÖ•Ë¶Å‰øÆÊîπÁöÑÂõ¢ÈòüÁºñÂè∑Ôºö";
     cin >> number;
 
-    // ºÏ≤ÈÕ≈∂”±‡∫≈ «∑Ò¥Ê‘⁄
+    // Ê£ÄÊü•Âõ¢ÈòüÁºñÂè∑ÊòØÂê¶Â≠òÂú®
     int found = 0;
     for (Team& t : teams) {
         if (t.getNumber() == number) {
             found = 1;
-            cout << "—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢£∫" << endl;
-            cout << "[1] Õ≈∂”√˚≥∆" << endl;
-            cout << "[2] Õ≈∂”√˚◊Â" << endl;
-            cout << "[3] Õ≈∂”»À ˝" << endl;
-            cout << "[4] Õ≈∂”≥…‘±√˚µ•¡–±Ì" << endl;
-            cout << "[5] Õ≈∂”∏∫‘»À" << endl;
-            cout << "[6] Õ≈∂”¡™œµ»ÀµÁª∞" << endl;
-            cout << "[7] Õ≈∂”±Ì—›Ãÿ…´" << endl;
-            cout << "[8] Õ≈∂”Ω⁄ƒøµ•" << endl;
-            cout << "[9] Õ≈∂”±Ì—› ±º‰" << endl;
-            cout << "[10] Õ≈∂”±Ì—›µÿµ„" << endl;
-            cout << "[11] ±∏◊¢" << endl;
-            cout << "«Î—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢–Ú∫≈£∫";
+            cout << "ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÔºö" << endl;
+            cout << "[1] Âõ¢ÈòüÂêçÁß∞" << endl;
+            cout << "[2] Âõ¢ÈòüÂêçÊóè" << endl;
+            cout << "[3] Âõ¢Èòü‰∫∫Êï∞" << endl;
+            cout << "[4] Âõ¢ÈòüÊàêÂëòÂêçÂçïÂàóË°®" << endl;
+            cout << "[5] Âõ¢ÈòüË¥üË¥£‰∫∫" << endl;
+            cout << "[6] Âõ¢ÈòüËÅîÁ≥ª‰∫∫ÁîµËØù" << endl;
+            cout << "[7] Âõ¢ÈòüË°®ÊºîÁâπËâ≤" << endl;
+            cout << "[8] Âõ¢ÈòüËäÇÁõÆÂçï" << endl;
+            cout << "[9] Âõ¢ÈòüË°®ÊºîÊó∂Èó¥" << endl;
+            cout << "[10] Âõ¢ÈòüË°®ÊºîÂú∞ÁÇπ" << endl;
+            cout << "[11] Â§áÊ≥®" << endl;
+            cout << "ËØ∑ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÂ∫èÂè∑Ôºö";
 
             int choice;
             cin >> choice;
@@ -967,147 +968,147 @@ void modifyTeam() {
             switch (choice) {
             case 1: {
                 string name;
-                cout << "«Î ‰»Î–¬µƒÕ≈∂”√˚≥∆£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂõ¢ÈòüÂêçÁß∞Ôºö";
                 cin >> name;
                 t.setName(name);
                 break;
             }
             case 2: {
                 string nation;
-                cout << "«Î ‰»Î–¬µƒÕ≈∂”√˚◊Â£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂõ¢ÈòüÂêçÊóèÔºö";
                 cin >> nation;
                 t.setNation(nation);
                 break;
             }
             case 3: {
                 int members;
-                cout << "«Î ‰»Î–¬µƒÕ≈∂”»À ˝£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂõ¢Èòü‰∫∫Êï∞Ôºö";
                 cin >> members;
                 t.setMembers(members);
                 break;
             }
             case 4: {
                 string membersList;
-                cout << "«Î ‰»Î–¬µƒÕ≈∂”≥…‘±√˚µ•¡–±Ì£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂõ¢ÈòüÊàêÂëòÂêçÂçïÂàóË°®Ôºö";
                 cin >> membersList;
                 t.setMemberList(membersList);
                 break;
             }
             case 5: {
                 string leader;
-                cout << "«Î ‰»Î–¬µƒÕ≈∂”∏∫‘»À£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂõ¢ÈòüË¥üË¥£‰∫∫Ôºö";
                 cin >> leader;
                 t.setLeader(leader);
                 break;
             }
             case 6: {
                 string phone;
-                cout << "«Î ‰»Î–¬µƒÕ≈∂”¡™œµ»ÀµÁª∞£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂõ¢ÈòüËÅîÁ≥ª‰∫∫ÁîµËØùÔºö";
                 cin >> phone;
                 t.setPhone(phone);
                 break;
             }
             case 7: {
                 string style;
-                cout << "«Î ‰»Î–¬µƒÕ≈∂”±Ì—›Ãÿ…´£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂõ¢ÈòüË°®ÊºîÁâπËâ≤Ôºö";
                 cin >> style;
                 t.setStyle(style);
                 break;
             }
             case 8: {
                 string program;
-                cout << "«Î ‰»Î–¬µƒÕ≈∂”Ω⁄ƒøµ•£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂõ¢ÈòüËäÇÁõÆÂçïÔºö";
                 cin >> program;
                 t.setProgram(program);
                 break;
             }
             case 9: {
                 string time;
-                cout << "«Î ‰»Î–¬µƒÕ≈∂”±Ì—› ±º‰£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂõ¢ÈòüË°®ÊºîÊó∂Èó¥Ôºö";
                 cin >> time;
                 t.setTime(time);
                 break;
             }
             case 10: {
                 string place;
-                cout << "«Î ‰»Î–¬µƒÕ≈∂”±Ì—›µÿµ„£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂõ¢ÈòüË°®ÊºîÂú∞ÁÇπÔºö";
                 cin >> place;
                 t.setPlace(place);
                 break;
             }
             case 11: {
                 string comment;
-                cout << "«Î ‰»Î–¬µƒ±∏◊¢£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂ§áÊ≥®Ôºö";
                 cin >> comment;
                 t.setComment(comment);
                 break;
             }
             default:
-                cout << "[Ã· æ] ‰»Îµƒ—°œÓŒﬁ–ß£°" << endl;
+                cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÈÄâÈ°πÊó†ÊïàÔºÅ" << endl;
             }
         }
     }
     if (found == 0) {
-        cout << "[Ã· æ] ‰»ÎµƒÕ≈∂”±‡∫≈≤ª¥Ê‘⁄£°" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÂõ¢ÈòüÁºñÂè∑‰∏çÂ≠òÂú®ÔºÅ" << endl;
     }
     else {
-        cout << "[Ã· æ]–ﬁ∏ƒ≥…π¶£°" << endl;
+        cout << "[ÊèêÁ§∫]‰øÆÊîπÊàêÂäüÔºÅ" << endl;
 
     }
 }
 
-// ¥Ú”°Õ≈∂”–≈œ¢
+// ÊâìÂç∞Âõ¢Èòü‰ø°ÊÅØ
 void printTeam(Team t) {
-    cout << "===========Õ≈∂”–≈œ¢==============" << endl
-        << "Õ≈∂”±‡∫≈: " << t.getNumber() << endl
-        << "Õ≈∂”√˚≥∆: " << t.getName() << endl
-        << "Õ≈∂”√˚◊Â: " << t.getNation() << endl
-        << "Õ≈∂”»À ˝: " << t.getMembers() << endl
-        << "Õ≈∂”≥…‘±√˚µ•¡–±Ì: " << t.getMemberList() << endl
-        << "Õ≈∂”∏∫‘»À: " << t.getLeader() << endl
-        << "Õ≈∂”¡™œµ»ÀµÁª∞: " << t.getPhone() << endl
-        << "Õ≈∂”±Ì—›Ãÿ…´: " << t.getStyle() << endl
-        << "Õ≈∂”Ω⁄ƒøµ•: " << t.getProgram() << endl
-        << "Õ≈∂”±Ì—› ±º‰: " << t.getTime() << endl
-        << "Õ≈∂”±Ì—›µÿµ„: " << t.getPlace() << endl
-        << "±∏◊¢: " << t.getComment() << endl
+    cout << "===========Âõ¢Èòü‰ø°ÊÅØ==============" << endl
+        << "Âõ¢ÈòüÁºñÂè∑: " << t.getNumber() << endl
+        << "Âõ¢ÈòüÂêçÁß∞: " << t.getName() << endl
+        << "Âõ¢ÈòüÂêçÊóè: " << t.getNation() << endl
+        << "Âõ¢Èòü‰∫∫Êï∞: " << t.getMembers() << endl
+        << "Âõ¢ÈòüÊàêÂëòÂêçÂçïÂàóË°®: " << t.getMemberList() << endl
+        << "Âõ¢ÈòüË¥üË¥£‰∫∫: " << t.getLeader() << endl
+        << "Âõ¢ÈòüËÅîÁ≥ª‰∫∫ÁîµËØù: " << t.getPhone() << endl
+        << "Âõ¢ÈòüË°®ÊºîÁâπËâ≤: " << t.getStyle() << endl
+        << "Âõ¢ÈòüËäÇÁõÆÂçï: " << t.getProgram() << endl
+        << "Âõ¢ÈòüË°®ÊºîÊó∂Èó¥: " << t.getTime() << endl
+        << "Âõ¢ÈòüË°®ÊºîÂú∞ÁÇπ: " << t.getPlace() << endl
+        << "Â§áÊ≥®: " << t.getComment() << endl
         << "===============================" << endl;
 }
 
-// Õ≈∂”–≈œ¢π‹¿Ì
+// Âõ¢Èòü‰ø°ÊÅØÁÆ°ÁêÜ
 void teamPage() {
 _tips:
-    cout << "====Õ≈∂”–≈œ¢π‹¿Ì======" << endl
-        << "[1] ÃÌº”Õ≈∂” " << endl
-        << "[2] …æ≥˝Õ≈∂” " << endl
-        << "[3] –ﬁ∏ƒÕ≈∂”–≈œ¢ " << endl
-        << "[4] ≤È—ØÀ˘”–Õ≈∂”–≈œ¢ " << endl
+    cout << "====Âõ¢Èòü‰ø°ÊÅØÁÆ°ÁêÜ======" << endl
+        << "[1] Ê∑ªÂä†Âõ¢Èòü " << endl
+        << "[2] Âà†Èô§Âõ¢Èòü " << endl
+        << "[3] ‰øÆÊîπÂõ¢Èòü‰ø°ÊÅØ " << endl
+        << "[4] Êü•ËØ¢ÊâÄÊúâÂõ¢Èòü‰ø°ÊÅØ " << endl
         << "=======" << endl
-        << "«Î ‰»ÎÀ˘–Ë“™Ω¯––µƒ≤Ÿ◊˜£∫";
+        << "ËØ∑ËæìÂÖ•ÊâÄÈúÄË¶ÅËøõË°åÁöÑÊìç‰ΩúÔºö";
     int function;
     cin >> function;
     if (function > 4 || function < 1) {
-        cout << "[Ã· æ] ‰»Îµƒ ˝◊÷”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊï∞Â≠óÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
         goto _tips;
     }
     switch (function) {
     case 1:
         teams.push_back(createTeam());
         saveTeam();
-        cout << "[Ã· æ]ÃÌº”≥…π¶! " << endl;
+        cout << "[ÊèêÁ§∫]Ê∑ªÂä†ÊàêÂäü! " << endl;
         break;
     case 2:
         int number;
     _remove:
-        cout << "[…˜÷ÿ]«Î ‰»Î–Ë“™…æ≥˝µƒÕ≈∂”µƒ±‡∫≈: ";
+        cout << "[ÊÖéÈáç]ËØ∑ËæìÂÖ•ÈúÄË¶ÅÂà†Èô§ÁöÑÂõ¢ÈòüÁöÑÁºñÂè∑: ";
         cin >> number;
         if (checkTeamNumber(number) != 1) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑ÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
             goto _remove;
         }
         removeTeam(number);
         saveTeam();
-        cout << "[Ã· æ]…æ≥˝ÕÍ≥…! ";
+        cout << "[ÊèêÁ§∫]Âà†Èô§ÂÆåÊàê! ";
     case 3:
         modifyTeam();
         saveTeam();
@@ -1120,7 +1121,7 @@ _tips:
     }
 }
 
-// ºÏ≤ÈΩ‚Àµ‘±±‡∫≈ «∑Ò¥Ê‘⁄
+// Ê£ÄÊü•Ëß£ËØ¥ÂëòÁºñÂè∑ÊòØÂê¶Â≠òÂú®
 int checkCommentatorNumber(int number) {
     for (Commentator c : commentators) {
         if (c.getNumber() == number) {
@@ -1130,7 +1131,7 @@ int checkCommentatorNumber(int number) {
     return 0;
 }
 
-// ºÏ≤ÈΩ‚Àµ‘±…Ì∑›÷§∫≈¬Î «∑Ò¥Ê‘⁄
+// Ê£ÄÊü•Ëß£ËØ¥ÂëòË∫´‰ªΩËØÅÂè∑Á†ÅÊòØÂê¶Â≠òÂú®
 int checkCommentatorID(string id) {
     for (Commentator c : commentators) {
         if (c.getId() == id) {
@@ -1140,89 +1141,89 @@ int checkCommentatorID(string id) {
     return 0;
 }
 
-// ¥¥Ω®Ω‚Àµ‘±
+// ÂàõÂª∫Ëß£ËØ¥Âëò
 Commentator createCommentator() {
     _number:
     int number;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±±‡∫≈£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòÁºñÂè∑Ôºö";
     cin >> number;
     if (checkCommentatorNumber(number) == 1) {
-        cout << "[Ã· æ] ‰»ÎµƒΩ‚Àµ‘±±‡∫≈“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑËß£ËØ¥ÂëòÁºñÂè∑Â∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
         goto _number;
     }
     string name;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±–’√˚£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòÂßìÂêçÔºö";
     cin >> name;
 
     string id;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±…Ì∑›÷§∫≈¬Î£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòË∫´‰ªΩËØÅÂè∑Á†ÅÔºö";
     cin >> id;
     if (checkCommentatorID(id) == 1) {
-        cout << "[Ã· æ] ‰»Îµƒ…Ì∑›÷§∫≈¬Î“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑË∫´‰ªΩËØÅÂè∑Á†ÅÂ∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
         goto _number;
     }
 
     string gender;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±–‘±£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòÊÄßÂà´Ôºö";
     cin >> gender;
 
     string birth;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±≥ˆ…˙»’∆⁄£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòÂá∫ÁîüÊó•ÊúüÔºö";
     cin >> birth;
 
     string hometown;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±ºÆπ·£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòÁ±çË¥ØÔºö";
     cin >> hometown;
 
     string nation;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±√Ò◊Â£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòÊ∞ëÊóèÔºö";
     cin >> nation;
 
     string company;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±µ•Œª£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòÂçï‰ΩçÔºö";
     cin >> company;
 
     string address;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±œ÷æ”◊°µÿ÷∑£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòÁé∞Â±Ö‰ΩèÂú∞ÂùÄÔºö";
     cin >> address;
 
     string education;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±ŒƒªØ≥Ã∂»£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòÊñáÂåñÁ®ãÂ∫¶Ôºö";
     cin >> education;
 
     string phone;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±µÁª∞∫≈¬Î£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòÁîµËØùÂè∑Á†ÅÔºö";
     cin >> phone;
 
     string condition;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±…ÌÃÂ◊¥øˆ£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòË∫´‰ΩìÁä∂ÂÜµÔºö";
     cin >> condition;
 
     string start;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±Ω‚Àµ∆ º ±º‰£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòËß£ËØ¥Ëµ∑ÂßãÊó∂Èó¥Ôºö";
     cin >> start;
 
     string end;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±Ω‚ÀµΩ· ¯ ±º‰£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòËß£ËØ¥ÁªìÊùüÊó∂Èó¥Ôºö";
     cin >> end;
 
     string content;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±…√≥§Ω‚Àµƒ⁄»›£®◊Ó∂‡ø…—°10∏ˆµÿµ„£©£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòÊìÖÈïøËß£ËØ¥ÂÜÖÂÆπÔºàÊúÄÂ§öÂèØÈÄâ10‰∏™Âú∞ÁÇπÔºâÔºö";
     cin >> content;
 
     string date;
-    cout << "«Î ‰»ÎΩ‚Àµ‘±ÃÓ±®»’∆⁄£∫";
+    cout << "ËØ∑ËæìÂÖ•Ëß£ËØ¥ÂëòÂ°´Êä•Êó•ÊúüÔºö";
     cin >> date;
 
     string comment;
-    cout << "«Î ‰»Î±∏◊¢£∫";
+    cout << "ËØ∑ËæìÂÖ•Â§áÊ≥®Ôºö";
     cin >> comment;
 
     Commentator c = Commentator(number, name, id, gender, birth, hometown, nation, company, address, education, phone, condition, start, end, content, date, comment);
     return c;
 }
 
-// ±£¥ÊΩ‚Àµ‘±
+// ‰øùÂ≠òËß£ËØ¥Âëò
 void saveCommentator() {
     ofstream file("commentator.txt");
     if (file.is_open()) {
@@ -1243,13 +1244,13 @@ void saveCommentator() {
                 << c.getEndTime() << ","
                 << c.getContent() << ","
                 << c.getFillDate() << ","
-                << c.getComment() << "\n"; // –ﬁ∏ƒªª––∑˚Œ™\n
+                << c.getComment() << "\n"; // ‰øÆÊîπÊç¢Ë°åÁ¨¶‰∏∫\n
         }
     }
     file.close();
 }
 
-// º”‘ÿΩ‚Àµ‘±
+// Âä†ËΩΩËß£ËØ¥Âëò
 void loadCommentator() {
     ifstream file("commentator.txt");
     if (file.is_open()) {
@@ -1281,7 +1282,7 @@ void loadCommentator() {
     file.close();
 }
 
-// …æ≥˝Ω‚Àµ‘±
+// Âà†Èô§Ëß£ËØ¥Âëò
 void removeCommentator(int number) {
     for (int i = 0; i < commentators.size(); i++) {
         if (commentators[i].getNumber() == number) {
@@ -1291,35 +1292,35 @@ void removeCommentator(int number) {
     }
 }
 
-// –ﬁ∏ƒΩ‚Àµ‘±–≈œ¢
+// ‰øÆÊîπËß£ËØ¥Âëò‰ø°ÊÅØ
 void modifyCommentator() {
     int number;
-    cout << "«Î ‰»Î“™–ﬁ∏ƒµƒΩ‚Àµ‘±±‡∫≈£∫";
+    cout << "ËØ∑ËæìÂÖ•Ë¶Å‰øÆÊîπÁöÑËß£ËØ¥ÂëòÁºñÂè∑Ôºö";
     cin >> number;
 
-    // ºÏ≤ÈΩ‚Àµ‘±±‡∫≈ «∑Ò¥Ê‘⁄
+    // Ê£ÄÊü•Ëß£ËØ¥ÂëòÁºñÂè∑ÊòØÂê¶Â≠òÂú®
     int found = 0;
     for (Commentator& c : commentators) {
         if (c.getNumber() == number) {
             found = 1;
-            cout << "—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢£∫" << endl;
-            cout << "[1] Ω‚Àµ‘±–’√˚" << endl;
-            cout << "[2] Ω‚Àµ‘±…Ì∑›÷§∫≈¬Î" << endl;
-            cout << "[3] Ω‚Àµ‘±–‘±" << endl;
-            cout << "[4] Ω‚Àµ‘±≥ˆ…˙»’∆⁄" << endl;
-            cout << "[5] Ω‚Àµ‘±ºÆπ·" << endl;
-            cout << "[6] Ω‚Àµ‘±√Ò◊Â" << endl;
-            cout << "[7] Ω‚Àµ‘±µ•Œª" << endl;
-            cout << "[8] Ω‚Àµ‘±œ÷æ”◊°µÿ÷∑" << endl;
-            cout << "[9] Ω‚Àµ‘±ŒƒªØ≥Ã∂»" << endl;
-            cout << "[10] Ω‚Àµ‘±µÁª∞∫≈¬Î" << endl;
-            cout << "[11] Ω‚Àµ‘±…ÌÃÂ◊¥øˆ" << endl;
-            cout << "[12] Ω‚Àµ‘±Ω‚Àµ∆ º ±º‰" << endl;
-            cout << "[13] Ω‚Àµ‘±Ω‚ÀµΩ· ¯ ±º‰" << endl;
-            cout << "[14] Ω‚Àµ‘±…√≥§Ω‚Àµƒ⁄»›" << endl;
-            cout << "[15] Ω‚Àµ‘±ÃÓ±®»’∆⁄" << endl;
-            cout << "[16] ±∏◊¢" << endl;
-            cout << "«Î—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢–Ú∫≈£∫";
+            cout << "ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÔºö" << endl;
+            cout << "[1] Ëß£ËØ¥ÂëòÂßìÂêç" << endl;
+            cout << "[2] Ëß£ËØ¥ÂëòË∫´‰ªΩËØÅÂè∑Á†Å" << endl;
+            cout << "[3] Ëß£ËØ¥ÂëòÊÄßÂà´" << endl;
+            cout << "[4] Ëß£ËØ¥ÂëòÂá∫ÁîüÊó•Êúü" << endl;
+            cout << "[5] Ëß£ËØ¥ÂëòÁ±çË¥Ø" << endl;
+            cout << "[6] Ëß£ËØ¥ÂëòÊ∞ëÊóè" << endl;
+            cout << "[7] Ëß£ËØ¥ÂëòÂçï‰Ωç" << endl;
+            cout << "[8] Ëß£ËØ¥ÂëòÁé∞Â±Ö‰ΩèÂú∞ÂùÄ" << endl;
+            cout << "[9] Ëß£ËØ¥ÂëòÊñáÂåñÁ®ãÂ∫¶" << endl;
+            cout << "[10] Ëß£ËØ¥ÂëòÁîµËØùÂè∑Á†Å" << endl;
+            cout << "[11] Ëß£ËØ¥ÂëòË∫´‰ΩìÁä∂ÂÜµ" << endl;
+            cout << "[12] Ëß£ËØ¥ÂëòËß£ËØ¥Ëµ∑ÂßãÊó∂Èó¥" << endl;
+            cout << "[13] Ëß£ËØ¥ÂëòËß£ËØ¥ÁªìÊùüÊó∂Èó¥" << endl;
+            cout << "[14] Ëß£ËØ¥ÂëòÊìÖÈïøËß£ËØ¥ÂÜÖÂÆπ" << endl;
+            cout << "[15] Ëß£ËØ¥ÂëòÂ°´Êä•Êó•Êúü" << endl;
+            cout << "[16] Â§áÊ≥®" << endl;
+            cout << "ËØ∑ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÂ∫èÂè∑Ôºö";
 
             int choice;
             cin >> choice;
@@ -1327,186 +1328,186 @@ void modifyCommentator() {
             switch (choice) {
             case 1: {
                 string name;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±–’√˚£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòÂßìÂêçÔºö";
                 cin >> name;
                 c.setName(name);
                 break;
             }
             case 2: {
                 string id;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±…Ì∑›÷§∫≈¬Î£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòË∫´‰ªΩËØÅÂè∑Á†ÅÔºö";
                 cin >> id;
                 c.setId(id);
                 break;
             }
             case 3: {
                 string gender;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±–‘±£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòÊÄßÂà´Ôºö";
                 cin >> gender;
                 c.setGender(gender);
                 break;
             }
             case 4: {
                 string birthdate;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±≥ˆ…˙»’∆⁄£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòÂá∫ÁîüÊó•ÊúüÔºö";
                 cin >> birthdate;
                 c.setBirthdate(birthdate);
                 break;
             }
             case 5: {
                 string nativePlace;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±ºÆπ·£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòÁ±çË¥ØÔºö";
                 cin >> nativePlace;
                 c.setNativePlace(nativePlace);
                 break;
             }
             case 6: {
                 string nation;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±√Ò◊Â£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòÊ∞ëÊóèÔºö";
                 cin >> nation;
                 c.setNation(nation);
                 break;
             }
             case 7: {
                 string company;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±µ•Œª£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòÂçï‰ΩçÔºö";
                 cin >> company;
                 c.setCompany(company);
                 break;
             }
             case 8: {
                 string address;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±œ÷æ”◊°µÿ÷∑£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòÁé∞Â±Ö‰ΩèÂú∞ÂùÄÔºö";
                 cin >> address;
                 c.setAddress(address);
                 break;
             }
             case 9: {
                 string education;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±ŒƒªØ≥Ã∂»£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòÊñáÂåñÁ®ãÂ∫¶Ôºö";
                 cin >> education;
                 c.setEducation(education);
                 break;
             }
             case 10: {
                 string phone;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±µÁª∞∫≈¬Î£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòÁîµËØùÂè∑Á†ÅÔºö";
                 cin >> phone;
                 c.setPhone(phone);
                 break;
             }
             case 11: {
                 string bodyCondition;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±…ÌÃÂ◊¥øˆ£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòË∫´‰ΩìÁä∂ÂÜµÔºö";
                 cin >> bodyCondition;
                 c.setBodyCondition(bodyCondition);
                 break;
             }
             case 12: {
                 string startTime;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±Ω‚Àµ∆ º ±º‰£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòËß£ËØ¥Ëµ∑ÂßãÊó∂Èó¥Ôºö";
                 cin >> startTime;
                 c.setStartTime(startTime);
                 break;
             }
             case 13: {
                 string endTime;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±Ω‚ÀµΩ· ¯ ±º‰£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòËß£ËØ¥ÁªìÊùüÊó∂Èó¥Ôºö";
                 cin >> endTime;
                 c.setEndTime(endTime);
                 break;
             }
             case 14: {
                 string content;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±…√≥§Ω‚Àµƒ⁄»›£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòÊìÖÈïøËß£ËØ¥ÂÜÖÂÆπÔºö";
                 cin >> content;
                 c.setContent(content);
                 break;
             }
             case 15: {
                 string fillDate;
-                cout << "«Î ‰»Î–¬µƒΩ‚Àµ‘±ÃÓ±®»’∆⁄£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËß£ËØ¥ÂëòÂ°´Êä•Êó•ÊúüÔºö";
                 cin >> fillDate;
                 c.setFillDate(fillDate);
                 break;
             }
             case 16: {
                 string comment;
-                cout << "«Î ‰»Î–¬µƒ±∏◊¢£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂ§áÊ≥®Ôºö";
                 cin >> comment;
                 c.setComment(comment);
                 break;
             }
             default:
-                cout << "[Ã· æ] ‰»Îµƒ—°œÓŒﬁ–ß£°" << endl;
+                cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÈÄâÈ°πÊó†ÊïàÔºÅ" << endl;
             }
         }
     }
     if (found == 0) {
-        cout << "[Ã· æ] ‰»ÎµƒΩ‚Àµ‘±±‡∫≈≤ª¥Ê‘⁄£°" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑËß£ËØ¥ÂëòÁºñÂè∑‰∏çÂ≠òÂú®ÔºÅ" << endl;
     }
     else {
-        cout << "[Ã· æ]–ﬁ∏ƒ≥…π¶£°" << endl;
+        cout << "[ÊèêÁ§∫]‰øÆÊîπÊàêÂäüÔºÅ" << endl;
     }
 }
 
-// ¥Ú”°Ω‚Àµ‘±–≈œ¢
+// ÊâìÂç∞Ëß£ËØ¥Âëò‰ø°ÊÅØ
 void printCommentator(Commentator c) {
-    cout << "===========Ω‚Àµ‘±–≈œ¢============" << endl
-        << "Ω‚Àµ‘±±‡∫≈: " << c.getNumber() << endl
-        << "Ω‚Àµ‘±–’√˚: " << c.getName() << endl
-        << "Ω‚Àµ‘±…Ì∑›÷§∫≈¬Î: " << c.getId() << endl
-        << "Ω‚Àµ‘±–‘±: " << c.getGender() << endl
-        << "Ω‚Àµ‘±≥ˆ…˙»’∆⁄: " << c.getBirthdate() << endl
-        << "Ω‚Àµ‘±ºÆπ·: " << c.getNativePlace() << endl
-        << "Ω‚Àµ‘±√Ò◊Â: " << c.getNation() << endl
-        << "Ω‚Àµ‘±µ•Œª: " << c.getCompany() << endl
-        << "Ω‚Àµ‘±œ÷æ”◊°µÿ÷∑: " << c.getAddress() << endl
-        << "Ω‚Àµ‘±ŒƒªØ≥Ã∂»: " << c.getEducation() << endl
-        << "Ω‚Àµ‘±µÁª∞∫≈¬Î: " << c.getPhone() << endl
-        << "Ω‚Àµ‘±…ÌÃÂ◊¥øˆ: " << c.getBodyCondition() << endl
-        << "Ω‚Àµ‘±Ω‚Àµ∆ º ±º‰: " << c.getStartTime() << endl
-        << "Ω‚Àµ‘±Ω‚ÀµΩ· ¯ ±º‰: " << c.getEndTime() << endl
-        << "Ω‚Àµ‘±…√≥§Ω‚Àµƒ⁄»›: " << c.getContent() << endl
-        << "Ω‚Àµ‘±ÃÓ±®»’∆⁄: " << c.getFillDate() << endl
-        << "±∏◊¢: " << c.getComment() << endl
+    cout << "===========Ëß£ËØ¥Âëò‰ø°ÊÅØ============" << endl
+        << "Ëß£ËØ¥ÂëòÁºñÂè∑: " << c.getNumber() << endl
+        << "Ëß£ËØ¥ÂëòÂßìÂêç: " << c.getName() << endl
+        << "Ëß£ËØ¥ÂëòË∫´‰ªΩËØÅÂè∑Á†Å: " << c.getId() << endl
+        << "Ëß£ËØ¥ÂëòÊÄßÂà´: " << c.getGender() << endl
+        << "Ëß£ËØ¥ÂëòÂá∫ÁîüÊó•Êúü: " << c.getBirthdate() << endl
+        << "Ëß£ËØ¥ÂëòÁ±çË¥Ø: " << c.getNativePlace() << endl
+        << "Ëß£ËØ¥ÂëòÊ∞ëÊóè: " << c.getNation() << endl
+        << "Ëß£ËØ¥ÂëòÂçï‰Ωç: " << c.getCompany() << endl
+        << "Ëß£ËØ¥ÂëòÁé∞Â±Ö‰ΩèÂú∞ÂùÄ: " << c.getAddress() << endl
+        << "Ëß£ËØ¥ÂëòÊñáÂåñÁ®ãÂ∫¶: " << c.getEducation() << endl
+        << "Ëß£ËØ¥ÂëòÁîµËØùÂè∑Á†Å: " << c.getPhone() << endl
+        << "Ëß£ËØ¥ÂëòË∫´‰ΩìÁä∂ÂÜµ: " << c.getBodyCondition() << endl
+        << "Ëß£ËØ¥ÂëòËß£ËØ¥Ëµ∑ÂßãÊó∂Èó¥: " << c.getStartTime() << endl
+        << "Ëß£ËØ¥ÂëòËß£ËØ¥ÁªìÊùüÊó∂Èó¥: " << c.getEndTime() << endl
+        << "Ëß£ËØ¥ÂëòÊìÖÈïøËß£ËØ¥ÂÜÖÂÆπ: " << c.getContent() << endl
+        << "Ëß£ËØ¥ÂëòÂ°´Êä•Êó•Êúü: " << c.getFillDate() << endl
+        << "Â§áÊ≥®: " << c.getComment() << endl
         << "===================================" << endl;
 }
 
-// Ω‚Àµ‘±π‹¿Ì
+// Ëß£ËØ¥ÂëòÁÆ°ÁêÜ
 void commentatorPage() {
 _tips:
-    cout << "======Ω‚Àµ‘±–≈œ¢π‹¿Ì======" << endl
-        << "[1] ÃÌº”Ω‚Àµ‘± " << endl
-        << "[2] …æ≥˝Ω‚Àµ‘± " << endl
-        << "[3] –ﬁ∏ƒΩ‚Àµ‘±–≈œ¢ " << endl
-        << "[4] ≤È—ØÀ˘”–Ω‚Àµ‘±–≈œ¢ " << endl
+    cout << "======Ëß£ËØ¥Âëò‰ø°ÊÅØÁÆ°ÁêÜ======" << endl
+        << "[1] Ê∑ªÂä†Ëß£ËØ¥Âëò " << endl
+        << "[2] Âà†Èô§Ëß£ËØ¥Âëò " << endl
+        << "[3] ‰øÆÊîπËß£ËØ¥Âëò‰ø°ÊÅØ " << endl
+        << "[4] Êü•ËØ¢ÊâÄÊúâËß£ËØ¥Âëò‰ø°ÊÅØ " << endl
         << "================================" << endl
-        << "«Î ‰»ÎÀ˘–Ë“™Ω¯––µƒ≤Ÿ◊˜£∫";
+        << "ËØ∑ËæìÂÖ•ÊâÄÈúÄË¶ÅËøõË°åÁöÑÊìç‰ΩúÔºö";
     int function;
     cin >> function;
     if (function > 4 || function < 1) {
-        cout << "[Ã· æ] ‰»Îµƒ ˝◊÷”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊï∞Â≠óÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
         goto _tips;
     }
     switch (function) {
     case 1:
         commentators.push_back(createCommentator());
         saveCommentator();
-        cout << "[Ã· æ]ÃÌº”≥…π¶! " << endl;
+        cout << "[ÊèêÁ§∫]Ê∑ªÂä†ÊàêÂäü! " << endl;
         break;
     case 2:
         int number;
     _remove:
-        cout << "[…˜÷ÿ]«Î ‰»Î–Ë“™…æ≥˝µƒΩ‚Àµ‘±µƒ±‡∫≈: ";
+        cout << "[ÊÖéÈáç]ËØ∑ËæìÂÖ•ÈúÄË¶ÅÂà†Èô§ÁöÑËß£ËØ¥ÂëòÁöÑÁºñÂè∑: ";
         cin >> number;
         if (checkCommentatorNumber(number) != 1) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑ÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
             goto _remove;
         }
         removeCommentator(number);
         saveCommentator();
-        cout << "[Ã· æ]…æ≥˝ÕÍ≥…! ";
+        cout << "[ÊèêÁ§∫]Âà†Èô§ÂÆåÊàê! ";
     case 3:
         modifyCommentator();
         saveCommentator();
@@ -1519,7 +1520,7 @@ _tips:
     }
 }
 
-// ºÏ≤Èæ∆µÍ±‡∫≈ «∑Ò¥Ê‘⁄
+// Ê£ÄÊü•ÈÖíÂ∫óÁºñÂè∑ÊòØÂê¶Â≠òÂú®
 int checkHotelNumber(int number) {
     for (Hotel h : hotels) {
         if (h.getNumber() == number) {
@@ -1529,7 +1530,7 @@ int checkHotelNumber(int number) {
     return 0;
 }
 
-// ºÏ≤Èæ∆µÍ∑®»À…Ì∑›÷§∫≈¬Î «∑Ò¥Ê‘⁄
+// Ê£ÄÊü•ÈÖíÂ∫óÊ≥ï‰∫∫Ë∫´‰ªΩËØÅÂè∑Á†ÅÊòØÂê¶Â≠òÂú®
 int checkHotelID(string id) {
     for (Hotel h : hotels) {
         if (h.getId() == id) {
@@ -1539,85 +1540,85 @@ int checkHotelID(string id) {
     return 0;
 }
 
-// ¥¥Ω®æ∆µÍ
+// ÂàõÂª∫ÈÖíÂ∫ó
 Hotel createHotel() {
     _number:
     int number;
-    cout << "«Î ‰»Îæ∆µÍ±‡∫≈£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÁºñÂè∑Ôºö";
     cin >> number;
     if (checkHotelNumber(number) == 1) {
-        cout << "[Ã· æ] ‰»Îµƒæ∆µÍ±‡∫≈“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÈÖíÂ∫óÁºñÂè∑Â∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
         goto _number;
     }
     string name;
-    cout << "«Î ‰»Îæ∆µÍ√˚≥∆£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÂêçÁß∞Ôºö";
     cin >> name;
 
     int star;
-    cout << "«Î ‰»Îæ∆µÍ–«º∂£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÊòüÁ∫ßÔºö";
     cin >> star;
 
     string openTime;
-    cout << "«Î ‰»Îæ∆µÍø™“µ ±º‰£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÂºÄ‰∏öÊó∂Èó¥Ôºö";
     cin >> openTime;
 
     string roomType;
-    cout << "«Î ‰»Îæ∆µÍøÕ∑ø÷÷¿‡£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÂÆ¢ÊàøÁßçÁ±ªÔºö";
     cin >> roomType;
 
     int roomCount;
-    cout << "«Î ‰»Îæ∆µÍøÕ∑ø ˝¡ø£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÂÆ¢ÊàøÊï∞ÈáèÔºö";
     cin >> roomCount;
 
     string price;
-    cout << "«Î ‰»Îæ∆µÍº€∏Ò£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫ó‰ª∑Ê†ºÔºö";
     cin >> price;
 
     string address;
-    cout << "«Î ‰»Îæ∆µÍµÿ÷∑£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÂú∞ÂùÄÔºö";
     cin >> address;
 
     string trafficStatus;
-    cout << "«Î ‰»Îæ∆µÍΩªÕ®◊¥øˆ£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫ó‰∫§ÈÄöÁä∂ÂÜµÔºö";
     cin >> trafficStatus;
 
     string service;
-    cout << "«Î ‰»Îæ∆µÍ∑˛ŒÒ…Ë ©£®Õ£≥µ≥°°¢…ÃŒÒ÷––ƒ°¢«∞Ã®πÛ÷ÿŒÔ∆∑±£πÒ°¢…Ã≥°°¢––¿Ó¥Ê∑≈∑˛ŒÒ°¢≤–º≤»ÀøÕ∑ø°¢Ω––—∑˛ŒÒ°¢—›“’∞…°¢…£ƒ√∑ø°¢Ω°…Ì∑ø°¢Õ¯«Ú≥°£©£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÊúçÂä°ËÆæÊñΩÔºàÂÅúËΩ¶Âú∫„ÄÅÂïÜÂä°‰∏≠ÂøÉ„ÄÅÂâçÂè∞Ë¥µÈáçÁâ©ÂìÅ‰øùÊüú„ÄÅÂïÜÂú∫„ÄÅË°åÊùéÂ≠òÊîæÊúçÂä°„ÄÅÊÆãÁñæ‰∫∫ÂÆ¢Êàø„ÄÅÂè´ÈÜíÊúçÂä°„ÄÅÊºîËâ∫Âêß„ÄÅÊ°ëÊãøÊàø„ÄÅÂÅ•Ë∫´Êàø„ÄÅÁΩëÁêÉÂú∫ÔºâÔºö";
     cin >> service;
 
     string supportCards;
-    cout << "«Î ‰»Îæ∆µÍÃ·π©µƒ÷ß≥÷ø®÷÷¿‡ £®π˙º –≈”√ø®ÕÚ ¬¥Ô£®Master£©°¢π˙º –≈”√ø®Õ˛ ø£®VISA£©°¢π˙º –≈”√ø®‘ÀÕ®£®AMEX£©°¢π˙º –≈”√ø®¥Û¿≥£®Diners Club£©°¢π˙º –≈”√ø®JCB°¢π˙ƒ⁄∑¢––“¯¡™ø®°¢Œ¢–≈°¢÷ß∏∂±¶£©£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÊèê‰æõÁöÑÊîØÊåÅÂç°ÁßçÁ±ª ÔºàÂõΩÈôÖ‰ø°Áî®Âç°‰∏á‰∫ãËææÔºàMasterÔºâ„ÄÅÂõΩÈôÖ‰ø°Áî®Âç°Â®ÅÂ£´ÔºàVISAÔºâ„ÄÅÂõΩÈôÖ‰ø°Áî®Âç°ËøêÈÄöÔºàAMEXÔºâ„ÄÅÂõΩÈôÖ‰ø°Áî®Âç°Â§ßËé±ÔºàDiners ClubÔºâ„ÄÅÂõΩÈôÖ‰ø°Áî®Âç°JCB„ÄÅÂõΩÂÜÖÂèëË°åÈì∂ËÅîÂç°„ÄÅÂæÆ‰ø°„ÄÅÊîØ‰ªòÂÆùÔºâÔºö";
     cin >> supportCards;
 
     string nearScence;
-    cout << "«Î ‰»Îæ∆µÍ∏ΩΩ¸æ∞µ„£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÈôÑËøëÊôØÁÇπÔºö";
     cin >> nearScence;
 
     string internet;
-    cout << "«Î ‰»Îæ∆µÍ…œÕ¯«Èøˆ£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫ó‰∏äÁΩëÊÉÖÂÜµÔºö";
     cin >> internet;
 
     string legalPerson;
-    cout << "«Î ‰»Îæ∆µÍ∑®»À£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÊ≥ï‰∫∫Ôºö";
     cin >> legalPerson;
 
     string id;
     _id:
-    cout << "«Î ‰»Îæ∆µÍ∑®»À…Ì∑›÷§∫≈¬Î£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÊ≥ï‰∫∫Ë∫´‰ªΩËØÅÂè∑Á†ÅÔºö";
     cin >> id;
     if (checkHotelID(id) == 1) {
-        cout << "[Ã· æ] ‰»Îµƒ…Ì∑›÷§∫≈¬Î“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑË∫´‰ªΩËØÅÂè∑Á†ÅÂ∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
         goto _id;
     }
     string comment;
-    cout << "«Î ‰»Îæ∆µÍ±∏◊¢£∫";
+    cout << "ËØ∑ËæìÂÖ•ÈÖíÂ∫óÂ§áÊ≥®Ôºö";
     cin >> comment;
 
     Hotel h = Hotel(number, name, star, openTime, roomType, roomCount, price, address, trafficStatus, service, supportCards, nearScence, internet, legalPerson, id, comment);
     return h;
 }
 
-// ±£¥Êæ∆µÍ
+// ‰øùÂ≠òÈÖíÂ∫ó
 void saveHotel() {
     ofstream file("hotel.txt");
     if (file.is_open()) {
@@ -1637,13 +1638,13 @@ void saveHotel() {
                 << h.getInternet() << ","
                 << h.getLegalPerson() << ","
                 << h.getId() << ","
-                << h.getComment() << "\n"; // –ﬁ∏ƒªª––∑˚Œ™\n
+                << h.getComment() << "\n"; // ‰øÆÊîπÊç¢Ë°åÁ¨¶‰∏∫\n
         }
     }
     file.close();
 }
 
-// º”‘ÿæ∆µÍ
+// Âä†ËΩΩÈÖíÂ∫ó
 void loadHotel() {
     ifstream file("hotel.txt");
     if (file.is_open()) {
@@ -1676,7 +1677,7 @@ void loadHotel() {
     file.close();
 }
 
-// …æ≥˝æ∆µÍ
+// Âà†Èô§ÈÖíÂ∫ó
 void removeHotel(int number) {
     for (int i = 0; i < hotels.size(); i++) {
         if (hotels[i].getNumber() == number) {
@@ -1686,34 +1687,34 @@ void removeHotel(int number) {
     }
 }
 
-// –ﬁ∏ƒæ∆µÍ–≈œ¢
+// ‰øÆÊîπÈÖíÂ∫ó‰ø°ÊÅØ
 void modifyHotel() {
     int number;
-    cout << "«Î ‰»Î“™–ﬁ∏ƒµƒæ∆µÍ±‡∫≈£∫";
+    cout << "ËØ∑ËæìÂÖ•Ë¶Å‰øÆÊîπÁöÑÈÖíÂ∫óÁºñÂè∑Ôºö";
     cin >> number;
 
-    // ºÏ≤Èæ∆µÍ±‡∫≈ «∑Ò¥Ê‘⁄
+    // Ê£ÄÊü•ÈÖíÂ∫óÁºñÂè∑ÊòØÂê¶Â≠òÂú®
     int found = 0;
     for (Hotel& h : hotels) {
         if (h.getNumber() == number) {
             found = 1;
-            cout << "—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢£∫" << endl;
-            cout << "[1] æ∆µÍ√˚≥∆" << endl;
-            cout << "[2] æ∆µÍ–«º∂" << endl;
-            cout << "[3] æ∆µÍø™“µ ±º‰" << endl;
-            cout << "[4] æ∆µÍøÕ∑ø÷÷¿‡" << endl;
-            cout << "[5] æ∆µÍøÕ∑ø ˝¡ø" << endl;
-            cout << "[6] æ∆µÍº€∏Ò" << endl;
-            cout << "[7] æ∆µÍµÿ÷∑" << endl;
-            cout << "[8] æ∆µÍΩªÕ®◊¥øˆ" << endl;
-            cout << "[9] æ∆µÍ∑˛ŒÒ…Ë ©" << endl;
-            cout << "[10] æ∆µÍÃ·π©µƒ÷ß≥÷ø®÷÷¿‡" << endl;
-            cout << "[11] æ∆µÍ∏ΩΩ¸æ∞µ„" << endl;
-            cout << "[12] æ∆µÍ…œÕ¯«Èøˆ" << endl;
-            cout << "[13] æ∆µÍ∑®»À" << endl;
-            cout << "[14] æ∆µÍ∑®»À…Ì∑›÷§∫≈¬Î" << endl;
-            cout << "[15] æ∆µÍ±∏◊¢" << endl;
-            cout << "«Î—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢–Ú∫≈£∫";
+            cout << "ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÔºö" << endl;
+            cout << "[1] ÈÖíÂ∫óÂêçÁß∞" << endl;
+            cout << "[2] ÈÖíÂ∫óÊòüÁ∫ß" << endl;
+            cout << "[3] ÈÖíÂ∫óÂºÄ‰∏öÊó∂Èó¥" << endl;
+            cout << "[4] ÈÖíÂ∫óÂÆ¢ÊàøÁßçÁ±ª" << endl;
+            cout << "[5] ÈÖíÂ∫óÂÆ¢ÊàøÊï∞Èáè" << endl;
+            cout << "[6] ÈÖíÂ∫ó‰ª∑Ê†º" << endl;
+            cout << "[7] ÈÖíÂ∫óÂú∞ÂùÄ" << endl;
+            cout << "[8] ÈÖíÂ∫ó‰∫§ÈÄöÁä∂ÂÜµ" << endl;
+            cout << "[9] ÈÖíÂ∫óÊúçÂä°ËÆæÊñΩ" << endl;
+            cout << "[10] ÈÖíÂ∫óÊèê‰æõÁöÑÊîØÊåÅÂç°ÁßçÁ±ª" << endl;
+            cout << "[11] ÈÖíÂ∫óÈôÑËøëÊôØÁÇπ" << endl;
+            cout << "[12] ÈÖíÂ∫ó‰∏äÁΩëÊÉÖÂÜµ" << endl;
+            cout << "[13] ÈÖíÂ∫óÊ≥ï‰∫∫" << endl;
+            cout << "[14] ÈÖíÂ∫óÊ≥ï‰∫∫Ë∫´‰ªΩËØÅÂè∑Á†Å" << endl;
+            cout << "[15] ÈÖíÂ∫óÂ§áÊ≥®" << endl;
+            cout << "ËØ∑ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÂ∫èÂè∑Ôºö";
 
             int choice;
             cin >> choice;
@@ -1721,368 +1722,368 @@ void modifyHotel() {
             switch (choice) {
             case 1: {
                 string name;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍ√˚≥∆£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫óÂêçÁß∞Ôºö";
                 cin >> name;
                 h.setName(name);
                 break;
             }
             case 2: {
                 int star;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍ–«º∂£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫óÊòüÁ∫ßÔºö";
                 cin >> star;
                 h.setStar(star);
                 break;
             }
             case 3: {
                 string openTime;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍø™“µ ±º‰£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫óÂºÄ‰∏öÊó∂Èó¥Ôºö";
                 cin >> openTime;
                 h.setOpenTime(openTime);
                 break;
             }
             case 4: {
                 string roomType;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍøÕ∑ø÷÷¿‡£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫óÂÆ¢ÊàøÁßçÁ±ªÔºö";
                 cin >> roomType;
                 h.setRoomType(roomType);
                 break;
             }
             case 5: {
                 int roomCount;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍøÕ∑ø ˝¡ø£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫óÂÆ¢ÊàøÊï∞ÈáèÔºö";
                 cin >> roomCount;
                 h.setRoomCount(roomCount);
                 break;
             }
             case 6: {
                 string price;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍº€∏Ò£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫ó‰ª∑Ê†ºÔºö";
                 cin >> price;
                 h.setPrice(price);
                 break;
             }
             case 7: {
                 string address;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍµÿ÷∑£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫óÂú∞ÂùÄÔºö";
                 cin >> address;
                 h.setAddress(address);
                 break;
             }
             case 8: {
                 string trafficStatus;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍΩªÕ®◊¥øˆ£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫ó‰∫§ÈÄöÁä∂ÂÜµÔºö";
                 cin >> trafficStatus;
                 h.setTrafficStatus(trafficStatus);
                 break;
             }
             case 9: {
                 string service;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍ∑˛ŒÒ…Ë ©£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫óÊúçÂä°ËÆæÊñΩÔºö";
                 cin >> service;
                 h.setService(service);
                 break;
             }
             case 10: {
                 string supportCards;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍÃ·π©µƒ÷ß≥÷ø®÷÷¿‡£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫óÊèê‰æõÁöÑÊîØÊåÅÂç°ÁßçÁ±ªÔºö";
                 cin >> supportCards;
                 h.setSupportCards(supportCards);
                 break;
             }
             case 11: {
                 string nearScence;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍ∏ΩΩ¸æ∞µ„£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫óÈôÑËøëÊôØÁÇπÔºö";
                 cin >> nearScence;
                 h.setNearScence(nearScence);
                 break;
             }
             case 12: {
                 string internet;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍ…œÕ¯«Èøˆ£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫ó‰∏äÁΩëÊÉÖÂÜµÔºö";
                 cin >> internet;
                 h.setInternet(internet);
                 break;
             }
             case 13: {
                 string legalPerson;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍ∑®»À£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫óÊ≥ï‰∫∫Ôºö";
                 cin >> legalPerson;
                 h.setLegalPerson(legalPerson);
                 break;
             }
             case 14: {
                 string id;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍ∑®»À…Ì∑›÷§∫≈¬Î£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫óÊ≥ï‰∫∫Ë∫´‰ªΩËØÅÂè∑Á†ÅÔºö";
                 cin >> id;
                 h.setId(id);
                 break;
             }
             case 15: {
                 string comment;
-                cout << "«Î ‰»Î–¬µƒæ∆µÍ±∏◊¢£∫";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÈÖíÂ∫óÂ§áÊ≥®Ôºö";
                 cin >> comment;
                 h.setComment(comment);
                 break;
             }
             default:
-                cout << "[Ã· æ] ‰»Îµƒ—°œÓŒﬁ–ß£°" << endl;
+                cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÈÄâÈ°πÊó†ÊïàÔºÅ" << endl;
             }
         }
     }
     if (found == 0) {
-        cout << "[Ã· æ] ‰»Îµƒæ∆µÍ±‡∫≈≤ª¥Ê‘⁄£°" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÈÖíÂ∫óÁºñÂè∑‰∏çÂ≠òÂú®ÔºÅ" << endl;
     }
     else {
-        cout << "[Ã· æ]–ﬁ∏ƒ≥…π¶£°" << endl;
+        cout << "[ÊèêÁ§∫]‰øÆÊîπÊàêÂäüÔºÅ" << endl;
     }
 }
 
-// ¥Ú”°æ∆µÍ–≈œ¢
+// ÊâìÂç∞ÈÖíÂ∫ó‰ø°ÊÅØ
 void printHotel(Hotel h) {
-    cout << "===========æ∆µÍ–≈œ¢===========" << endl
-        << "æ∆µÍ±‡∫≈: " << h.getNumber() << endl
-        << "æ∆µÍ√˚≥∆: " << h.getName() << endl
-        << "æ∆µÍ–«º∂: " << h.getStar() << endl
-        << "æ∆µÍø™“µ ±º‰: " << h.getOpenTime() << endl
-        << "æ∆µÍøÕ∑ø÷÷¿‡: " << h.getRoomType() << endl
-        << "æ∆µÍøÕ∑ø ˝¡ø: " << h.getRoomCount() << endl
-        << "æ∆µÍº€∏Ò: " << h.getPrice() << endl
-        << "æ∆µÍµÿ÷∑: " << h.getAddress() << endl
-        << "æ∆µÍΩªÕ®◊¥øˆ: " << h.getTrafficStatus() << endl
-        << "æ∆µÍµÍ∑˛ŒÒ…Ë ©: " << h.getService() << endl
-        << "æ∆µÍÃ·π©µƒ÷ß≥÷ø®÷÷¿‡: " << h.getSupportCards() << endl
-        << "æ∆µÍ∏ΩΩ¸æ∞µ„: " << h.getNearScence() << endl
-        << "æ∆µÍ…œÕ¯«Èøˆ: " << h.getInternet() << endl
-        << "æ∆µÍ∑®»À: " << h.getLegalPerson() << endl
-        << "æ∆µÍ∑®»À…Ì∑›÷§∫≈¬Î: " << h.getId() << endl
-        << "æ∆µÍ±∏◊¢: " << h.getComment() << endl
+    cout << "===========ÈÖíÂ∫ó‰ø°ÊÅØ===========" << endl
+        << "ÈÖíÂ∫óÁºñÂè∑: " << h.getNumber() << endl
+        << "ÈÖíÂ∫óÂêçÁß∞: " << h.getName() << endl
+        << "ÈÖíÂ∫óÊòüÁ∫ß: " << h.getStar() << endl
+        << "ÈÖíÂ∫óÂºÄ‰∏öÊó∂Èó¥: " << h.getOpenTime() << endl
+        << "ÈÖíÂ∫óÂÆ¢ÊàøÁßçÁ±ª: " << h.getRoomType() << endl
+        << "ÈÖíÂ∫óÂÆ¢ÊàøÊï∞Èáè: " << h.getRoomCount() << endl
+        << "ÈÖíÂ∫ó‰ª∑Ê†º: " << h.getPrice() << endl
+        << "ÈÖíÂ∫óÂú∞ÂùÄ: " << h.getAddress() << endl
+        << "ÈÖíÂ∫ó‰∫§ÈÄöÁä∂ÂÜµ: " << h.getTrafficStatus() << endl
+        << "ÈÖíÂ∫óÂ∫óÊúçÂä°ËÆæÊñΩ: " << h.getService() << endl
+        << "ÈÖíÂ∫óÊèê‰æõÁöÑÊîØÊåÅÂç°ÁßçÁ±ª: " << h.getSupportCards() << endl
+        << "ÈÖíÂ∫óÈôÑËøëÊôØÁÇπ: " << h.getNearScence() << endl
+        << "ÈÖíÂ∫ó‰∏äÁΩëÊÉÖÂÜµ: " << h.getInternet() << endl
+        << "ÈÖíÂ∫óÊ≥ï‰∫∫: " << h.getLegalPerson() << endl
+        << "ÈÖíÂ∫óÊ≥ï‰∫∫Ë∫´‰ªΩËØÅÂè∑Á†Å: " << h.getId() << endl
+        << "ÈÖíÂ∫óÂ§áÊ≥®: " << h.getComment() << endl
         << "==================================" << endl;
 }
 
-// æ∆µÍÕ≥º∆–≈œ¢
+// ÈÖíÂ∫óÁªüËÆ°‰ø°ÊÅØ
 void hotelStatistics() {
 _tips:
-    cout << "========æ∆µÍÕ≥º∆–≈œ¢========" << endl;
-    cout << "[1] øÕ∑ø¿‡–Õ∫¨±Í◊ºº‰µƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[2] øÕ∑ø¿‡–Õ∫¨À´»Àº‰µƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[3] øÕ∑ø¿‡–Õ∫¨»˝»Àº‰ªÚº“Õ•∑øµƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[4] øÕ∑ø¿‡–Õ∫¨Õ£≥µ≥°µƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[5] ∑˛ŒÒ…Ë ©∫¨…ÃŒÒ÷––ƒµƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[6] ∑˛ŒÒ…Ë ©∫¨«∞Ã®πÛ÷ÿŒÔ∆∑±£πÒµƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[7] ∑˛ŒÒ…Ë ©∫¨…Ã≥°µƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[8] ∑˛ŒÒ…Ë ©∫¨––¿Ó¥Ê∑≈÷––ƒµƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[9] ∑˛ŒÒ…Ë ©∫¨≤–º≤»ÀøÕ∑øµƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[10] ∑˛ŒÒ…Ë ©∫¨Ω––—∑˛ŒÒµƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[11] ∑˛ŒÒ…Ë ©∫¨—›“’∞…µƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[12] ∑˛ŒÒ…Ë ©∫¨…£ƒ√∑øµƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[13] ∑˛ŒÒ…Ë ©∫¨Ω°…Ì∑øµƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[14] ∑˛ŒÒ…Ë ©∫¨Õ¯«Ú≥°µƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[15] ÷ß≥÷ø®¿‡∫¨π˙º –≈”√ø®ÕÚ ¬¥Ô£®Master£©µƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[16] ÷ß≥÷ø®¿‡∫¨π˙º –≈”√ø®Õ˛ ø£®VISA£©µƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[17] ÷ß≥÷ø®¿‡∫¨π˙º –≈”√ø®‘ÀÕ®£®AMEX£©µƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[18] ÷ß≥÷ø®¿‡∫¨π˙º –≈”√ø®¥Û¿≥£®Diners Club£©µƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[19] ÷ß≥÷ø®¿‡∫¨π˙º –≈”√ø®JCBµƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[20] ÷ß≥÷ø®¿‡∫¨π˙ƒ⁄∑¢––“¯¡™ø®µƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[21] ÷ß≥÷ø®¿‡∫¨÷ß∏∂±¶µƒæ∆µÍ ˝¡ø" << endl;
-    cout << "[22] ÷ß≥÷ø®¿‡∫¨Œ¢–≈µƒæ∆µÍ ˝¡ø" << endl;
+    cout << "========ÈÖíÂ∫óÁªüËÆ°‰ø°ÊÅØ========" << endl;
+    cout << "[1] ÂÆ¢ÊàøÁ±ªÂûãÂê´Ê†áÂáÜÈó¥ÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[2] ÂÆ¢ÊàøÁ±ªÂûãÂê´Âèå‰∫∫Èó¥ÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[3] ÂÆ¢ÊàøÁ±ªÂûãÂê´‰∏â‰∫∫Èó¥ÊàñÂÆ∂Â∫≠ÊàøÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[4] ÂÆ¢ÊàøÁ±ªÂûãÂê´ÂÅúËΩ¶Âú∫ÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[5] ÊúçÂä°ËÆæÊñΩÂê´ÂïÜÂä°‰∏≠ÂøÉÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[6] ÊúçÂä°ËÆæÊñΩÂê´ÂâçÂè∞Ë¥µÈáçÁâ©ÂìÅ‰øùÊüúÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[7] ÊúçÂä°ËÆæÊñΩÂê´ÂïÜÂú∫ÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[8] ÊúçÂä°ËÆæÊñΩÂê´Ë°åÊùéÂ≠òÊîæ‰∏≠ÂøÉÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[9] ÊúçÂä°ËÆæÊñΩÂê´ÊÆãÁñæ‰∫∫ÂÆ¢ÊàøÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[10] ÊúçÂä°ËÆæÊñΩÂê´Âè´ÈÜíÊúçÂä°ÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[11] ÊúçÂä°ËÆæÊñΩÂê´ÊºîËâ∫ÂêßÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[12] ÊúçÂä°ËÆæÊñΩÂê´Ê°ëÊãøÊàøÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[13] ÊúçÂä°ËÆæÊñΩÂê´ÂÅ•Ë∫´ÊàøÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[14] ÊúçÂä°ËÆæÊñΩÂê´ÁΩëÁêÉÂú∫ÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[15] ÊîØÊåÅÂç°Á±ªÂê´ÂõΩÈôÖ‰ø°Áî®Âç°‰∏á‰∫ãËææÔºàMasterÔºâÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[16] ÊîØÊåÅÂç°Á±ªÂê´ÂõΩÈôÖ‰ø°Áî®Âç°Â®ÅÂ£´ÔºàVISAÔºâÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[17] ÊîØÊåÅÂç°Á±ªÂê´ÂõΩÈôÖ‰ø°Áî®Âç°ËøêÈÄöÔºàAMEXÔºâÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[18] ÊîØÊåÅÂç°Á±ªÂê´ÂõΩÈôÖ‰ø°Áî®Âç°Â§ßËé±ÔºàDiners ClubÔºâÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[19] ÊîØÊåÅÂç°Á±ªÂê´ÂõΩÈôÖ‰ø°Áî®Âç°JCBÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[20] ÊîØÊåÅÂç°Á±ªÂê´ÂõΩÂÜÖÂèëË°åÈì∂ËÅîÂç°ÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[21] ÊîØÊåÅÂç°Á±ªÂê´ÊîØ‰ªòÂÆùÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
+    cout << "[22] ÊîØÊåÅÂç°Á±ªÂê´ÂæÆ‰ø°ÁöÑÈÖíÂ∫óÊï∞Èáè" << endl;
     cout << "=============================" << endl;
-    cout << "«Î ‰»ÎÀ˘–Ë“™≤È—ØÕ≥º∆–≈œ¢:";
+    cout << "ËØ∑ËæìÂÖ•ÊâÄÈúÄË¶ÅÊü•ËØ¢ÁªüËÆ°‰ø°ÊÅØ:";
     int choice;
     cin >> choice;
     switch (choice) {
     case 1: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getRoomType().find("±Í◊ºº‰") != string::npos) {
+            if (h.getRoomType().find("Ê†áÂáÜÈó¥") != string::npos) {
                 count++;
             }
         }
-        cout << "øÕ∑ø¿‡–Õ∫¨±Í◊ºº‰µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÂÆ¢ÊàøÁ±ªÂûãÂê´Ê†áÂáÜÈó¥ÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 2: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getRoomType().find("À´»Àº‰") != string::npos) {
+            if (h.getRoomType().find("Âèå‰∫∫Èó¥") != string::npos) {
                 count++;
             }
             
         }
-        cout << "øÕ∑ø¿‡–Õ∫¨À´»Àº‰µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÂÆ¢ÊàøÁ±ªÂûãÂê´Âèå‰∫∫Èó¥ÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 3: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getRoomType().find("»˝»Àº‰") != string::npos || h.getRoomType().find("º“Õ•∑ø") != string::npos) {
+            if (h.getRoomType().find("‰∏â‰∫∫Èó¥") != string::npos || h.getRoomType().find("ÂÆ∂Â∫≠Êàø") != string::npos) {
                 count++;
                
             }
         }
-        cout << "øÕ∑ø¿‡–Õ∫¨»˝»Àº‰ªÚº“Õ•∑øµƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÂÆ¢ÊàøÁ±ªÂûãÂê´‰∏â‰∫∫Èó¥ÊàñÂÆ∂Â∫≠ÊàøÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 4: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getService().find("Õ£≥µ≥°") != string::npos) {
+            if (h.getService().find("ÂÅúËΩ¶Âú∫") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "∑˛ŒÒ…Ë ©∫¨Õ£≥µ≥°µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊúçÂä°ËÆæÊñΩÂê´ÂÅúËΩ¶Âú∫ÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 5: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getService().find("…ÃŒÒ÷––ƒ") != string::npos) {
+            if (h.getService().find("ÂïÜÂä°‰∏≠ÂøÉ") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "∑˛ŒÒ…Ë ©∫¨…ÃŒÒ÷––ƒµƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊúçÂä°ËÆæÊñΩÂê´ÂïÜÂä°‰∏≠ÂøÉÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 6: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getService().find("«∞Ã®πÛ÷ÿŒÔ∆∑±£πÒ") != string::npos) {
+            if (h.getService().find("ÂâçÂè∞Ë¥µÈáçÁâ©ÂìÅ‰øùÊüú") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "∑˛ŒÒ…Ë ©∫¨«∞Ã®πÛ÷ÿŒÔ∆∑±£πÒµƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊúçÂä°ËÆæÊñΩÂê´ÂâçÂè∞Ë¥µÈáçÁâ©ÂìÅ‰øùÊüúÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 7: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getService().find("…Ã≥°") != string::npos) {
+            if (h.getService().find("ÂïÜÂú∫") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "∑˛ŒÒ…Ë ©∫¨…Ã≥°µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊúçÂä°ËÆæÊñΩÂê´ÂïÜÂú∫ÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 8: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getService().find("––¿Ó¥Ê∑≈÷––ƒ") != string::npos) {
+            if (h.getService().find("Ë°åÊùéÂ≠òÊîæ‰∏≠ÂøÉ") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "∑˛ŒÒ…Ë ©∫¨––¿Ó¥Ê∑≈÷––ƒµƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊúçÂä°ËÆæÊñΩÂê´Ë°åÊùéÂ≠òÊîæ‰∏≠ÂøÉÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 9: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getService().find("≤–º≤»ÀøÕ∑ø") != string::npos) {
+            if (h.getService().find("ÊÆãÁñæ‰∫∫ÂÆ¢Êàø") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "∑˛ŒÒ…Ë ©∫¨≤–º≤»ÀøÕ∑øµƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊúçÂä°ËÆæÊñΩÂê´ÊÆãÁñæ‰∫∫ÂÆ¢ÊàøÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 10: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getService().find("Ω––—∑˛ŒÒ") != string::npos) {
+            if (h.getService().find("Âè´ÈÜíÊúçÂä°") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "∑˛ŒÒ…Ë ©∫¨Ω––—∑˛ŒÒµƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊúçÂä°ËÆæÊñΩÂê´Âè´ÈÜíÊúçÂä°ÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
          break;
     }
     case 11: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getService().find("—›“’∞…") != string::npos) {
+            if (h.getService().find("ÊºîËâ∫Âêß") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "∑˛ŒÒ…Ë ©∫¨—›“’∞…µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊúçÂä°ËÆæÊñΩÂê´ÊºîËâ∫ÂêßÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 12: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getService().find("…£ƒ√∑ø") != string::npos) {
+            if (h.getService().find("Ê°ëÊãøÊàø") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "∑˛ŒÒ…Ë ©∫¨…£ƒ√∑øµƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊúçÂä°ËÆæÊñΩÂê´Ê°ëÊãøÊàøÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 13: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getService().find("Ω°…Ì∑ø") != string::npos) {
+            if (h.getService().find("ÂÅ•Ë∫´Êàø") != string::npos) {
                 count++;
 
             }
         }
-        cout << "∑˛ŒÒ…Ë ©∫¨Ω°…Ì∑øµƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊúçÂä°ËÆæÊñΩÂê´ÂÅ•Ë∫´ÊàøÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 14: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getService().find("Õ¯«Ú≥°") != string::npos) {
+            if (h.getService().find("ÁΩëÁêÉÂú∫") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "∑˛ŒÒ…Ë ©∫¨Õ¯«Ú≥°µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊúçÂä°ËÆæÊñΩÂê´ÁΩëÁêÉÂú∫ÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 15: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getSupportCards().find("ÕÚ ¬¥Ô") != string::npos || h.getSupportCards().find("Master") != string::npos) {
+            if (h.getSupportCards().find("‰∏á‰∫ãËææ") != string::npos || h.getSupportCards().find("Master") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "÷ß≥÷ø®¿‡∫¨π˙º ø®ÕÚ ¬¥Ô£®Master£©µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊîØÊåÅÂç°Á±ªÂê´ÂõΩÈôÖÂç°‰∏á‰∫ãËææÔºàMasterÔºâÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 16: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getSupportCards().find("Õ˛ ø") != string::npos || h.getSupportCards().find("VISA") != string::npos) {
+            if (h.getSupportCards().find("Â®ÅÂ£´") != string::npos || h.getSupportCards().find("VISA") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "÷ß≥÷ø®¿‡∫¨π˙º –≈”√ø®Õ˛ ø£®VISA£©µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊîØÊåÅÂç°Á±ªÂê´ÂõΩÈôÖ‰ø°Áî®Âç°Â®ÅÂ£´ÔºàVISAÔºâÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 17: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getSupportCards().find("‘ÀÕ®") != string::npos || h.getSupportCards().find("AMEX") != string::npos) {
+            if (h.getSupportCards().find("ËøêÈÄö") != string::npos || h.getSupportCards().find("AMEX") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "÷ß≥÷ø®¿‡∫¨π˙º –≈”√ø®‘ÀÕ®(AMEX)µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊîØÊåÅÂç°Á±ªÂê´ÂõΩÈôÖ‰ø°Áî®Âç°ËøêÈÄö(AMEX)ÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 18: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getSupportCards().find("¥Û¿≥") != string::npos || h.getSupportCards().find("Diners Club") != string::npos)
+            if (h.getSupportCards().find("Â§ßËé±") != string::npos || h.getSupportCards().find("Diners Club") != string::npos)
                 count++;
         }
-        cout << "÷ß≥÷ø®¿‡∫¨π˙º –≈”√ø®¥Û¿≥£®Diners Club£©µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊîØÊåÅÂç°Á±ªÂê´ÂõΩÈôÖ‰ø°Áî®Âç°Â§ßËé±ÔºàDiners ClubÔºâÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 19: {
@@ -2091,81 +2092,81 @@ _tips:
             if(h.getSupportCards().find("JCB") != string::npos)
             count++;
         }
-        cout << "÷ß≥÷ø®¿‡∫¨π˙º –≈”√ø®JCBµƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊîØÊåÅÂç°Á±ªÂê´ÂõΩÈôÖ‰ø°Áî®Âç°JCBÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 20: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getSupportCards().find("“¯¡™") != string::npos)
+            if (h.getSupportCards().find("Èì∂ËÅî") != string::npos)
                 count++;
         }
-        cout << "÷ß≥÷ø®¿‡∫¨π˙ƒ⁄∑¢––“¯¡™ø®µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊîØÊåÅÂç°Á±ªÂê´ÂõΩÂÜÖÂèëË°åÈì∂ËÅîÂç°ÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 21: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getSupportCards().find("÷ß∏∂±¶") != string::npos) {
+            if (h.getSupportCards().find("ÊîØ‰ªòÂÆù") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "÷ß≥÷ø®¿‡∫¨÷ß∏∂±¶µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊîØÊåÅÂç°Á±ªÂê´ÊîØ‰ªòÂÆùÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     case 22: {
         int count = 0;
         for (Hotel h : hotels) {
-            if (h.getSupportCards().find("Œ¢–≈") != string::npos) {
+            if (h.getSupportCards().find("ÂæÆ‰ø°") != string::npos) {
                 count++;
                 
             }
         }
-        cout << "÷ß≥÷ø®¿‡∫¨Œ¢–≈µƒæ∆µÍ ˝¡ø: " << count << endl;
+        cout << "ÊîØÊåÅÂç°Á±ªÂê´ÂæÆ‰ø°ÁöÑÈÖíÂ∫óÊï∞Èáè: " << count << endl;
         break;
     }
     default:
-        cout << "[Ã· æ] ‰»Îµƒ—°œÓŒﬁ–ß£°" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÈÄâÈ°πÊó†ÊïàÔºÅ" << endl;
         break;
     }
 }
 
-// æ∆µÍπ‹¿Ì
+// ÈÖíÂ∫óÁÆ°ÁêÜ
 void hotelPage() {
 _tips:
-    cout << "====æ∆µÍ–≈œ¢π‹¿Ì======" << endl
-        << "[1] ÃÌº”æ∆µÍ " << endl
-        << "[2] …æ≥˝æ∆µÍ " << endl
-        << "[3] –ﬁ∏ƒæ∆µÍ–≈œ¢ " << endl
-        << "[4] ≤È—ØÀ˘”–æ∆µÍ–≈œ¢ " << endl
-        << "[5] ≤È—Øæ∆µÍÕ≥º∆–≈œ¢" << endl
+    cout << "====ÈÖíÂ∫ó‰ø°ÊÅØÁÆ°ÁêÜ======" << endl
+        << "[1] Ê∑ªÂä†ÈÖíÂ∫ó " << endl
+        << "[2] Âà†Èô§ÈÖíÂ∫ó " << endl
+        << "[3] ‰øÆÊîπÈÖíÂ∫ó‰ø°ÊÅØ " << endl
+        << "[4] Êü•ËØ¢ÊâÄÊúâÈÖíÂ∫ó‰ø°ÊÅØ " << endl
+        << "[5] Êü•ËØ¢ÈÖíÂ∫óÁªüËÆ°‰ø°ÊÅØ" << endl
         << "========================" << endl
-        << "«Î ‰»ÎÀ˘–Ë“™Ω¯––µƒ≤Ÿ◊˜£∫";
+        << "ËØ∑ËæìÂÖ•ÊâÄÈúÄË¶ÅËøõË°åÁöÑÊìç‰ΩúÔºö";
     int function;
     cin >> function;
     if (function > 5 || function < 1) {
-        cout << "[Ã· æ] ‰»Îµƒ ˝◊÷”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊï∞Â≠óÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
         goto _tips;
     }
     switch (function) {
     case 1:
         hotels.push_back(createHotel());
         saveHotel();
-        cout << "[Ã· æ]ÃÌº”≥…π¶! " << endl;
+        cout << "[ÊèêÁ§∫]Ê∑ªÂä†ÊàêÂäü! " << endl;
         break;
     case 2:
         int number;
     _remove:
-        cout << "[…˜÷ÿ]«Î ‰»Î–Ë“™…æ≥˝µƒæ∆µÍµƒ±‡∫≈: ";
+        cout << "[ÊÖéÈáç]ËØ∑ËæìÂÖ•ÈúÄË¶ÅÂà†Èô§ÁöÑÈÖíÂ∫óÁöÑÁºñÂè∑: ";
         cin >> number;
         if (checkHotelNumber(number) != 1) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑ÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
             goto _remove;
         }
         removeHotel(number);
         saveHotel();
-        cout << "[Ã· æ]…æ≥˝ÕÍ≥…! ";
+        cout << "[ÊèêÁ§∫]Âà†Èô§ÂÆåÊàê! ";
     case 3:
         modifyHotel();
         saveHotel();
@@ -2181,7 +2182,7 @@ _tips:
     }
 }
 
-// ºÏ≤È÷æ‘∏’ﬂ±‡∫≈ «∑Ò¥Ê‘⁄
+// Ê£ÄÊü•ÂøóÊÑøËÄÖÁºñÂè∑ÊòØÂê¶Â≠òÂú®
 int checkVolunteerNumber(int number) {
     for (Volunteer v : volunteers) {
         if (v.getNumber() == number) {
@@ -2191,7 +2192,7 @@ int checkVolunteerNumber(int number) {
     return 0;
 }
 
-// ºÏ≤È÷æ‘∏’ﬂ…Ì∑›÷§∫≈¬Î «∑Ò¥Ê‘⁄
+// Ê£ÄÊü•ÂøóÊÑøËÄÖË∫´‰ªΩËØÅÂè∑Á†ÅÊòØÂê¶Â≠òÂú®
 int checkVolunteerId(string id) {
     for (Volunteer v : volunteers) {
         if (v.getId() == id) {
@@ -2201,67 +2202,67 @@ int checkVolunteerId(string id) {
     return 0;
 }
 
-// ¥¥Ω®÷æ‘∏’ﬂ
+// ÂàõÂª∫ÂøóÊÑøËÄÖ
 Volunteer createVolunteer() {
     int number;
     double height;
     string name, id, gender, birthdate, nativePlace, nation, company, address, education, phone, bodyCondition, place, fillDate, comment, startTime, endTime;
     _create:
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ±‡∫≈: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÁºñÂè∑: ";
         cin >> number;
         if (checkVolunteerNumber(number) == 1) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑Â∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
             goto _create;
         }
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ–’√˚: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂßìÂêç: ";
         cin >> name;
     _id:
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ…Ì∑›÷§∫≈¬Î: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖË∫´‰ªΩËØÅÂè∑Á†Å: ";
         cin >> id;
         if (checkVolunteerId(id) == 1) {
-            cout << "[Ã· æ] ‰»Îµƒ…Ì∑›÷§∫≈¬Î“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑË∫´‰ªΩËØÅÂè∑Á†ÅÂ∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
             goto _id;
         }
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ–‘±: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÊÄßÂà´: ";
         cin >> gender;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ≥ˆ…˙»’∆⁄: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂá∫ÁîüÊó•Êúü: ";
         cin >> birthdate;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂºÆπ·: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÁ±çË¥Ø: ";
         cin >> nativePlace;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ√Ò◊Â: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÊ∞ëÊóè: ";
         cin >> nation;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂµ•Œª: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂçï‰Ωç: ";
         cin >> company;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂœ÷æ”◊°µÿ÷∑: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÁé∞Â±Ö‰ΩèÂú∞ÂùÄ: ";
         cin >> address;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂŒƒªØ≥Ã∂»: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÊñáÂåñÁ®ãÂ∫¶: ";
         cin >> education;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂµÁª∞∫≈¬Î: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÁîµËØùÂè∑Á†Å: ";
         cin >> phone;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ…ÌÃÂ◊¥øˆ: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖË∫´‰ΩìÁä∂ÂÜµ: ";
         cin >> bodyCondition;
      _height:
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ…Ì∏ﬂ£®÷¡…Ÿ180cm£©: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖË∫´È´òÔºàËá≥Â∞ë180cmÔºâ: ";
         cin >> height;
         if (height < 180) {
-            cout << "[Ã· æ]…Ì∏ﬂ≤ªƒ‹µÕ”⁄180cm£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]Ë∫´È´ò‰∏çËÉΩ‰Ωé‰∫é180cmÔºåËØ∑ÈáçËØï" << endl;
             goto _height;
         }
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ…œ∏⁄∆ º ±º‰: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖ‰∏äÂ≤óËµ∑ÂßãÊó∂Èó¥: ";
         cin >> startTime;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ…œ∏⁄Ω· ¯ ±º‰: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖ‰∏äÂ≤óÁªìÊùüÊó∂Èó¥: ";
         cin >> endTime;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ…œ∏⁄µÿµ„£®∆˚≥µ’æ°¢ª≥µ’æ£©: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖ‰∏äÂ≤óÂú∞ÁÇπÔºàÊ±ΩËΩ¶Á´ô„ÄÅÁÅ´ËΩ¶Á´ôÔºâ: ";
         cin >> place;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂÃÓ±®»’∆⁄: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂ°´Êä•Êó•Êúü: ";
         cin >> fillDate;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ±∏◊¢: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂ§áÊ≥®: ";
         cin >> comment;
         Volunteer v(number, name, id, gender, birthdate, nativePlace, nation, company, address, education, phone, bodyCondition, height, startTime, endTime, place, fillDate, comment);
         return v;
 }
 
-// …æ≥˝÷æ‘∏’ﬂ
+// Âà†Èô§ÂøóÊÑøËÄÖ
 void removeVolunteer(int number) {
     for (int i = 0; i < volunteers.size(); i++) {
         if (volunteers[i].getNumber() == number) {
@@ -2271,7 +2272,7 @@ void removeVolunteer(int number) {
     }
 }
 
-// ±£¥Ê÷æ‘∏’ﬂ
+// ‰øùÂ≠òÂøóÊÑøËÄÖ
 void saveVolunteer() {
     ofstream file("volunteer.txt");
     if (file.is_open()) {
@@ -2299,7 +2300,7 @@ void saveVolunteer() {
     }
 }
 
-// º”‘ÿ÷æ‘∏’ﬂ
+// Âä†ËΩΩÂøóÊÑøËÄÖ
 void loadVolunteer() {
     ifstream file("volunteer.txt");
     if (file.is_open()) {
@@ -2335,54 +2336,54 @@ void loadVolunteer() {
     }
 }
 
-// –ﬁ∏ƒ÷æ‘∏’ﬂ–≈œ¢
+// ‰øÆÊîπÂøóÊÑøËÄÖ‰ø°ÊÅØ
 void modifyVolunteer() {
     int number;
-    cout << "«Î ‰»Î–Ë“™–ﬁ∏ƒµƒ÷æ‘∏’ﬂµƒ±‡∫≈: ";
+    cout << "ËØ∑ËæìÂÖ•ÈúÄË¶Å‰øÆÊîπÁöÑÂøóÊÑøËÄÖÁöÑÁºñÂè∑: ";
     cin >> number;
     
     int found = 0;
     for (Volunteer& v : volunteers) {
         if (v.getNumber() == number) {
             found = 1;
-            cout << "—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢£∫" << endl;
-            cout << "[1] –’√˚ " << endl;
-            cout << "[2] …Ì∑›÷§∫≈¬Î " << endl;
-            cout << "[3] –‘± " << endl;
-            cout << "[4] ≥ˆ…˙»’∆⁄ " << endl;
-            cout << "[5] ºÆπ· " << endl;
-            cout << "[6] √Ò◊Â " << endl;
-            cout << "[7] µ•Œª " << endl;
-            cout << "[8] œ÷æ”◊°µÿ÷∑ " << endl;
-            cout << "[9] ŒƒªØ≥Ã∂» " << endl;
-            cout << "[10] µÁª∞∫≈¬Î " << endl;
-            cout << "[11] …ÌÃÂ◊¥øˆ " << endl;
-            cout << "[12] …Ì∏ﬂ " << endl;
-            cout << "[13] …œ∏⁄∆ º ±º‰ " << endl;
-            cout << "[14] …œ∏⁄Ω· ¯ ±º‰ " << endl;
-            cout << "[15] …œ∏⁄µÿµ„ " << endl;
-            cout << "[16] ÃÓ±®»’∆⁄ " << endl;
-            cout << "[17] ±∏◊¢ " << endl;
-            cout << "«Î ‰»Î“™–ﬁ∏ƒµƒ—°œÓ: ";
+            cout << "ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÔºö" << endl;
+            cout << "[1] ÂßìÂêç " << endl;
+            cout << "[2] Ë∫´‰ªΩËØÅÂè∑Á†Å " << endl;
+            cout << "[3] ÊÄßÂà´ " << endl;
+            cout << "[4] Âá∫ÁîüÊó•Êúü " << endl;
+            cout << "[5] Á±çË¥Ø " << endl;
+            cout << "[6] Ê∞ëÊóè " << endl;
+            cout << "[7] Âçï‰Ωç " << endl;
+            cout << "[8] Áé∞Â±Ö‰ΩèÂú∞ÂùÄ " << endl;
+            cout << "[9] ÊñáÂåñÁ®ãÂ∫¶ " << endl;
+            cout << "[10] ÁîµËØùÂè∑Á†Å " << endl;
+            cout << "[11] Ë∫´‰ΩìÁä∂ÂÜµ " << endl;
+            cout << "[12] Ë∫´È´ò " << endl;
+            cout << "[13] ‰∏äÂ≤óËµ∑ÂßãÊó∂Èó¥ " << endl;
+            cout << "[14] ‰∏äÂ≤óÁªìÊùüÊó∂Èó¥ " << endl;
+            cout << "[15] ‰∏äÂ≤óÂú∞ÁÇπ " << endl;
+            cout << "[16] Â°´Êä•Êó•Êúü " << endl;
+            cout << "[17] Â§áÊ≥® " << endl;
+            cout << "ËØ∑ËæìÂÖ•Ë¶Å‰øÆÊîπÁöÑÈÄâÈ°π: ";
             int choice;
             cin >> choice;
             switch (choice) {
             case 1: {
                 string name;
-                cout << "«Î ‰»Î–¬µƒ–’√˚: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂßìÂêç: ";
                 cin >> name;
                 v.setName(name);
                 break; }
             case 2: {
                 string id;
-                cout << "«Î ‰»Î–¬µƒ…Ì∑›÷§∫≈¬Î: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑË∫´‰ªΩËØÅÂè∑Á†Å: ";
                 cin >> id;
                 v.setId(id);
                 break; }
             case 3:
             {
                 string gender;
-                cout << "«Î ‰»Î–¬µƒ–‘±: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊÄßÂà´: ";
                 cin >> gender;
                 v.setGender(gender);
                 break;
@@ -2390,7 +2391,7 @@ void modifyVolunteer() {
             case 4:
             {
                 string birthdate;
-                cout << "«Î ‰»Î–¬µƒ≥ˆ…˙»’∆⁄: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂá∫ÁîüÊó•Êúü: ";
                 cin >> birthdate;
                 v.setBirthdate(birthdate);
                 break;
@@ -2398,7 +2399,7 @@ void modifyVolunteer() {
             case 5:
             {
                 string nativePlace;
-                cout << "«Î ‰»Î–¬µƒºÆπ·: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÁ±çË¥Ø: ";
                 cin >> nativePlace;
                 v.setNativePlace(nativePlace);
                 break;
@@ -2406,7 +2407,7 @@ void modifyVolunteer() {
             case 6:
             {
                 string nation;
-                cout << "«Î ‰»Î–¬µƒ√Ò◊Â: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊ∞ëÊóè: ";
                 cin >> nation;
                 v.setNation(nation);
                 break;
@@ -2414,7 +2415,7 @@ void modifyVolunteer() {
             case 7:
             {
                 string company;
-                cout << "«Î ‰»Î–¬µƒµ•Œª: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂçï‰Ωç: ";
                 cin >> company;
                 v.setCompany(company);
                 break;
@@ -2422,7 +2423,7 @@ void modifyVolunteer() {
             case 8:
             {
                 string address;
-                cout << "«Î ‰»Î–¬µƒœ÷æ”◊°µÿ÷∑: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÁé∞Â±Ö‰ΩèÂú∞ÂùÄ: ";
                 cin >> address;
                 v.setAddress(address);
                 break;
@@ -2430,7 +2431,7 @@ void modifyVolunteer() {
             case 9:
             {
                 string education;
-                cout << "«Î ‰»Î–¬µƒŒƒªØ≥Ã∂»: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊñáÂåñÁ®ãÂ∫¶: ";
                 cin >> education;
                 v.setEducation(education);
                 break;
@@ -2438,7 +2439,7 @@ void modifyVolunteer() {
             case 10:
             {
                 string phone;
-                cout << "«Î ‰»Î–¬µƒµÁª∞∫≈¬Î: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÁîµËØùÂè∑Á†Å: ";
                 cin >> phone;
                 v.setPhone(phone);
                 break;
@@ -2446,7 +2447,7 @@ void modifyVolunteer() {
             case 11:
             {
                 string bodyCondition;
-                cout << "«Î ‰»Î–¬µƒ…ÌÃÂ◊¥øˆ: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑË∫´‰ΩìÁä∂ÂÜµ: ";
                 cin >> bodyCondition;
                 v.setBodyCondition(bodyCondition);
                 break;
@@ -2455,10 +2456,10 @@ void modifyVolunteer() {
             {
             _height:
                 double height;
-                cout << "«Î ‰»Î–¬µƒ…Ì∏ﬂ: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑË∫´È´ò: ";
                 cin >> height;
                 if (height < 180) {
-                    cout << "[Ã· æ]…Ì∏ﬂ≤ªƒ‹µÕ”⁄180cm£¨«Î÷ÿ ‘" << endl;
+                    cout << "[ÊèêÁ§∫]Ë∫´È´ò‰∏çËÉΩ‰Ωé‰∫é180cmÔºåËØ∑ÈáçËØï" << endl;
                     goto _height;
                 }
                 v.setHeight(height);
@@ -2467,7 +2468,7 @@ void modifyVolunteer() {
             case 13:
             {
                 string startTime;
-                cout << "«Î ‰»Î–¬µƒ…œ∏⁄∆ º ±º‰: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑ‰∏äÂ≤óËµ∑ÂßãÊó∂Èó¥: ";
                 cin >> startTime;
                 v.setStartTime(startTime);
                 break;
@@ -2475,7 +2476,7 @@ void modifyVolunteer() {
             case 14:
             {
                 string endTime;
-                cout << "«Î ‰»Î–¬µƒ…œ∏⁄Ω· ¯ ±º‰: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑ‰∏äÂ≤óÁªìÊùüÊó∂Èó¥: ";
                 cin >> endTime;
                 v.setEndTime(endTime);
                 break;
@@ -2483,7 +2484,7 @@ void modifyVolunteer() {
             case 15:
             {
                 string place;
-                cout << "«Î ‰»Î–¬µƒ…œ∏⁄µÿµ„: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑ‰∏äÂ≤óÂú∞ÁÇπ: ";
                 cin >> place;
                 v.setPlace(place);
                 break;
@@ -2491,7 +2492,7 @@ void modifyVolunteer() {
             case 16:
             {
                 string fillDate;
-                cout << "«Î ‰»Î–¬µƒÃÓ±®»’∆⁄: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂ°´Êä•Êó•Êúü: ";
                 cin >> fillDate;
                 v.setFillDate(fillDate);
                 break;
@@ -2499,86 +2500,86 @@ void modifyVolunteer() {
             case 17:
             {
                 string comment;
-                cout << "«Î ‰»Î–¬µƒ±∏◊¢: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂ§áÊ≥®: ";
                 cin >> comment;
                 v.setComment(comment);
                 break;
             }
             default:
             {
-                cout << "[Ã· æ] ‰»Îµƒ—°œÓŒﬁ–ß£°" << endl;
+                cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÈÄâÈ°πÊó†ÊïàÔºÅ" << endl;
                 break;
             }
             }
         }
     }
     if (found == 0) {
-        cout << "[Ã· æ] ‰»Îµƒ±‡∫≈≤ª¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑‰∏çÂ≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
     }
     else {
-        cout << "[Ã· æ]–ﬁ∏ƒ≥…π¶! " << endl;
+        cout << "[ÊèêÁ§∫]‰øÆÊîπÊàêÂäü! " << endl;
     }
 }
 
 
-// ¥Ú”°÷æ‘∏’ﬂ–≈œ¢
+// ÊâìÂç∞ÂøóÊÑøËÄÖ‰ø°ÊÅØ
 void printVolunteer(Volunteer v) {
-    cout << "=======÷æ‘∏’ﬂ–≈œ¢======" << endl;
-    cout << "±‡∫≈: " << v.getNumber() << endl;
-    cout << "–’√˚: " << v.getName() << endl;
-    cout << "…Ì∑›÷§∫≈¬Î: " << v.getId() << endl;
-    cout << "–‘±: " << v.getGender() << endl;
-    cout << "≥ˆ…˙»’∆⁄: " << v.getBirthdate() << endl;
-    cout << "ºÆπ·: " << v.getNativePlace() << endl;
-    cout << "√Ò◊Â: " << v.getNation() << endl;
-    cout << "µ•Œª: " << v.getCompany() << endl;
-    cout << "œ÷æ”◊°µÿ÷∑: " << v.getAddress() << endl;
-    cout << "ŒƒªØ≥Ã∂»: " << v.getEducation() << endl;
-    cout << "µÁª∞∫≈¬Î: " << v.getPhone() << endl;
-    cout << "…ÌÃÂ◊¥øˆ: " << v.getBodyCondition() << endl;
-    cout << "…Ì∏ﬂ: " << v.getHeight() << "cm" << endl;
-    cout << "…œ∏⁄∆ º ±º‰: " << v.getStartTime() << endl;
-    cout << "…œ∏⁄Ω· ¯ ±º‰: " << v.getEndTime() << endl;
-    cout << "…œ∏⁄µÿµ„: " << v.getPlace() << endl;
-    cout << "ÃÓ±®»’∆⁄: " << v.getFillDate() << endl;
-    cout << "±∏◊¢: " << v.getComment() << endl;
+    cout << "=======ÂøóÊÑøËÄÖ‰ø°ÊÅØ======" << endl;
+    cout << "ÁºñÂè∑: " << v.getNumber() << endl;
+    cout << "ÂßìÂêç: " << v.getName() << endl;
+    cout << "Ë∫´‰ªΩËØÅÂè∑Á†Å: " << v.getId() << endl;
+    cout << "ÊÄßÂà´: " << v.getGender() << endl;
+    cout << "Âá∫ÁîüÊó•Êúü: " << v.getBirthdate() << endl;
+    cout << "Á±çË¥Ø: " << v.getNativePlace() << endl;
+    cout << "Ê∞ëÊóè: " << v.getNation() << endl;
+    cout << "Âçï‰Ωç: " << v.getCompany() << endl;
+    cout << "Áé∞Â±Ö‰ΩèÂú∞ÂùÄ: " << v.getAddress() << endl;
+    cout << "ÊñáÂåñÁ®ãÂ∫¶: " << v.getEducation() << endl;
+    cout << "ÁîµËØùÂè∑Á†Å: " << v.getPhone() << endl;
+    cout << "Ë∫´‰ΩìÁä∂ÂÜµ: " << v.getBodyCondition() << endl;
+    cout << "Ë∫´È´ò: " << v.getHeight() << "cm" << endl;
+    cout << "‰∏äÂ≤óËµ∑ÂßãÊó∂Èó¥: " << v.getStartTime() << endl;
+    cout << "‰∏äÂ≤óÁªìÊùüÊó∂Èó¥: " << v.getEndTime() << endl;
+    cout << "‰∏äÂ≤óÂú∞ÁÇπ: " << v.getPlace() << endl;
+    cout << "Â°´Êä•Êó•Êúü: " << v.getFillDate() << endl;
+    cout << "Â§áÊ≥®: " << v.getComment() << endl;
     cout << "==========================" << endl;
 }
 
-// ≥µ’æΩ”¥˝÷æ‘∏’ﬂ–≈œ¢π‹¿Ì
+// ËΩ¶Á´ôÊé•ÂæÖÂøóÊÑøËÄÖ‰ø°ÊÅØÁÆ°ÁêÜ
 void volunteerPage() {
 _tips:
-    cout << "====≥µ’æΩ”¥˝÷æ‘∏’ﬂ–≈œ¢π‹¿Ì======" << endl
-        << "[1] ÃÌº”÷æ‘∏’ﬂ " << endl
-        << "[2] …æ≥˝÷æ‘∏’ﬂ " << endl
-        << "[3] –ﬁ∏ƒ÷æ‘∏’ﬂ–≈œ¢ " << endl
-        << "[4] ≤È—ØÀ˘”–÷æ‘∏’ﬂ–≈œ¢ " << endl
+    cout << "====ËΩ¶Á´ôÊé•ÂæÖÂøóÊÑøËÄÖ‰ø°ÊÅØÁÆ°ÁêÜ======" << endl
+        << "[1] Ê∑ªÂä†ÂøóÊÑøËÄÖ " << endl
+        << "[2] Âà†Èô§ÂøóÊÑøËÄÖ " << endl
+        << "[3] ‰øÆÊîπÂøóÊÑøËÄÖ‰ø°ÊÅØ " << endl
+        << "[4] Êü•ËØ¢ÊâÄÊúâÂøóÊÑøËÄÖ‰ø°ÊÅØ " << endl
         << "===============================" << endl
-        << "«Î ‰»ÎÀ˘–Ë“™Ω¯––µƒ≤Ÿ◊˜£∫";
+        << "ËØ∑ËæìÂÖ•ÊâÄÈúÄË¶ÅËøõË°åÁöÑÊìç‰ΩúÔºö";
     int function;
     cin >> function;
     if (function > 4 || function < 1) {
-        cout << "[Ã· æ] ‰»Îµƒ ˝◊÷”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊï∞Â≠óÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
         goto _tips;
     }
     switch (function) {
     case 1:
         volunteers.push_back(createVolunteer());
         saveVolunteer();
-        cout << "[Ã· æ]ÃÌº”≥…π¶! " << endl;
+        cout << "[ÊèêÁ§∫]Ê∑ªÂä†ÊàêÂäü! " << endl;
         break;
     case 2:
         int number;
     _remove:
-        cout << "[…˜÷ÿ]«Î ‰»Î–Ë“™…æ≥˝µƒ÷æ‘∏’ﬂµƒ±‡∫≈: ";
+        cout << "[ÊÖéÈáç]ËØ∑ËæìÂÖ•ÈúÄË¶ÅÂà†Èô§ÁöÑÂøóÊÑøËÄÖÁöÑÁºñÂè∑: ";
         cin >> number;
         if (checkVolunteerNumber(number) != 1) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑ÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
             goto _remove;
         }
         removeVolunteer(number);
         saveVolunteer();
-        cout << "[Ã· æ]…æ≥˝ÕÍ≥…! ";
+        cout << "[ÊèêÁ§∫]Âà†Èô§ÂÆåÊàê! ";
         break;
     case 3:
         modifyVolunteer();
@@ -2592,7 +2593,7 @@ _tips:
     }
 }
 
-// ºÏ≤È∞≤»´‘±±‡∫≈ «∑Ò¥Ê‘⁄
+// Ê£ÄÊü•ÂÆâÂÖ®ÂëòÁºñÂè∑ÊòØÂê¶Â≠òÂú®
 int checkSecurityNumber(int number) {
     for (SecurityPerson s : securityPersons) {
         if (s.getNumber() == number) {
@@ -2602,7 +2603,7 @@ int checkSecurityNumber(int number) {
     return 0;
 }
 
-// ºÏ≤È∞≤»´‘±…Ì∑›÷§∫≈¬Î «∑Ò¥Ê‘⁄
+// Ê£ÄÊü•ÂÆâÂÖ®ÂëòË∫´‰ªΩËØÅÂè∑Á†ÅÊòØÂê¶Â≠òÂú®
 int checkSecurityIdNumber(string idNumber) {
     for (SecurityPerson s : securityPersons) {
         if (s.getIdNumber() == idNumber) {
@@ -2612,61 +2613,61 @@ int checkSecurityIdNumber(string idNumber) {
     return 0;
 }
 
-// ¥¥Ω®∞≤»´‘±
+// ÂàõÂª∫ÂÆâÂÖ®Âëò
 SecurityPerson createSecurity() {
     int number, workPlaceCount;
     string name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phone, bodyCondition, startTime, endTime, workPlace, fillDate, comment;
     _create:
-        cout << "«Î ‰»Î∞≤»´‘±±‡∫≈: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòÁºñÂè∑: ";
         cin >> number;
         if (checkSecurityNumber(number) == 1) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑Â∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
             goto _create;
         }
-        cout << "«Î ‰»Î∞≤»´‘±–’√˚: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòÂßìÂêç: ";
         cin >> name;
     _id:
-        cout << "«Î ‰»Î∞≤»´‘±…Ì∑›÷§∫≈¬Î: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòË∫´‰ªΩËØÅÂè∑Á†Å: ";
         cin >> idNumber;
         if (checkSecurityIdNumber(idNumber) == 1) {
-            cout << "[Ã· æ] ‰»Îµƒ…Ì∑›÷§∫≈¬Î“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑË∫´‰ªΩËØÅÂè∑Á†ÅÂ∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
             goto _id;
         }
-        cout << "«Î ‰»Î∞≤»´‘±–‘±: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòÊÄßÂà´: ";
         cin >> gender;
-        cout << "«Î ‰»Î∞≤»´‘±≥ˆ…˙»’∆⁄: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòÂá∫ÁîüÊó•Êúü: ";
         cin >> birthDate;
-        cout << "«Î ‰»Î∞≤»´‘±ºÆπ·: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòÁ±çË¥Ø: ";
         cin >> nativePlace;
-        cout << "«Î ‰»Î∞≤»´‘±√Ò◊Â: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòÊ∞ëÊóè: ";
         cin >> nation;
-        cout << "«Î ‰»Î∞≤»´‘±µ•Œª: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòÂçï‰Ωç: ";
         cin >> company;
-        cout << "«Î ‰»Î∞≤»´‘±œ÷æ”◊°µÿ÷∑: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòÁé∞Â±Ö‰ΩèÂú∞ÂùÄ: ";
         cin >> address;
-        cout << "«Î ‰»Î∞≤»´‘±ŒƒªØ≥Ã∂»: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòÊñáÂåñÁ®ãÂ∫¶: ";
         cin >> education;
-        cout << "«Î ‰»Î∞≤»´‘±µÁª∞∫≈¬Î: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòÁîµËØùÂè∑Á†Å: ";
         cin >> phone;
-        cout << "«Î ‰»Î∞≤»´‘±…ÌÃÂ◊¥øˆ: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòË∫´‰ΩìÁä∂ÂÜµ: ";
         cin >> bodyCondition;
-        cout << "«Î ‰»Î∞≤»´‘±…œ∏⁄∆ º ±º‰: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®Âëò‰∏äÂ≤óËµ∑ÂßãÊó∂Èó¥: ";
         cin >> startTime;
-        cout << "«Î ‰»Î∞≤»´‘±…œ∏⁄Ω· ¯ ±º‰: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®Âëò‰∏äÂ≤óÁªìÊùüÊó∂Èó¥: ";
         cin >> endTime;
-        cout << "«Î ‰»Î∞≤»´‘±…œ∏⁄µÿµ„£®◊Ó∂‡ø…—°10∏ˆµÿµ„£©: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®Âëò‰∏äÂ≤óÂú∞ÁÇπÔºàÊúÄÂ§öÂèØÈÄâ10‰∏™Âú∞ÁÇπÔºâ: ";
         cin >> workPlace;
-        cout << "«Î ‰»Î∞≤»´‘±…œ∏⁄µÿµ„ ˝¡ø: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®Âëò‰∏äÂ≤óÂú∞ÁÇπÊï∞Èáè: ";
         cin >> workPlaceCount;
-        cout << "«Î ‰»Î∞≤»´‘±ÃÓ±®»’∆⁄: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòÂ°´Êä•Êó•Êúü: ";
         cin >> fillDate;
-        cout << "«Î ‰»Î∞≤»´‘±±∏◊¢: ";
+        cout << "ËØ∑ËæìÂÖ•ÂÆâÂÖ®ÂëòÂ§áÊ≥®: ";
         cin >> comment;
         SecurityPerson s(number, name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phone, bodyCondition, startTime, endTime, workPlace, workPlaceCount, fillDate, comment);
         return s;
 }
 
-// ±£¥Ê∞≤»´‘±
+// ‰øùÂ≠òÂÆâÂÖ®Âëò
 void saveSecurity() {
     ofstream file("security.txt");
     if (file.is_open()) {
@@ -2694,7 +2695,7 @@ void saveSecurity() {
     }
 }
 
-// º”‘ÿ∞≤»´‘±
+// Âä†ËΩΩÂÆâÂÖ®Âëò
 void loadSecurity() {
     ifstream file("security.txt");
     if (file.is_open()) {
@@ -2729,31 +2730,31 @@ void loadSecurity() {
     }
 }
 
-// ¥Ú”°∞≤»´‘±–≈œ¢
+// ÊâìÂç∞ÂÆâÂÖ®Âëò‰ø°ÊÅØ
 void printSecurity(SecurityPerson s) {
-    cout << "=======∞≤»´‘±–≈œ¢======" << endl;
-    cout << "±‡∫≈: " << s.getNumber() << endl;
-    cout << "–’√˚: " << s.getName() << endl;
-    cout << "…Ì∑›÷§∫≈¬Î: " << s.getIdNumber() << endl;
-    cout << "–‘±: " << s.getGender() << endl;
-    cout << "≥ˆ…˙»’∆⁄: " << s.getBirthDate() << endl;
-    cout << "ºÆπ·: " << s.getNativePlace() << endl;
-    cout << "√Ò◊Â: " << s.getNation() << endl;
-    cout << "µ•Œª: " << s.getCompany() << endl;
-    cout << "œ÷æ”◊°µÿ÷∑: " << s.getAddress() << endl;
-    cout << "ŒƒªØ≥Ã∂»: " << s.getEducation() << endl;
-    cout << "µÁª∞∫≈¬Î: " << s.getPhone() << endl;
-    cout << "…ÌÃÂ◊¥øˆ: " << s.getBodyCondition() << endl;
-    cout << "…œ∏⁄∆ º ±º‰: " << s.getStartTime() << endl;
-    cout << "…œ∏⁄Ω· ¯ ±º‰: " << s.getEndTime() << endl;
-    cout << "…œ∏⁄µÿµ„: " << s.getWorkPlace() << endl;
-    cout << "…œ∏⁄µÿµ„ ˝¡ø: " << s.getWorkPlaceCount() << endl;
-    cout << "ÃÓ±®»’∆⁄: " << s.getFillDate() << endl;
-    cout << "±∏◊¢: " << s.getComment() << endl;
+    cout << "=======ÂÆâÂÖ®Âëò‰ø°ÊÅØ======" << endl;
+    cout << "ÁºñÂè∑: " << s.getNumber() << endl;
+    cout << "ÂßìÂêç: " << s.getName() << endl;
+    cout << "Ë∫´‰ªΩËØÅÂè∑Á†Å: " << s.getIdNumber() << endl;
+    cout << "ÊÄßÂà´: " << s.getGender() << endl;
+    cout << "Âá∫ÁîüÊó•Êúü: " << s.getBirthDate() << endl;
+    cout << "Á±çË¥Ø: " << s.getNativePlace() << endl;
+    cout << "Ê∞ëÊóè: " << s.getNation() << endl;
+    cout << "Âçï‰Ωç: " << s.getCompany() << endl;
+    cout << "Áé∞Â±Ö‰ΩèÂú∞ÂùÄ: " << s.getAddress() << endl;
+    cout << "ÊñáÂåñÁ®ãÂ∫¶: " << s.getEducation() << endl;
+    cout << "ÁîµËØùÂè∑Á†Å: " << s.getPhone() << endl;
+    cout << "Ë∫´‰ΩìÁä∂ÂÜµ: " << s.getBodyCondition() << endl;
+    cout << "‰∏äÂ≤óËµ∑ÂßãÊó∂Èó¥: " << s.getStartTime() << endl;
+    cout << "‰∏äÂ≤óÁªìÊùüÊó∂Èó¥: " << s.getEndTime() << endl;
+    cout << "‰∏äÂ≤óÂú∞ÁÇπ: " << s.getWorkPlace() << endl;
+    cout << "‰∏äÂ≤óÂú∞ÁÇπÊï∞Èáè: " << s.getWorkPlaceCount() << endl;
+    cout << "Â°´Êä•Êó•Êúü: " << s.getFillDate() << endl;
+    cout << "Â§áÊ≥®: " << s.getComment() << endl;
     cout << "============================" << endl;
 }
 
-// …æ≥˝∞≤»´‘±
+// Âà†Èô§ÂÆâÂÖ®Âëò
 void removeSecurity(int number) {
     for (int i = 0; i < securityPersons.size(); i++) {
         if (securityPersons[i].getNumber() == number) {
@@ -2763,46 +2764,46 @@ void removeSecurity(int number) {
     }
 }
 
-// –ﬁ∏ƒ∞≤»´‘±–≈œ¢
+// ‰øÆÊîπÂÆâÂÖ®Âëò‰ø°ÊÅØ
 void modifySecurity() {
     int number;
-    cout << "[…˜÷ÿ]«Î ‰»Î–Ë“™–ﬁ∏ƒµƒ∞≤»´‘±µƒ±‡∫≈: ";
+    cout << "[ÊÖéÈáç]ËØ∑ËæìÂÖ•ÈúÄË¶Å‰øÆÊîπÁöÑÂÆâÂÖ®ÂëòÁöÑÁºñÂè∑: ";
     cin >> number;
     int found = 0;
     for (SecurityPerson& s : securityPersons) {
         if (s.getNumber() == number) {
             found = 1;
-            cout << "=======«Î—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢======" << endl;
-            cout << "[1] ±‡∫≈ " << endl;
-            cout << "[2] –’√˚ " << endl;
-            cout << "[3] …Ì∑›÷§∫≈¬Î " << endl;
-            cout << "[4] –‘± " << endl;
-            cout << "[5] ≥ˆ…˙»’∆⁄ " << endl;
-            cout << "[6] ºÆπ· " << endl;
-            cout << "[7] √Ò◊Â " << endl;
-            cout << "[8] µ•Œª " << endl;
-            cout << "[9] œ÷æ”◊°µÿ÷∑ " << endl;
-            cout << "[10] ŒƒªØ≥Ã∂» " << endl;
-            cout << "[11] µÁª∞∫≈¬Î " << endl;
-            cout << "[12] …ÌÃÂ◊¥øˆ " << endl;
-            cout << "[13] …œ∏⁄∆ º ±º‰ " << endl;
-            cout << "[14] …œ∏⁄Ω· ¯ ±º‰ " << endl;
-            cout << "[15] …œ∏⁄µÿµ„ " << endl;
-            cout << "[16] …œ∏⁄µÿµ„ ˝¡ø " << endl;
-            cout << "[17] ÃÓ±®»’∆⁄ " << endl;
-            cout << "[18] ±∏◊¢ " << endl;
+            cout << "=======ËØ∑ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØ======" << endl;
+            cout << "[1] ÁºñÂè∑ " << endl;
+            cout << "[2] ÂßìÂêç " << endl;
+            cout << "[3] Ë∫´‰ªΩËØÅÂè∑Á†Å " << endl;
+            cout << "[4] ÊÄßÂà´ " << endl;
+            cout << "[5] Âá∫ÁîüÊó•Êúü " << endl;
+            cout << "[6] Á±çË¥Ø " << endl;
+            cout << "[7] Ê∞ëÊóè " << endl;
+            cout << "[8] Âçï‰Ωç " << endl;
+            cout << "[9] Áé∞Â±Ö‰ΩèÂú∞ÂùÄ " << endl;
+            cout << "[10] ÊñáÂåñÁ®ãÂ∫¶ " << endl;
+            cout << "[11] ÁîµËØùÂè∑Á†Å " << endl;
+            cout << "[12] Ë∫´‰ΩìÁä∂ÂÜµ " << endl;
+            cout << "[13] ‰∏äÂ≤óËµ∑ÂßãÊó∂Èó¥ " << endl;
+            cout << "[14] ‰∏äÂ≤óÁªìÊùüÊó∂Èó¥ " << endl;
+            cout << "[15] ‰∏äÂ≤óÂú∞ÁÇπ " << endl;
+            cout << "[16] ‰∏äÂ≤óÂú∞ÁÇπÊï∞Èáè " << endl;
+            cout << "[17] Â°´Êä•Êó•Êúü " << endl;
+            cout << "[18] Â§áÊ≥® " << endl;
             cout << "============================" << endl;
-            cout << "«Î ‰»Î“™–ﬁ∏ƒµƒ–≈œ¢µƒ±‡∫≈: ";
+            cout << "ËØ∑ËæìÂÖ•Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÁöÑÁºñÂè∑: ";
             int choice;
             cin >> choice;
             switch (choice) {
             case 1:
             {
                 int newNumber;
-                cout << "«Î ‰»Î–¬µƒ±‡∫≈: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÁºñÂè∑: ";
                 cin >> newNumber;
                 if (checkSecurityNumber(newNumber) != 1) {
-                    cout << "[Ã· æ] ‰»Îµƒ±‡∫≈”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+                    cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑ÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
                     break;
                 }
                 s.setNumber(newNumber);
@@ -2811,7 +2812,7 @@ void modifySecurity() {
             case 2:
             {
                 string newName;
-                cout << "«Î ‰»Î–¬µƒ–’√˚: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂßìÂêç: ";
                 cin >> newName;
                 s.setName(newName);
                 break;
@@ -2819,10 +2820,10 @@ void modifySecurity() {
             case 3:
             {
                 string newIdNumber;
-                cout << "«Î ‰»Î–¬µƒ…Ì∑›÷§∫≈¬Î: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑË∫´‰ªΩËØÅÂè∑Á†Å: ";
                 cin >> newIdNumber;
                 if (checkSecurityIdNumber(newIdNumber) == 1) {
-                    cout << "[Ã· æ] ‰»Îµƒ…Ì∑›÷§∫≈¬Î“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+                    cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑË∫´‰ªΩËØÅÂè∑Á†ÅÂ∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
                     break;
                 }
                 s.setIdNumber(newIdNumber);
@@ -2831,7 +2832,7 @@ void modifySecurity() {
             case 4:
             {
                 string newGender;
-                cout << "«Î ‰»Î–¬µƒ–‘±: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊÄßÂà´: ";
                 cin >> newGender;
                 s.setGender(newGender);
                 break;
@@ -2839,7 +2840,7 @@ void modifySecurity() {
             case 5:
             {
                 string newBirthDate;
-                cout << "«Î ‰»Î–¬µƒ≥ˆ…˙»’∆⁄: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂá∫ÁîüÊó•Êúü: ";
                 cin >> newBirthDate;
                 s.setBirthDate(newBirthDate);
                 break;
@@ -2847,7 +2848,7 @@ void modifySecurity() {
             case 6:
             {
                 string newNativePlace;
-                cout << "«Î ‰»Î–¬µƒºÆπ·: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÁ±çË¥Ø: ";
                 cin >> newNativePlace;
                 s.setNativePlace(newNativePlace);
                 break;
@@ -2855,7 +2856,7 @@ void modifySecurity() {
             case 7:
             {
                 string newNation;
-                cout << "«Î ‰»Î–¬µƒ√Ò◊Â: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊ∞ëÊóè: ";
                 cin >> newNation;
                 s.setNation(newNation);
                 break;
@@ -2863,7 +2864,7 @@ void modifySecurity() {
             case 8:
             {
                 string newCompany;
-                cout << "«Î ‰»Î–¬µƒµ•Œª: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂçï‰Ωç: ";
                 cin >> newCompany;
                 s.setCompany(newCompany);
                 break;
@@ -2871,7 +2872,7 @@ void modifySecurity() {
             case 9:
             {
                 string newAddress;
-                cout << "«Î ‰»Î–¬µƒœ÷æ”◊°µÿ÷∑: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÁé∞Â±Ö‰ΩèÂú∞ÂùÄ: ";
                 cin >> newAddress;
                 s.setAddress(newAddress);
                 break;
@@ -2879,7 +2880,7 @@ void modifySecurity() {
             case 10:
             {
                 string newEducation;
-                cout << "«Î ‰»Î–¬µƒŒƒªØ≥Ã∂»: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊñáÂåñÁ®ãÂ∫¶: ";
                 cin >> newEducation;
                 s.setEducation(newEducation);
                 break;
@@ -2887,7 +2888,7 @@ void modifySecurity() {
             case 11:
             {
                 string newPhone;
-                cout << "«Î ‰»Î–¬µƒµÁª∞∫≈¬Î: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÁîµËØùÂè∑Á†Å: ";
                 cin >> newPhone;
                 s.setPhone(newPhone);
                 break;
@@ -2895,7 +2896,7 @@ void modifySecurity() {
             case 12:
             {
                 string newBodyCondition;
-                cout << "«Î ‰»Î–¬µƒ…ÌÃÂ◊¥øˆ: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑË∫´‰ΩìÁä∂ÂÜµ: ";
                 cin >> newBodyCondition;
                 s.setBodyCondition(newBodyCondition);
                 break;
@@ -2903,7 +2904,7 @@ void modifySecurity() {
             case 13:
             {
                 string newStartTime;
-                cout << "«Î ‰»Î–¬µƒ…œ∏⁄∆ º ±º‰: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑ‰∏äÂ≤óËµ∑ÂßãÊó∂Èó¥: ";
                 cin >> newStartTime;
                 s.setStartTime(newStartTime);
                 break;
@@ -2911,7 +2912,7 @@ void modifySecurity() {
             case 14:
             {
                 string newEndTime;
-                cout << "«Î ‰»Î–¬µƒ…œ∏⁄Ω· ¯ ±º‰: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑ‰∏äÂ≤óÁªìÊùüÊó∂Èó¥: ";
                 cin >> newEndTime;
                 s.setEndTime(newEndTime);
                 break;
@@ -2919,7 +2920,7 @@ void modifySecurity() {
             case 15:
             {
                 string newWorkPlace;
-                cout << "«Î ‰»Î–¬µƒ…œ∏⁄µÿµ„: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑ‰∏äÂ≤óÂú∞ÁÇπ: ";
                 cin >> newWorkPlace;
                 s.setWorkPlace(newWorkPlace);
                 break;
@@ -2927,7 +2928,7 @@ void modifySecurity() {
             case 16:
             {
                 int newWorkPlaceCount;
-                cout << "«Î ‰»Î–¬µƒ…œ∏⁄µÿµ„ ˝¡ø: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑ‰∏äÂ≤óÂú∞ÁÇπÊï∞Èáè: ";
                 cin >> newWorkPlaceCount;
                 s.setWorkPlaceCount(newWorkPlaceCount);
                 break;
@@ -2935,7 +2936,7 @@ void modifySecurity() {
             case 17:
             {
                 string newFillDate;
-                cout << "«Î ‰»Î–¬µƒÃÓ±®»’∆⁄: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂ°´Êä•Êó•Êúü: ";
                 cin >> newFillDate;
                 s.setFillDate(newFillDate);
                 break;
@@ -2943,60 +2944,60 @@ void modifySecurity() {
             case 18:
             {
                 string newComment;
-                cout << "«Î ‰»Î–¬µƒ±∏◊¢: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂ§áÊ≥®: ";
                 cin >> newComment;
                 s.setComment(newComment);
                 break;
             }
             default:
             {
-                cout << "[Ã· æ] ‰»Îµƒ—°œÓŒﬁ–ß£°" << endl;
+                cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÈÄâÈ°πÊó†ÊïàÔºÅ" << endl;
                 break;
             }
             }
         }
         if (found == 0) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈≤ª¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑‰∏çÂ≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
         }
         else {
-            cout << "[Ã· æ]–ﬁ∏ƒ≥…π¶! " << endl;
+            cout << "[ÊèêÁ§∫]‰øÆÊîπÊàêÂäü! " << endl;
         }
     }
 }
-// ∞≤»´‘±π‹¿Ì
+// ÂÆâÂÖ®ÂëòÁÆ°ÁêÜ
 void securityPage() {
 _tips:
-    cout << "====∞≤»´‘±π‹¿Ì======" << endl
-        << "[1] ÃÌº”∞≤»´‘± " << endl
-        << "[2] …æ≥˝∞≤»´‘± " << endl
-        << "[3] –ﬁ∏ƒ∞≤»´‘±–≈œ¢ " << endl
-        << "[4] ≤È—ØÀ˘”–∞≤»´‘±–≈œ¢ " << endl
+    cout << "====ÂÆâÂÖ®ÂëòÁÆ°ÁêÜ======" << endl
+        << "[1] Ê∑ªÂä†ÂÆâÂÖ®Âëò " << endl
+        << "[2] Âà†Èô§ÂÆâÂÖ®Âëò " << endl
+        << "[3] ‰øÆÊîπÂÆâÂÖ®Âëò‰ø°ÊÅØ " << endl
+        << "[4] Êü•ËØ¢ÊâÄÊúâÂÆâÂÖ®Âëò‰ø°ÊÅØ " << endl
         << "======================" << endl
-        << "«Î ‰»ÎÀ˘–Ë“™Ω¯––µƒ≤Ÿ◊˜£∫";
+        << "ËØ∑ËæìÂÖ•ÊâÄÈúÄË¶ÅËøõË°åÁöÑÊìç‰ΩúÔºö";
     int function;
     cin >> function;
     if (function > 4 || function < 1) {
-        cout << "[Ã· æ] ‰»Îµƒ ˝◊÷”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊï∞Â≠óÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
         goto _tips;
     }
     switch (function) {
     case 1:
         securityPersons.push_back(createSecurity());
         saveSecurity();
-        cout << "[Ã· æ]ÃÌº”≥…π¶! " << endl;
+        cout << "[ÊèêÁ§∫]Ê∑ªÂä†ÊàêÂäü! " << endl;
         break;
     case 2:
         int number;
     _remove:
-        cout << "[…˜÷ÿ]«Î ‰»Î–Ë“™…æ≥˝µƒ∞≤»´‘±µƒ±‡∫≈: ";
+        cout << "[ÊÖéÈáç]ËØ∑ËæìÂÖ•ÈúÄË¶ÅÂà†Èô§ÁöÑÂÆâÂÖ®ÂëòÁöÑÁºñÂè∑: ";
         cin >> number;
         if (checkSecurityNumber(number) != 1) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑ÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
             goto _remove;
         }
         removeSecurity(number);
         saveSecurity();
-        cout << "[Ã· æ]…æ≥˝ÕÍ≥…! ";
+        cout << "[ÊèêÁ§∫]Âà†Èô§ÂÆåÊàê! ";
         break;
     case 3:
         modifySecurity();
@@ -3010,7 +3011,7 @@ _tips:
     }
 }
 
-// ºÏ≤È≥µ¡æ÷æ‘∏’ﬂ±‡∫≈ «∑Ò¥Ê‘⁄
+// Ê£ÄÊü•ËΩ¶ËæÜÂøóÊÑøËÄÖÁºñÂè∑ÊòØÂê¶Â≠òÂú®
 int checkCarVolunteerNumber(int number) {
     for (CarVolunteer cv : carVolunteers) {
         if (cv.getNumber() == number) {
@@ -3020,7 +3021,7 @@ int checkCarVolunteerNumber(int number) {
     return 0;
 }
 
-// ºÏ≤È≥µ¡æ÷æ‘∏’ﬂ…Ì∑›÷§∫≈¬Î «∑Ò¥Ê‘⁄
+// Ê£ÄÊü•ËΩ¶ËæÜÂøóÊÑøËÄÖË∫´‰ªΩËØÅÂè∑Á†ÅÊòØÂê¶Â≠òÂú®
 int checkCarVolunteerIdNumber(string idNumber) {
     for (CarVolunteer cv : carVolunteers) {
         if (cv.getIdNumber() == idNumber) {
@@ -3030,61 +3031,61 @@ int checkCarVolunteerIdNumber(string idNumber) {
     return 0;
 }
 
-// ¥¥Ω®≥µ¡æ÷æ‘∏’ﬂ
+// ÂàõÂª∫ËΩ¶ËæÜÂøóÊÑøËÄÖ
 CarVolunteer createCarVolunteer() {
     int number, carNumber, passengerNumber;
     string name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phoneNumber, bodyCondition, serviceRoute, serviceStartTime, serviceEndTime, fillDate, comment;
     _create:
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ±‡∫≈: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÁºñÂè∑: ";
         cin >> number;
         if (checkCarVolunteerNumber(number) == 1) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑Â∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
             goto _create;
         }
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ–’√˚: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂßìÂêç: ";
         cin >> name;
     _id:
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ…Ì∑›÷§∫≈¬Î: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖË∫´‰ªΩËØÅÂè∑Á†Å: ";
         cin >> idNumber;
         if (checkCarVolunteerIdNumber(idNumber) == 1) {
-            cout << "[Ã· æ] ‰»Îµƒ…Ì∑›÷§∫≈¬Î“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑË∫´‰ªΩËØÅÂè∑Á†ÅÂ∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
             goto _id;
         }
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ–‘±: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÊÄßÂà´: ";
         cin >> gender;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ≥ˆ…˙»’∆⁄: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂá∫ÁîüÊó•Êúü: ";
         cin >> birthDate;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂºÆπ·: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÁ±çË¥Ø: ";
         cin >> nativePlace;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ√Ò◊Â: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÊ∞ëÊóè: ";
         cin >> nation;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂµ•Œª: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂçï‰Ωç: ";
         cin >> company;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂœ÷æ”◊°µÿ÷∑: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÁé∞Â±Ö‰ΩèÂú∞ÂùÄ: ";
         cin >> address;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂŒƒªØ≥Ã∂»: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÊñáÂåñÁ®ãÂ∫¶: ";
         cin >> education;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂµÁª∞∫≈¬Î: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÁîµËØùÂè∑Á†Å: ";
         cin >> phoneNumber;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ…ÌÃÂ◊¥øˆ: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖË∫´‰ΩìÁä∂ÂÜµ: ";
         cin >> bodyCondition;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ”µ”–≥µ¡æ ˝¡ø: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÊã•ÊúâËΩ¶ËæÜÊï∞Èáè: ";
         cin >> carNumber;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂø…≥À◊¯»À ˝: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂèØ‰πòÂùê‰∫∫Êï∞: ";
         cin >> passengerNumber;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ÷æ‘∏∑˛ŒÒ¬∑œﬂ: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂøóÊÑøÊúçÂä°Ë∑ØÁ∫ø: ";
         cin >> serviceRoute;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ÷æ‘∏∑˛ŒÒ∆ º ±º‰: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂøóÊÑøÊúçÂä°Ëµ∑ÂßãÊó∂Èó¥: ";
         cin >> serviceStartTime;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ÷æ‘∏∑˛ŒÒΩ· ¯ ±º‰: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂøóÊÑøÊúçÂä°ÁªìÊùüÊó∂Èó¥: ";
         cin >> serviceEndTime;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂÃÓ±®»’∆⁄: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂ°´Êä•Êó•Êúü: ";
         cin >> fillDate;
-        cout << "«Î ‰»Î÷æ‘∏’ﬂ±∏◊¢: ";
+        cout << "ËØ∑ËæìÂÖ•ÂøóÊÑøËÄÖÂ§áÊ≥®: ";
         cin >> comment;
         return CarVolunteer(number, name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phoneNumber, bodyCondition, carNumber, passengerNumber, serviceRoute, serviceStartTime, serviceEndTime, fillDate, comment);
 }
-// ±£¥Ê≥µ¡æ÷æ‘∏’ﬂ–≈œ¢
+// ‰øùÂ≠òËΩ¶ËæÜÂøóÊÑøËÄÖ‰ø°ÊÅØ
 void saveCarVolunteer() {
     ofstream file("carVolunteer.txt");
     if(file.is_open()){
@@ -3113,7 +3114,7 @@ void saveCarVolunteer() {
     }
 }
 
-// º”‘ÿ≥µ¡æ÷æ‘∏’ﬂ–≈œ¢
+// Âä†ËΩΩËΩ¶ËæÜÂøóÊÑøËÄÖ‰ø°ÊÅØ
 void loadCarVolunteer() {
     ifstream file("carVolunteer.txt");
     if (file.is_open()) {
@@ -3150,32 +3151,32 @@ void loadCarVolunteer() {
     }
 }
 
-// ¥Ú”°≥µ¡æ÷æ‘∏’ﬂ–≈œ¢
+// ÊâìÂç∞ËΩ¶ËæÜÂøóÊÑøËÄÖ‰ø°ÊÅØ
 void printCarVolunteer(CarVolunteer cv) {
-    cout << "=======≥µ¡æ÷æ‘∏’ﬂ–≈œ¢======" << endl;
-    cout << "±‡∫≈: " << cv.getNumber() << endl;
-    cout << "–’√˚: " << cv.getName() << endl;
-    cout << "…Ì∑›÷§∫≈¬Î: " << cv.getIdNumber() << endl;
-    cout << "–‘±: " << cv.getGender() << endl;
-    cout << "≥ˆ…˙»’∆⁄: " << cv.getBirthDate() << endl;
-    cout << "ºÆπ·: " << cv.getNativePlace() << endl;
-    cout << "√Ò◊Â: " << cv.getNation() << endl;
-    cout << "µ•Œª: " << cv.getCompany() << endl;
-    cout << "œ÷æ”◊°µÿ÷∑: " << cv.getAddress() << endl;
-    cout << "ŒƒªØ≥Ã∂»: " << cv.getEducation() << endl;
-    cout << "µÁª∞∫≈¬Î: " << cv.getPhoneNumber() << endl;
-    cout << "…ÌÃÂ◊¥øˆ: " << cv.getBodyCondition() << endl;
-    cout << "”µ”–≥µ¡æ ˝¡ø: " << cv.getCarNumber() << endl;
-    cout << "ø…≥À◊¯»À ˝: " << cv.getPassengerNumber() << endl;
-    cout << "÷æ‘∏∑˛ŒÒ¬∑œﬂ: " << cv.getServiceRoute() << endl;
-    cout << "÷æ‘∏∑˛ŒÒ∆ º ±º‰: " << cv.getServiceStartTime() << endl;
-    cout << "÷æ‘∏∑˛ŒÒΩ· ¯ ±º‰: " << cv.getServiceEndTime() << endl;
-    cout << "ÃÓ±®»’∆⁄: " << cv.getFillDate() << endl;
-    cout << "±∏◊¢: " << cv.getComment() << endl;
+    cout << "=======ËΩ¶ËæÜÂøóÊÑøËÄÖ‰ø°ÊÅØ======" << endl;
+    cout << "ÁºñÂè∑: " << cv.getNumber() << endl;
+    cout << "ÂßìÂêç: " << cv.getName() << endl;
+    cout << "Ë∫´‰ªΩËØÅÂè∑Á†Å: " << cv.getIdNumber() << endl;
+    cout << "ÊÄßÂà´: " << cv.getGender() << endl;
+    cout << "Âá∫ÁîüÊó•Êúü: " << cv.getBirthDate() << endl;
+    cout << "Á±çË¥Ø: " << cv.getNativePlace() << endl;
+    cout << "Ê∞ëÊóè: " << cv.getNation() << endl;
+    cout << "Âçï‰Ωç: " << cv.getCompany() << endl;
+    cout << "Áé∞Â±Ö‰ΩèÂú∞ÂùÄ: " << cv.getAddress() << endl;
+    cout << "ÊñáÂåñÁ®ãÂ∫¶: " << cv.getEducation() << endl;
+    cout << "ÁîµËØùÂè∑Á†Å: " << cv.getPhoneNumber() << endl;
+    cout << "Ë∫´‰ΩìÁä∂ÂÜµ: " << cv.getBodyCondition() << endl;
+    cout << "Êã•ÊúâËΩ¶ËæÜÊï∞Èáè: " << cv.getCarNumber() << endl;
+    cout << "ÂèØ‰πòÂùê‰∫∫Êï∞: " << cv.getPassengerNumber() << endl;
+    cout << "ÂøóÊÑøÊúçÂä°Ë∑ØÁ∫ø: " << cv.getServiceRoute() << endl;
+    cout << "ÂøóÊÑøÊúçÂä°Ëµ∑ÂßãÊó∂Èó¥: " << cv.getServiceStartTime() << endl;
+    cout << "ÂøóÊÑøÊúçÂä°ÁªìÊùüÊó∂Èó¥: " << cv.getServiceEndTime() << endl;
+    cout << "Â°´Êä•Êó•Êúü: " << cv.getFillDate() << endl;
+    cout << "Â§áÊ≥®: " << cv.getComment() << endl;
     cout << "============================" << endl;
 }
 
-// …æ≥˝≥µ¡æ÷æ‘∏’ﬂ
+// Âà†Èô§ËΩ¶ËæÜÂøóÊÑøËÄÖ
 void removeCarVolunteer(int number) {
     for (int i = 0; i < carVolunteers.size(); i++) {
         if (carVolunteers[i].getNumber() == number) {
@@ -3185,182 +3186,182 @@ void removeCarVolunteer(int number) {
     }
 }
 
-// –ﬁ∏ƒ≥µ¡æ÷æ‘∏’ﬂ–≈œ¢
+// ‰øÆÊîπËΩ¶ËæÜÂøóÊÑøËÄÖ‰ø°ÊÅØ
 void modifyCarVolunteer() {
     int number, carNumber, passengerNumber;
     string name, idNumber, gender, birthDate, nativePlace, nation, company, address, education, phoneNumber, bodyCondition, serviceRoute, serviceStartTime, serviceEndTime, fillDate, comment;
     int found = 0;
-    cout << "«Î ‰»Î–Ë“™–ﬁ∏ƒµƒ≥µ¡æ÷æ‘∏’ﬂµƒ±‡∫≈: ";
+    cout << "ËØ∑ËæìÂÖ•ÈúÄË¶Å‰øÆÊîπÁöÑËΩ¶ËæÜÂøóÊÑøËÄÖÁöÑÁºñÂè∑: ";
     cin >> number;
     for (int i = 0; i < carVolunteers.size(); i++) {
         if (carVolunteers[i].getNumber() == number) {
             found = 1;
-            cout << "======—°‘Ò“™–ﬁ∏ƒµƒ–≈œ¢======" << endl;
-            cout << "[1] –’√˚ " << endl;
-            cout << "[2] …Ì∑›÷§∫≈¬Î " << endl;
-            cout << "[3] –‘± " << endl;
-            cout << "[4] ≥ˆ…˙»’∆⁄ " << endl;
-            cout << "[5] ºÆπ· " << endl;
-            cout << "[6] √Ò◊Â " << endl;
-            cout << "[7] µ•Œª " << endl;
-            cout << "[8] œ÷æ”◊°µÿ÷∑ " << endl;
-            cout << "[9] ŒƒªØ≥Ã∂» " << endl;
-            cout << "[10] µÁª∞∫≈¬Î " << endl;
-            cout << "[11] …ÌÃÂ◊¥øˆ " << endl;
-            cout << "[12] ≥µ¡æ ˝¡ø " << endl;
-            cout << "[13] ø…≥À◊¯»À ˝ " << endl;
-            cout << "[14] ÷æ‘∏∑˛ŒÒ¬∑œﬂ " << endl;
-            cout << "[15] ÷æ‘∏∑˛ŒÒ∆ º ±º‰ " << endl;
-            cout << "[16] ÷æ‘∏∑˛ŒÒΩ· ¯ ±º‰ " << endl;
-            cout << "[17] ÃÓ±®»’∆⁄ " << endl;
-            cout << "[18] ±∏◊¢ " << endl;
+            cout << "======ÈÄâÊã©Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØ======" << endl;
+            cout << "[1] ÂßìÂêç " << endl;
+            cout << "[2] Ë∫´‰ªΩËØÅÂè∑Á†Å " << endl;
+            cout << "[3] ÊÄßÂà´ " << endl;
+            cout << "[4] Âá∫ÁîüÊó•Êúü " << endl;
+            cout << "[5] Á±çË¥Ø " << endl;
+            cout << "[6] Ê∞ëÊóè " << endl;
+            cout << "[7] Âçï‰Ωç " << endl;
+            cout << "[8] Áé∞Â±Ö‰ΩèÂú∞ÂùÄ " << endl;
+            cout << "[9] ÊñáÂåñÁ®ãÂ∫¶ " << endl;
+            cout << "[10] ÁîµËØùÂè∑Á†Å " << endl;
+            cout << "[11] Ë∫´‰ΩìÁä∂ÂÜµ " << endl;
+            cout << "[12] ËΩ¶ËæÜÊï∞Èáè " << endl;
+            cout << "[13] ÂèØ‰πòÂùê‰∫∫Êï∞ " << endl;
+            cout << "[14] ÂøóÊÑøÊúçÂä°Ë∑ØÁ∫ø " << endl;
+            cout << "[15] ÂøóÊÑøÊúçÂä°Ëµ∑ÂßãÊó∂Èó¥ " << endl;
+            cout << "[16] ÂøóÊÑøÊúçÂä°ÁªìÊùüÊó∂Èó¥ " << endl;
+            cout << "[17] Â°´Êä•Êó•Êúü " << endl;
+            cout << "[18] Â§áÊ≥® " << endl;
             cout << "=======" << endl;
-            cout << "«Î ‰»Î“™–ﬁ∏ƒµƒ–≈œ¢µƒ±‡∫≈: ";
+            cout << "ËØ∑ËæìÂÖ•Ë¶Å‰øÆÊîπÁöÑ‰ø°ÊÅØÁöÑÁºñÂè∑: ";
             int choice;
             cin >> choice;
             switch (choice) {
             case 1:
-                cout << "«Î ‰»Î–¬µƒ–’√˚: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂßìÂêç: ";
                 cin >> name;
                 carVolunteers[i].setName(name);
                 break;
             case 2:
-                cout << "«Î ‰»Î–¬µƒ…Ì∑›÷§∫≈¬Î: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑË∫´‰ªΩËØÅÂè∑Á†Å: ";
                 cin >> idNumber;
                 if (checkCarVolunteerIdNumber(idNumber) == 1) {
-                    cout << "[Ã· æ] ‰»Îµƒ…Ì∑›÷§∫≈¬Î“—¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+                    cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑË∫´‰ªΩËØÅÂè∑Á†ÅÂ∑≤Â≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
                     break;
                 }
                 carVolunteers[i].setIdNumber(idNumber);
                 break;
             case 3:
-                cout << "«Î ‰»Î–¬µƒ–‘±: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊÄßÂà´: ";
                 cin >> gender;
                 carVolunteers[i].setGender(gender);
                 break;
             case 4:
-                cout << "«Î ‰»Î–¬µƒ≥ˆ…˙»’∆⁄: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂá∫ÁîüÊó•Êúü: ";
                 cin >> birthDate;
                 carVolunteers[i].setBirthDate(birthDate);
                 break;
             case 5:
-                cout << "«Î ‰»Î–¬µƒºÆπ·: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÁ±çË¥Ø: ";
                 cin >> nativePlace;
                 carVolunteers[i].setNativePlace(nativePlace);
                 break;
             case 6:
-                cout << "«Î ‰»Î–¬µƒ√Ò◊Â: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊ∞ëÊóè: ";
                 cin >> nation;
                 carVolunteers[i].setNation(nation);
                 break;
             case 7:
-                cout << "«Î ‰»Î–¬µƒµ•Œª: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂçï‰Ωç: ";
                 cin >> company;
                 carVolunteers[i].setCompany(company);
                 break;
             case 8:
-                cout << "«Î ‰»Î–¬µƒœ÷æ”◊°µÿ÷∑: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÁé∞Â±Ö‰ΩèÂú∞ÂùÄ: ";
                 cin >> address;
                 carVolunteers[i].setAddress(address);
                 break;
             case 9:
-                cout << "«Î ‰»Î–¬µƒŒƒªØ≥Ã∂»: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÊñáÂåñÁ®ãÂ∫¶: ";
                 cin >> education;
                 carVolunteers[i].setEducation(education);
                 break;
             case 10:
-                cout << "«Î ‰»Î–¬µƒµÁª∞∫≈¬Î: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÁîµËØùÂè∑Á†Å: ";
                 cin >> phoneNumber;
                 carVolunteers[i].setPhoneNumber(phoneNumber);
                 break;
             case 11:
-                cout << "«Î ‰»Î–¬µƒ…ÌÃÂ◊¥øˆ: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑË∫´‰ΩìÁä∂ÂÜµ: ";
                 cin >> bodyCondition;
                 carVolunteers[i].setBodyCondition(bodyCondition);
                 break;
             case 12:
-                cout << "«Î ‰»Î–¬µƒ≥µ¡æ ˝¡ø: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑËΩ¶ËæÜÊï∞Èáè: ";
                 cin >> carNumber;
                 carVolunteers[i].setCarNumber(carNumber);
                 break;
             case 13:
-                cout << "«Î ‰»Î–¬µƒø…≥À◊¯»À ˝: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂèØ‰πòÂùê‰∫∫Êï∞: ";
                 cin >> passengerNumber;
                 carVolunteers[i].setPassengerNumber(passengerNumber);
                 break;
             case 14:
-                cout << "«Î ‰»Î–¬µƒ÷æ‘∏∑˛ŒÒ¬∑œﬂ: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂøóÊÑøÊúçÂä°Ë∑ØÁ∫ø: ";
                 cin >> serviceRoute;
                 carVolunteers[i].setServiceRoute(serviceRoute);
                 break;
             case 15:
-                cout << "«Î ‰»Î–¬µƒ÷æ‘∏∑˛ŒÒ∆ º ±º‰: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂøóÊÑøÊúçÂä°Ëµ∑ÂßãÊó∂Èó¥: ";
                 cin >> serviceStartTime;
                 carVolunteers[i].setServiceStartTime(serviceStartTime);
                 break;
             case 16:
-                cout << "«Î ‰»Î–¬µƒ÷æ‘∏∑˛ŒÒΩ· ¯ ±º‰: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂøóÊÑøÊúçÂä°ÁªìÊùüÊó∂Èó¥: ";
                 cin >> serviceEndTime;
                 carVolunteers[i].setServiceEndTime(serviceEndTime);
                 break;
             case 17:
-                cout << "«Î ‰»Î–¬µƒÃÓ±®»’∆⁄: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂ°´Êä•Êó•Êúü: ";
                 cin >> fillDate;
                 carVolunteers[i].setFillDate(fillDate);
                 break;
             case 18:
-                cout << "«Î ‰»Î–¬µƒ±∏◊¢: ";
+                cout << "ËØ∑ËæìÂÖ•Êñ∞ÁöÑÂ§áÊ≥®: ";
                 cin >> comment;
                 carVolunteers[i].setComment(comment);
                 break;
             default:
-                cout << "[Ã· æ] ‰»Îµƒ—°œÓŒﬁ–ß£°" << endl;
+                cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÈÄâÈ°πÊó†ÊïàÔºÅ" << endl;
                 break;
             }
         }
         
     }
     if (found == 0) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈≤ª¥Ê‘⁄£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑‰∏çÂ≠òÂú®ÔºåËØ∑ÈáçËØï" << endl;
     }else {
-            cout << "[Ã· æ]–ﬁ∏ƒ≥…π¶! " << endl;
+            cout << "[ÊèêÁ§∫]‰øÆÊîπÊàêÂäü! " << endl;
      }
 }
 
-// ≥µ¡æ÷æ‘∏’ﬂπ‹¿Ì
+// ËΩ¶ËæÜÂøóÊÑøËÄÖÁÆ°ÁêÜ
 void carVolunteerPage() {
 _tips:
-    cout << "====≥µ¡æ÷æ‘∏’ﬂπ‹¿Ì======" << endl
-        << "[1] ÃÌº”≥µ¡æ÷æ‘∏’ﬂ " << endl
-        << "[2] …æ≥˝≥µ¡æ÷æ‘∏’ﬂ " << endl
-        << "[3] –ﬁ∏ƒ≥µ¡æ÷æ‘∏’ﬂ–≈œ¢ " << endl
-        << "[4] ≤È—ØÀ˘”–≥µ¡æ÷æ‘∏’ﬂ–≈œ¢ " << endl
+    cout << "====ËΩ¶ËæÜÂøóÊÑøËÄÖÁÆ°ÁêÜ======" << endl
+        << "[1] Ê∑ªÂä†ËΩ¶ËæÜÂøóÊÑøËÄÖ " << endl
+        << "[2] Âà†Èô§ËΩ¶ËæÜÂøóÊÑøËÄÖ " << endl
+        << "[3] ‰øÆÊîπËΩ¶ËæÜÂøóÊÑøËÄÖ‰ø°ÊÅØ " << endl
+        << "[4] Êü•ËØ¢ÊâÄÊúâËΩ¶ËæÜÂøóÊÑøËÄÖ‰ø°ÊÅØ " << endl
         << "=========================" << endl
-        << "«Î ‰»ÎÀ˘–Ë“™Ω¯––µƒ≤Ÿ◊˜£∫";
+        << "ËØ∑ËæìÂÖ•ÊâÄÈúÄË¶ÅËøõË°åÁöÑÊìç‰ΩúÔºö";
     int function;
     cin >> function;
     if (function > 4 || function < 1) {
-        cout << "[Ã· æ] ‰»Îµƒ ˝◊÷”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+        cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊï∞Â≠óÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
         goto _tips;
     }
     switch (function) {
     case 1:
         carVolunteers.push_back(createCarVolunteer());
         saveCarVolunteer();
-        cout << "[Ã· æ]ÃÌº”≥…π¶! " << endl;
+        cout << "[ÊèêÁ§∫]Ê∑ªÂä†ÊàêÂäü! " << endl;
         break;
     case 2:
         int number;
     _remove:
-        cout << "[…˜÷ÿ]«Î ‰»Î–Ë“™…æ≥˝µƒ≥µ¡æ÷æ‘∏’ﬂµƒ±‡∫≈: ";
+        cout << "[ÊÖéÈáç]ËØ∑ËæìÂÖ•ÈúÄË¶ÅÂà†Èô§ÁöÑËΩ¶ËæÜÂøóÊÑøËÄÖÁöÑÁºñÂè∑: ";
         cin >> number;
         if (checkCarVolunteerNumber(number) != 1) {
-            cout << "[Ã· æ] ‰»Îµƒ±‡∫≈”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÁºñÂè∑ÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
             goto _remove;
         }
         removeCarVolunteer(number);
         saveCarVolunteer();
-        cout << "[Ã· æ]…æ≥˝ÕÍ≥…! ";
+        cout << "[ÊèêÁ§∫]Âà†Èô§ÂÆåÊàê! ";
         break;
     case 3:
         modifyCarVolunteer();
@@ -3404,7 +3405,7 @@ void switchPage(int page) {
 }
 
 int main() {
-    // ≥ı ºªØ√ø∏ˆœµÕ≥µƒ ˝æ›
+    // ÂàùÂßãÂåñÊØè‰∏™Á≥ªÁªüÁöÑÊï∞ÊçÆ
     loadRestruant();
     loadScence();
     loadTeam();
@@ -3419,7 +3420,7 @@ int main() {
         tips();
         cin >> page;
         if (page > 8 || page < 0) {
-            cout << "[Ã· æ] ‰»Îµƒ ˝◊÷”–ŒÛ£¨«Î÷ÿ ‘" << endl;
+            cout << "[ÊèêÁ§∫]ËæìÂÖ•ÁöÑÊï∞Â≠óÊúâËØØÔºåËØ∑ÈáçËØï" << endl;
             goto _choose;
         }
         if (page == 0) {
