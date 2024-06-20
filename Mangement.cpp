@@ -152,7 +152,7 @@ void saveRestruant() {
 void loadRestruant() {
     ifstream file("restruant.txt");
     if (file.is_open()) {
-        while (file.good()) { // 修改条件为file.good()
+        while (file.good()) { 
             int number;
             string name, openTime, address, trafficStatus, cateringType, workTime, hasPerformance, leaglPerson, id, comment;
             int roomType, roomCount, average;
@@ -175,7 +175,7 @@ void loadRestruant() {
             file.ignore(); 
             getline(file, leaglPerson, ',');
             getline(file, id, ',');
-            getline(file, comment, '\n'); // 修改读取分隔符为\n
+            getline(file, comment, '\n');
 
             Restruant r = Restruant();
             r.setNumber(number);
@@ -484,7 +484,7 @@ _tips:
         }
         removeRestruant(number);
         saveRestruant();
-        cout << "[提示]删除完成! ";
+        cout << "[提示]删除完成! " << endl;
         break;
     case 3:
         modifyRestruant();
